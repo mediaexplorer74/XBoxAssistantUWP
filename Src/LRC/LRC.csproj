@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{A7732533-6960-4AA0-A574-1E6215134B85}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LRC</RootNamespace>
+    <AssemblyName>LRC</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.15063.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
+    <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM64'">
+    <OutputPath>bin\ARM64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App1.xaml.cs">
+      <DependentUpon>App1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="BackgroundImageConverter.cs" />
+    <Compile Include="BusyIndicator.cs" />
+    <Compile Include="ContributorPanelVisibility.cs" />
+    <Compile Include="DateConverter.cs" />
+    <Compile Include="DurationVisibilityConverter.cs" />
+    <Compile Include="EpisodeNumberConverter.cs" />
+    <Compile Include="FriendBeaconTextConverter.cs" />
+    <Compile Include="FriendPlayingTextConverter.cs" />
+    <Compile Include="HeightScalingConverter.cs" />
+    <Compile Include="ImageButton.cs" />
+    <Compile Include="ListBoxWithCompression.cs" />
+    <Compile Include="LocalizedResourceIndexer.cs" />
+    <Compile Include="LrcNavigation.cs" />
+    <Compile Include="LrcPage.cs" />
+    <Compile Include="LrcPanoramaPage.cs" />
+    <Compile Include="LrcPerformanceProgressBar.cs" />
+    <Compile Include="LrcPivotPage.cs" />
+    <Compile Include="LrcVirtualizingStackPanel.cs" />
+    <Compile Include="MediaControlButton.cs" />
+    <Compile Include="MediaItemBoxArtConverter.cs" />
+    <Compile Include="NavHelper.cs" />
+    <Compile Include="NotVisibilityConverter.cs" />
+    <Compile Include="NullToVisibilityConverter.cs" />
+    <Compile Include="NumberToVisibilityConverter.cs" />
+    <Compile Include="PageTitleConverter.cs" />
+    <Compile Include="PromoItemBoxArtConverter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuickplayTitleTypeToIconConverter.cs" />
+    <Compile Include="SearchDetailsPageBase.cs" />
+    <Compile Include="SearchItemBoxArtConverter.cs" />
+    <Compile Include="SearchItemHeightConverter.cs" />
+    <Compile Include="SearchItemTypeToIconConverter.cs" />
+    <Compile Include="SeasonTitleConverter.cs" />
+    <Compile Include="StaticBindingHelper.cs" />
+    <Compile Include="TextLengthToBooleanConverter.cs" />
+    <Compile Include="TextLengthToVisibilityConverter.cs" />
+    <Compile Include="UI\Controls\AchievementEntry.xaml.cs">
+      <DependentUpon>AchievementEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\CriticRatingControl.xaml.cs">
+      <DependentUpon>CriticRatingControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\FriendEntry.xaml.cs">
+      <DependentUpon>FriendEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\MediaBar.xaml.cs">
+      <DependentUpon>MediaBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\MediaItemControl.xaml.cs">
+      <DependentUpon>MediaItemControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\ProviderButton.xaml.cs">
+      <DependentUpon>ProviderButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\Search\CastAndCrew.xaml.cs">
+      <DependentUpon>CastAndCrew.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\Search\GameImages.xaml.cs">
+      <DependentUpon>GameImages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\Search\PersonGroup.xaml.cs">
+      <DependentUpon>PersonGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\Search\PlayNow.xaml.cs">
+      <DependentUpon>PlayNow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\Search\RelatedItem.xaml.cs">
+      <DependentUpon>RelatedItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\Search\RelatedItems.xaml.cs">
+      <DependentUpon>RelatedItems.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\Search\SearchItem.xaml.cs">
+      <DependentUpon>SearchItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\StarRatingControl.xaml.cs">
+      <DependentUpon>StarRatingControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\VideoDetailsPanel.xaml.cs">
+      <DependentUpon>VideoDetailsPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\WelcomeHeaderControl.xaml.cs">
+      <DependentUpon>WelcomeHeaderControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Omniture\OmnitureViewConstants.cs" />
+    <Compile Include="UI\Templates\VideoListBox.xaml.cs">
+      <DependentUpon>VideoListBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\Connecting\HowToConnectPage.xaml.cs">
+      <DependentUpon>HowToConnectPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\Connecting\LookForXboxPage.xaml.cs">
+      <DependentUpon>LookforXboxPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\Connecting\SlowCloudPage.xaml.cs">
+      <DependentUpon>SlowCloudPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\Connecting\SuccessfulConnectionPage.xaml.cs">
+      <DependentUpon>SuccessfulConnectionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\FeaturediItemOverviewPage.xaml.cs">
+      <DependentUpon>FeaturediItemOverviewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\Games\AchievementDetailsPage.xaml.cs">
+      <DependentUpon>AchievementDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\Games\BeaconSetEditPage.xaml.cs">
+      <DependentUpon>BeaconSetEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\Games\GameDetailsPage.xaml.cs">
+      <DependentUpon>GameDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\ImageViewerPivot.xaml.cs">
+      <DependentUpon>ImageViewerPivot.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\Search\AlbumSearchDetailsPage.xaml.cs">
+      <DependentUpon>AlbumSearchDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\Search\AppSearchDetailsPage.xaml.cs">
+      <DependentUpon>AppSearchDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\Search\ArtistSearchDetailsPage.xaml.cs">
+      <DependentUpon>ArtistSearchDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\Search\GameContentSearchDetailsPage.xaml.cs">
+      <DependentUpon>GameContentSearchDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\Search\MovieSearchDetailsPage.xaml.cs">
+      <DependentUpon>MovieSearchDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\Search\SearchResultsPage.xaml.cs">
+      <DependentUpon>SearchResultsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\Search\SearchSelectFilterPage.xaml.cs">
+      <DependentUpon>SearchSelectFilterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\Search\TvEpisodeSearchDetailsPage.xaml.cs">
+      <DependentUpon>TvEpisodeSearchDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\Search\TvSeasonSearchDetailsPage.xaml.cs">
+      <DependentUpon>TvSeasonSearchDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\Search\TvSeriesSearchDetailsPage.xaml.cs">
+      <DependentUpon>TvSeriesSearchDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\Zunemarketplace\ZuneCategoriesPage.xaml.cs">
+      <DependentUpon>ZuneCategoriesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\Zunemarketplace\ZuneCategoryContentPage.xaml.cs">
+      <DependentUpon>ZuneCategoryContentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\Zunemarketplace\ZuneHomePage.xaml.cs">
+      <DependentUpon>ZuneHomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\Zunemarketplace\ZuneHubPage.xaml.cs">
+      <DependentUpon>ZuneHubPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\Zunemarketplace\ZuneMovieAndTvEpisodeDetailsPage.xaml.cs">
+      <DependentUpon>ZuneMovieAndTvEpisodeDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\Zunemarketplace\ZuneTvSeriesDetailsPage.xaml.cs">
+      <DependentUpon>ZuneTvSeriesDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UriMapper.cs" />
+    <Compile Include="ViewModelLocator.cs" />
+    <Compile Include="VisibilityConverter.cs" />
+    <Compile Include="WatermarkedTextBox.cs" />
+    <Compile Include="XLToolKit\SwitchPanel.cs" />
+    <Compile Include="XLToolKit\XLPivot.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Controls\AchievementEntry.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Controls\CriticRatingControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Controls\FriendEntry.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Controls\MediaBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Controls\MediaItemControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Controls\ProviderButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Controls\Search\CastAndCrew.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Controls\Search\GameImages.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Controls\Search\PersonGroup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Controls\Search\PlayNow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Controls\Search\RelatedItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Controls\Search\RelatedItems.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Controls\Search\SearchItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Controls\StarRatingControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Controls\VideoDetailsPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Controls\WelcomeHeaderControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Templates\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Templates\VideoListBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Templates\VideoStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\Connecting\HowToConnectPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\Connecting\LookforXboxPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\Connecting\SlowCloudPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\Connecting\SuccessfulConnectionPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\FeaturediItemOverviewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\Games\AchievementDetailsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\Games\BeaconSetEditPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\Games\GameDetailsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\ImageViewerPivot.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\Search\AlbumSearchDetailsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\Search\AppSearchDetailsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\Search\ArtistSearchDetailsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\Search\GameContentSearchDetailsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\Search\MovieSearchDetailsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\Search\SearchResultsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\Search\SearchSelectFilterPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\Search\TvEpisodeSearchDetailsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\Search\TvSeasonSearchDetailsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\Search\TvSeriesSearchDetailsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\Zunemarketplace\ZuneCategoriesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\Zunemarketplace\ZuneCategoryContentPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\Zunemarketplace\ZuneHomePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\Zunemarketplace\ZuneHubPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\Zunemarketplace\ZuneMovieAndTvEpisodeDetailsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Views\Zunemarketplace\ZuneTvSeriesDetailsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.2.14</Version>
+    </PackageReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

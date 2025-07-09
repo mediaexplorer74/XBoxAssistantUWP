@@ -1,0 +1,108 @@
+﻿<lrc:LrcPanoramaPage 
+    xmlns:lrc="clr-namespace:LRC"
+    x:Class="LRC.ZuneHomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:local="clr-namespace:LRC"
+    xmlns:viewmodel="clr-namespace:LRC.ViewModel;assembly=LRC.ViewModel"
+    xmlns:delay="clr-namespace:Delay;assembly=PhonePerformance"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    toolkit:TiltEffect.IsTiltEnabled="True"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True"
+    shell:SystemTray.Opacity="0"
+    CacheMode="BitmapCache">
+
+    <phone:PhoneApplicationPage.Resources>
+        <Style x:Key="PanoramaItemScrollStyle" TargetType="controls:PanoramaItem">
+            <Setter Property="CacheMode" Value="BitmapCache"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="controls:PanoramaItem">
+                        <ScrollViewer Margin="12,0,0,0" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                            <Grid Background="{TemplateBinding Background}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <ContentControl x:Name="header" ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" FontSize="{StaticResource PhoneFontSizeExtraExtraLarge}" FontFamily="{StaticResource PhoneFontFamilySemiLight}" HorizontalAlignment="Left" Margin="10,-2,0,26">
+                                    <ContentControl.RenderTransform>
+                                        <TranslateTransform x:Name="headerTransform"/>
+                                    </ContentControl.RenderTransform>
+                                </ContentControl>
+                                <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" Grid.Row="1" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Grid>
+                        </ScrollViewer>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="PanoramaItemNormalStyle" TargetType="controls:PanoramaItem">
+            <Setter Property="CacheMode" Value="BitmapCache"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="controls:PanoramaItem">
+                        <Grid Background="{TemplateBinding Background}" Margin="12,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <ContentControl x:Name="header" ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" FontSize="{StaticResource PhoneFontSizeExtraExtraLarge}" FontFamily="{StaticResource PhoneFontFamilySemiLight}" HorizontalAlignment="Left" Margin="10,-2,0,26">
+                                <ContentControl.RenderTransform>
+                                    <TranslateTransform x:Name="headerTransform"/>
+                                </ContentControl.RenderTransform>
+                            </ContentControl>
+                            <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" Grid.Row="1" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </phone:PhoneApplicationPage.Resources>
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.Background>
+            <ImageBrush Stretch="UniformToFill" ImageSource="/UI/Images/xboxBackground.jpg"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <controls:Panorama Title="{Binding Strings.ZuneVideoMarketPlace_MaketplaceTitle, Source={StaticResource ResourceString}}" x:Name="ZuneMarketplacePanorama" Grid.Row="0" Foreground="#FFA0A0A0" SelectionChanged="Panorama_SelectionChanged">
+            <!--Panorama item picks for you-->
+            <controls:PanoramaItem x:Name="picksforme" Header="{Binding Strings.ZuneMarketplace_PicksForYouHeader, Source={StaticResource ResourceString}}" Foreground="#FF323232" Style="{StaticResource PanoramaItemScrollStyle}">
+                <ListBox x:Name="PicksForYouListBox" CacheMode="BitmapCache" ItemsSource="{Binding RecommendedPicks.RecommendedList}" Style="{StaticResource ListBoxWithWrapping}" SelectionChanged="Advert_SelectionChanged" ItemTemplate="{StaticResource LRCImageVideoContentListItem}" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+            </controls:PanoramaItem>
+
+            <!--Panorama item featured-->
+            <controls:PanoramaItem x:Name="spotlight" Header="{Binding Strings.ZuneMarketplace_FeaturedHeader, Source={StaticResource ResourceString}}" Foreground="#FF323232" Style="{StaticResource PanoramaItemScrollStyle}">
+                <ListBox x:Name="FeaturedListBox" CacheMode="BitmapCache" ItemsSource="{Binding ZuneVideoFeature.FeatureList}" Style="{StaticResource ListBoxWithWrapping}" SelectionChanged="Advert_SelectionChanged" ItemTemplate="{StaticResource LRCImageMediaContentListItem}" ScrollViewer.VerticalScrollBarVisibility="Disabled" />
+            </controls:PanoramaItem>
+
+            <controls:PanoramaItem x:Name="movies" Header="{Binding Strings.ZuneMarketplace_MoviesHeader, Source={StaticResource ResourceString}}" Foreground="#FF323232" Style="{StaticResource PanoramaItemNormalStyle}">
+                <ListBox x:Name="MovieListBox" ItemsSource="{Binding MovieList}" SelectionChanged="ListBox_SelectionChanged" ItemTemplate="{StaticResource LRCDefaultTextListItemLocal}" ScrollViewer.VerticalScrollBarVisibility="Disabled" />
+            </controls:PanoramaItem>
+
+            <controls:PanoramaItem x:Name="tvs" Header="{Binding Strings.ZuneMarketplace_TVHeader, Source={StaticResource ResourceString}}" Foreground="#FF323232" Style="{StaticResource PanoramaItemNormalStyle}">
+                <ListBox x:Name="TvListBox" ItemsSource="{Binding TVList}" SelectionChanged="ListBox_SelectionChanged" ItemTemplate="{StaticResource LRCDefaultTextListItemLocal}" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+            </controls:PanoramaItem>
+        </controls:Panorama>
+
+        <!-- Media Bar -->
+        <lrc:MediaBar x:Name="MediaControls" Grid.Row="1"/>
+    </Grid>
+</lrc:LrcPanoramaPage>

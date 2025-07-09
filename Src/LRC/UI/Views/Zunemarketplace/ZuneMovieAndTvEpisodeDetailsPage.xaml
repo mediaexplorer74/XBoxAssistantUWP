@@ -1,0 +1,133 @@
+﻿<lrc:LrcPivotPage 
+    xmlns:lrc="clr-namespace:LRC"
+    xmlns:XLToolKit="clr-namespace:XLToolKit"    
+    x:Class="LRC.ZuneMovieAndTvEpisodeDetailsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:converter="clr-namespace:LRC"
+    xmlns:local="clr-namespace:LRC"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    toolkit:TiltEffect.IsTiltEnabled="True"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True"
+    x:Name="VideoDetails">
+
+    <lrc:BusyIndicator x:Name="BusyIndicator" Style="{StaticResource BusyIndicatorStyle}" BusyText="{Binding Strings.BusyIndicator_LaunchingText, Source={StaticResource ResourceString}}" IsBusy="{Binding IsBlocking}" IsBlocking="True">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="Collapsed"/>
+                <VisualState x:Name="Expanded">
+                    <Storyboard>
+                        <DoubleAnimation Duration="0" To="2000" Storyboard.TargetProperty="(FrameworkElement.MaxHeight)" Storyboard.TargetName="Description" d:IsOptimized="True"/>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="MoreButton">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Collapsed</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="LessButton">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Visible</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!--Pivot item - Related Items: It is outside of the Pivot control until we know there are results. Then it will get moved inside so it is visible.  -->
+            <controls:PivotItem x:Name="related" Header="{Binding Strings.Related_Header, Source={StaticResource ResourceString}}" Visibility="Collapsed" >
+                <lrc:RelatedItems x:Name="RelatedItems" DataContext="{Binding SelectedMediaDetails.RelatedItemsViewModel}"/>
+            </controls:PivotItem>
+
+            <XLToolKit:XLPivot x:Name="VideoDetailsPivot" Grid.Row="0" Title="{Binding SelectedMediaDetails.Title}" Style="{StaticResource LRCPivotStyle}" Loaded="Pivot_Loaded" SelectionChanged="Pivot_SelectionChanged">
+                <controls:PivotItem x:Name="overview" Header="{Binding Strings.Overview_Header, Source={StaticResource ResourceString}}">
+                    <XLToolKit:SwitchPanel CurrentState="{Binding CurrentState}">
+                        <!-- 0 content -->
+                        <ScrollViewer x:Name="OverviewScroll" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="250"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <local:VideoDetailsPanel x:Name="VideoDetailsPanel" d:LayoutOverrides="GridBox" Margin="0,0,0,24"/>
+                                <StackPanel Orientation="Vertical" d:LayoutOverrides="Height" Grid.Row="1">
+                                    <TextBlock x:Name="SynopsisLabel" Text="{Binding Strings.Synopsis_Header, Source={StaticResource ResourceString}}" Style="{StaticResource LRCTextGroupHeader}" d:LayoutOverrides="Width" Margin="12,0,12,12"/>
+                                    <TextBlock x:Name="Description" Text="{Binding SelectedMediaDetails.Description}" Style="{StaticResource LRCTextDescription}" d:LayoutOverrides="Width" MaxHeight="60" SizeChanged="Description_SizeChanged"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button x:Name="MoreButton" Content="{Binding Strings.NowPlaying_MoreInfo, Source={StaticResource ResourceString}}" Style="{StaticResource LRCTertiaryButton}" Click="MoreButton_Click" Visibility="Collapsed" />
+                                        <Button x:Name="LessButton" Content="{Binding Strings.NowPlaying_LessInfo, Source={StaticResource ResourceString}}" Style="{StaticResource LRCTertiaryButton}" Click="LessButton_Click" Visibility="Collapsed" />
+                                    </StackPanel>
+                                </StackPanel>
+                                <TextBlock x:Name="playOnXboxTitle" Text="{Binding Strings.Search_PlayOnXbox, Source={StaticResource ResourceString}}" Style="{StaticResource LRCTextGroupHeader}" Visibility="{Binding SelectedMediaDetails.ShowProviders, Converter={StaticResource VisibilityConverter}}" Grid.Row="2" Margin="12,0,12,12" />
+                                <ItemsControl x:Name="ProvidersList" ItemsSource="{Binding SelectedMediaDetails.Providers}" Visibility="{Binding SelectedMediaDetails.ShowProviders, Converter={StaticResource VisibilityConverter}}" Grid.Row="3" >
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <local:ProviderButton x:Name="ProviderButton" DataContext="{Binding}" Click="Purchase_Click" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <toolkit:WrapPanel Orientation="Horizontal"/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                </ItemsControl>
+                            </Grid>
+                        </ScrollViewer>
+                        <!-- 1. Error -->
+                        <TextBlock x:Name="OverviewErrorText" Text="{Binding Strings.LRC_Error_Code_FailedToRetrieveData, Source={StaticResource ResourceString}}" TextWrapping="Wrap" Style="{StaticResource LRCTextGroupHeader}"/>
+
+                        <!-- 2. No Cotent, an invisible item -->
+                        <TextBlock Text="" Width="0" Height="0"/>
+
+                        <!-- 3. Loading -->
+                        <lrc:BusyIndicator x:Name="OverviewLoadingIndicator" HorizontalAlignment="Left" Style="{StaticResource InlineBusyIndicatorStyle}" OverlayVisiblity="Collapsed" BusyText="{Binding Strings.BusyIndicator_LoadingText, Source={StaticResource ResourceString}}" IsBusy="True" IsBlocking="False" />
+                    </XLToolKit:SwitchPanel>
+                </controls:PivotItem>
+
+                <controls:PivotItem x:Name="castandcrew" Header="{Binding Strings.CastAndCrew_Header, Source={StaticResource ResourceString}}">
+                    
+                    <XLToolKit:SwitchPanel CurrentState="{Binding SelectedMediaDetails.CurrentState}" >
+                        <!-- 0. Content-->
+                        <ScrollViewer x:Name="ScrollViewer" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+                        <StackPanel Orientation="Vertical">
+                            <local:PersonGroup x:Name="ActorsPersonGroup" Title="{Binding SelectedMediaDetails.ActorsTitle}" People="{Binding SelectedMediaDetails.Actors}" />
+                            <local:PersonGroup x:Name="DirectedByPersonGroup" Title="{Binding SelectedMediaDetails.DirectorsTitle}" People="{Binding SelectedMediaDetails.Directors}" />
+                        </StackPanel>
+                        </ScrollViewer>
+
+                        <!-- 1. Error -->
+                        <TextBlock x:Name="DetailErrorText" Text="{Binding Strings.LRC_Error_Code_FailedToRetrieveData, Source={StaticResource ResourceString}}" TextWrapping="Wrap" Style="{StaticResource LRCTextGroupHeader}"/>
+
+                        <!-- 2. No Cotent -->
+                        <TextBlock x:Name="NoCastAndCrewFound" Text="{Binding Strings.NoCastAndCrewFound, Source={StaticResource ResourceString}}"  TextWrapping="Wrap" Style="{StaticResource LRCTextGroupHeader}"/>
+
+                        <!-- 3. Loading -->
+                        <lrc:BusyIndicator x:Name="DetailLoadingIndicator" HorizontalAlignment="Left" Style="{StaticResource InlineBusyIndicatorStyle}" OverlayVisiblity="Collapsed" BusyText="{Binding Strings.BusyIndicator_LoadingText, Source={StaticResource ResourceString}}" IsBusy="True" IsBlocking="False" />
+                    </XLToolKit:SwitchPanel>
+                </controls:PivotItem>
+            </XLToolKit:XLPivot>
+
+            <!-- Media Bar -->
+            <lrc:MediaBar x:Name="MediaControls" Grid.Row="1" />
+        </Grid>
+    </lrc:BusyIndicator>
+</lrc:LrcPivotPage>

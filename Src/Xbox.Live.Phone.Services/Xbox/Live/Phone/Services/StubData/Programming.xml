@@ -1,0 +1,1157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest>
+  <id>dashhome</id>
+  <culture>en-US</culture>
+  <sysexts>
+    <sysext>
+      <name>luaext.xex</name>
+      <tag>LUAXZP</tag>
+    </sysext>
+    <sysext>
+      <name>afplayer.xex</name>
+      <tag>SWF</tag>
+    </sysext>
+  </sysexts>
+  <defaultchannelid>HOME</defaultchannelid>
+  <webreportingsampling>100</webreportingsampling>
+  <infomode>Gamertag</infomode>
+  <description>DashHome New Hotness</description>
+  <surface>yes</surface>
+  <channel>
+    <id>BING</id>
+    <definitionpath>channel://dash.search.lex</definitionpath>
+  </channel>
+  <channel>
+    <id>HOME</id>
+    <channeldef layouttemplate="epix://template1.xur">
+      <description>home</description>
+      <type>online</type>
+      <vui>
+        <visiblephrase>Home</visiblephrase>
+      </vui>
+      <slotgroup>
+        <slot>
+          <definitionpath>slot://DiscInTray</definitionpath>
+        </slot>
+      </slotgroup>
+      <slotgroup maxscenes="5" delay="3000">
+        <slot>
+          <name>Insanely Twisted SP</name>
+          <description>Insanely Twisted Shadow Planet</description>
+          <description2>Battle bizarre creatures</description2>
+          <rating>10</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/e4/ae/e4ae9abb-8135-4be3-9c7e-2a1d16f71a4b.JPG?v=1#400x300-insanelytwistedsp-v1.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToURI</cmd>
+            <param>gamedetails:66acd000-77fe-1000-9115-d80258410b1c</param>
+          </onclick>
+        </slot>
+        <slot>
+          <name>Rio</name>
+          <description>Rio</description>
+          <description2>Watch the animated hit today</description2>
+          <rating>101</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/e3/33/e333ace4-ecf3-48cb-9ab6-4b3e51dcfd55.JPG?v=1#slot-Rio-v1.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavMarketplaceScriptAction</cmd>
+            <param>LaunchMarketplaceContent</param>
+            <param2>0ccf0004-0000-4000-8000-00005848085B</param2>
+            <param3>0</param3>
+            <param4>7BA933FEC98BDEF42BE7185E9717C2EB998FCA15</param4>
+            <param5>00000002</param5>
+            <param6>MovieDetailsPage?Id=b85f57c4-6386-46f7-84cc-b28193951e85</param6>
+          </onclick>
+        </slot>
+        <slot>
+          <name>From Dust</name>
+          <description>From Dust</description>
+          <description2>Face the might of nature</description2>
+          <rating>20</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/8f/5d/8f5d27a1-f426-4a57-8dde-b42245f94f05.JPG?v=1#slot-soa2011fromdust-v1.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToURI</cmd>
+            <param>gamedetails:66acd000-77fe-1000-9115-d80258410a91</param>
+          </onclick>
+        </slot>
+        <slot>
+          <name>Fallback: Kinect Games Genre</name>
+          <description>Kinect Games</description>
+          <description2>Controller-free fun for everyone</description2>
+          <rating>267242991</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/a4/2c/a42c72e0-3042-40e2-b29a-950ef551efa3.JPG?v=1#400x300-kinectgames-v2.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToPamApp</cmd>
+            <param>BuiltIn.Hub.xzp</param>
+            <param2>Provider=Dash.MP.ContentExplorer.lex;ColCount=5;RowCount=1;Args="_SlotType=Robo;_SceneType=LibrarySlot_Hub;_SlotCount=50;_MethodName=FindGames;_Param=[UserTypes,RatingIds,_PassThrough_OfferTargetMediaTypes,_PassThrough_CategoryIds,_PassThrough_TitleFilters];DetailView=3;OrderBy=21;OrderDirection=2;ImageFormats=4;ImageSizes=23;OfferFilterLevel=2;MediaTypes=[1,21,23];CategoryIds=[3028]";</param2>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>The Guild Season 5</name>
+          <description>The Guild: Season 5</description>
+          <rating>-17957139</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/2a/26/2a267323-df2e-4526-bd56-4a52471f1047.JPG?v=1#197x148-TheGuild-v1.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToURI</cmd>
+            <param>title:5848085B:TVSeasonDetailsPage?SeriesId=c1e74f93-c25c-4a24-b2c9-8b83201ae4f9&amp;amp;SeasonNumber=5</param>
+          </onclick>
+        </slot>
+        <slot>
+          <name>Fallback: Microsoft Points</name>
+          <description>Buy Now</description>
+          <rating>267242991</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/aa/fd/aafd7cd4-7b15-4bb9-a324-2a860ecf644b.JPG?v=1#197x148-MicrosoftPoints-v1.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToPurchasePoints</cmd>
+            <param>0xFFFE07D10FF00005</param>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <definitionpath>slot://Dash.MP.ContentExplorer.lex</definitionpath>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>S: SILVER SUBSCRIPTION</name>
+          <description>Go Gold</description>
+          <rating>267242991</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/98/55/9855cca9-a04b-4d33-b468-e9571e21510b.JPG?v=1#slot-MadridTEST-Silver.JPG</shallowimg>
+          <condition>EcoLiveTier(Silver)</condition>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToPurchaseSubscription</cmd>
+            <param>0xFFFE07D180000051</param>
+          </onclick>
+        </slot>
+        <slot>
+          <name>AG: Paid Ad Placeholder</name>
+          <metadata>
+            <property>
+              <name>showdesc</name>
+              <value>no</value>
+            </property>
+            <property>
+              <name>showcontrollerrequired</name>
+              <value>no</value>
+            </property>
+          </metadata>
+          <rating>267242991</rating>
+          <deepasset>
+            <format>LUAXZP</format>
+            <path>http://epix.xbox.com/shaXam/0204/8b/f7/8bf7dacd-d143-4a76-aa67-1f4afb9163bd.lzp?v=2#Dashboard.Slot.Advertising.lzp</path>
+          </deepasset>
+          <condition>!EcoLiveTier(Silver)</condition>
+        </slot>
+        <slot>
+          <name>Fallback: Avatar Marketplace</name>
+          <description>Avatar Marketplace</description>
+          <rating>267242991</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/9f/8e/9f8e5424-c27b-42d0-9a34-7989e2d09d5d.JPG?v=2#AvatarMarketplaceSlot.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcLaunchFromSystemPackage</cmd>
+            <param>AvatarEditor.xex</param>
+            <param2>storelist:storefront</param2>
+          </onclick>
+        </slot>
+      </slotgroup>
+    </channeldef>
+  </channel>
+  <channel>
+    <id>SOCIAL</id>
+    <definitionpath>channel://dash.social.lex</definitionpath>
+  </channel>
+  <channel>
+    <id>VIDEO</id>
+    <channeldef layouttemplate="epix://template1.xur">
+      <description>video</description>
+      <type>online</type>
+      <vui>
+        <visiblephrase>Video</visiblephrase>
+      </vui>
+      <slotgroup>
+        <slot>
+          <name>My Video Apps</name>
+          <description>My Video Apps</description>
+          <rating>267242991</rating>
+          <deepasset>
+            <format>EpixScene</format>
+            <path>EsVideoLibrary</path>
+            <param>VideoLibrarySlot.xur</param>
+          </deepasset>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToURI</cmd>
+            <param>gameslibrary:_RootTitle=%slot_description%;PackageType=2;Category=4;</param>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup maxscenes="5" delay="3000">
+        <slot>
+          <name>Syfy: The Mercury Men</name>
+          <vui>
+            <visiblephrase>The Mercury Men</visiblephrase>
+            <phrase>The Mercury Men</phrase>
+          </vui>
+          <description>Syfy Is Now on Xbox</description>
+          <description2>Watch Mercury Men now</description2>
+          <rating>306</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/45/9a/459a34e6-bfc6-49bc-8860-0797ba1fd6df.JPG?v=1#slot-TheMercuryMen-300.JPG</shallowimg>
+           <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToURI</cmd>
+            <param>app:395007D1{00000001-0000-4000-8000-0000395007d1}:SHOW_Mercury Men</param>
+          </onclick>
+        </slot>
+        <slot>
+          <name>The Guild Seasn 5</name>
+          <description>The Guild </description>
+          <description2>Check out the season 5 premiere</description2>
+          <rating>-17957139</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/fe/68/fe68af4b-9b4c-4d32-a6b6-f52ce5462549.JPG?v=1#slot-TheGuild-v1.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToURI</cmd>
+            <param>title:5848085B:TVSeasonDetailsPage?SeriesId=c1e74f93-c25c-4a24-b2c9-8b83201ae4f9&amp;SeasonNumber=5</param>
+          </onclick>
+        </slot>
+        <slot>
+          <name>The Guild Series</name>
+          <description>The Guild </description>
+          <description2>Check out the season 5 premiere</description2>
+          <rating>-17957139</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/fe/68/fe68af4b-9b4c-4d32-a6b6-f52ce5462549.JPG?v=1#slot-TheGuild-v1.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToURI</cmd>
+            <param>title:5848085B:TVSeriesDetailsPage?Id=c1e74f93-c25c-4a24-b2c9-8b83201ae4f9</param>
+          </onclick>
+        </slot>
+        <slot>
+          <name>The Guild Episode</name>
+          <description>The Guild </description>
+          <description2>Check out the season 5 premiere</description2>
+          <rating>-17957139</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/fe/68/fe68af4b-9b4c-4d32-a6b6-f52ce5462549.JPG?v=1#slot-TheGuild-v1.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToURI</cmd>
+            <param>title:5848085B:TVEpisodeDetailsPage?Id=4c9c4317-09ec-44ca-aa65-b5d341cf6f82</param>
+          </onclick>
+        </slot>     
+        <slot>
+          <name>Dylan Dog</name>
+          <description>Dylan Dog: Dead of Night</description>
+          <description2>The sleuth tracks bayou ghouls</description2>
+          <rating>103</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/9f/db/9fdb26ba-0683-4a3f-bfb4-eeee9752f44c.JPG?v=1#slot-DylanDog-v1.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToURI</cmd>
+            <param>title:5848085B:MovieDetailsPage?Id=69e4a130-8ff1-4c98-8e33-700391eff22a</param>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>IX: Promo Slot</name>
+          <description>Inside Xbox</description>
+          <rating>267242991</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/29/5c/295c550b-4d19-47ac-84df-45213c5d4e03.JPG?v=2#slot-GearsOfWar3Trike-v2a.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToEpixManifest</cmd>
+            <param>madridinsidexbox.xml</param>
+            <param2>3af44a22-6347-4141-b380-0c11df96bf41</param2>
+          </onclick>
+        </slot>
+        <slot>
+          <name>EC: ComicCon2011 Experience</name>
+          <description>Comic-Con 2011</description>
+          <rating>30</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/e1/ec/e1eca10a-5817-4ebb-b250-a927aee14def.JPG?v=1#slot-ComicCon-v2.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcPlayVideo</cmd>
+            <param>http://epix.xbox.com/shaXam/0201/74/ce/74ce2a25-6434-4cad-992d-804c1c32949b.WMV?v=1#ComicConExperience_f_ix_v1.WMV</param>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>Zune Video</name>
+          <description>Video Marketplace</description>
+          <rating>267242991</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/ed/c9/edc90ebb-6267-4993-8d82-99d4c6e3e4ba.JPG?v=2#slot-ZuneVideo2010-v1.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToURI</cmd>
+            <param>title:5848085B:VideoHomePage</param>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>Paid Ad Placeholder</name>
+          <metadata>
+            <property>
+              <name>showdesc</name>
+              <value>no</value>
+            </property>
+            <property>
+              <name>showcontrollerrequired</name>
+              <value>no</value>
+            </property>
+          </metadata>
+          <rating>267242991</rating>
+          <deepasset>
+            <format>LUAXZP</format>
+            <path>http://epix.xbox.com/shaXam/0204/8b/f7/8bf7dacd-d143-4a76-aa67-1f4afb9163bd.lzp?v=2#Dashboard.Slot.Advertising.lzp</path>
+          </deepasset>
+        </slot>
+      </slotgroup>
+    </channeldef>
+  </channel>
+  <channel>
+    <id>GAMES</id>
+    <channeldef layouttemplate="epix://template1.xur">
+      <description>games</description>
+      <type>online</type>
+      <vui>
+        <visiblephrase>Games</visiblephrase>
+      </vui>
+      <slotgroup>
+        <slot>
+          <name>My Games</name>
+          <description>My Games</description>
+          <rating>267242991</rating>
+          <deepasset>
+            <format>EpixScene</format>
+            <path>EsGameLibrary</path>
+            <param>GamesLibrarySlot.xur</param>
+          </deepasset>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToURI</cmd>
+            <param>gameslibrary:_RootTitle=%slot_description%;PackageType=1</param>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup maxscenes="5" delay="3000">
+        <slot>
+          <name>Games on Demand</name>
+          <vui>
+            <responsetype>Maintain</responsetype>
+          </vui>
+          <description>Hot titles</description>
+          <description2>Available now</description2>
+          <rating>267242991</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/81/46/81461bf5-104f-4fc9-9501-7de5473e4bfe.JPG?v=1#slot-420x320-gamesOnDemand.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToURI</cmd>
+            <param>gamesmp:_RootTitle=games on demand;_MethodName=FindGames;_Param=[UserTypes,RatingIds];DetailView=3;CategoryIDs=3027;OrderBy=20;OrderDirection=2;ImageFormats=4;ImageSizes=23;OfferFilterLevel=2;MediaTypes=[1];OfferTargetMediaTypes=[1]</param>
+          </onclick>
+        </slot>        
+        <slot>
+          <name>From Dust</name>
+          <description>From Dust</description>
+          <description2>Face the might of nature</description2>
+          <rating>20</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/c7/d9/c7d9dbff-2e80-44bf-a341-16ddbf615d24.JPG?v=1#400x300-FromDust.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToURI</cmd>
+            <param>gamedetails:66acd000-77fe-1000-9115-d80258410a91</param>
+          </onclick>
+        </slot>
+        <slot>
+          <name>Dragon Age II: Legacy Pack</name>
+          <description>Legacy</description>
+          <description2>New add-on for Dragon Age II</description2>
+          <rating>40</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/2c/b0/2cb0777a-d034-4263-971e-6198c53aa32c.JPG?v=1#slot-Dragonageiilegacy-v1.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavMarketplaceScriptAction</cmd>
+            <param>DirectAcquire</param>
+            <param2>164cbd88-541d-4761-a9cb-5cb762e964bd</param2>
+            <param3>18</param3>
+            <param4>40</param4>
+          </onclick>
+        </slot>
+        <slot>
+          <name>Bastion</name>
+          <description>Bastion</description>
+          <description2>Reactive narrator marks every move</description2>
+          <rating>20</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/48/24/4824ea64-5a94-498d-ba24-371ed5ab1205.JPG?v=1#400x300-Bastion-v1.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToURI</cmd>
+            <param>gamedetails:66acd000-77fe-1000-9115-d80258410b66</param>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>FNV: Old World Blues</name>
+          <description>Fallout: New Vegas Add-On</description>
+          <rating>40</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/61/d5/61d54dfb-9903-4797-a8ff-b0cdeb5efc58.JPG?v=1#slot-fnvoldworldblues-v1.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavMarketplaceScriptAction</cmd>
+            <param>DirectAcquire</param>
+            <param2>19854dbc-ad7d-4bc4-84bf-b42becd3d6bd</param2>
+            <param3>18</param3>
+            <param4>40</param4>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>Game Marketplace</name>
+          <description>Game Marketplace</description>
+          <rating>267242991</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/fd/88/fd88a389-8ba9-4fc1-b7ae-de5f6be02592.JPG?v=3#Berlin-GamesMP-EntrySlot.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToEpixManifest</cmd>
+            <param>DashGamesMP.xml</param>
+            <param2>ColCount=5;RowCount=3;</param2>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>Paid Ad Placeholder</name>
+          <metadata>
+            <property>
+              <name>showdesc</name>
+              <value>no</value>
+            </property>
+            <property>
+              <name>showcontrollerrequired</name>
+              <value>no</value>
+            </property>
+          </metadata>
+          <rating>267242991</rating>
+          <deepasset>
+            <format>LUAXZP</format>
+            <path>http://epix.xbox.com/shaXam/0204/8b/f7/8bf7dacd-d143-4a76-aa67-1f4afb9163bd.lzp?v=2#Dashboard.Slot.Advertising.lzp</path>
+          </deepasset>
+        </slot>
+      </slotgroup>
+    </channeldef>
+  </channel>
+  <channel>
+    <id>MUSIC</id>
+    <channeldef layouttemplate="epix://template1.xur">
+      <description>music</description>
+      <type>online</type>
+      <vui>
+        <visiblephrase>Music</visiblephrase>
+      </vui>
+      <slotgroup>
+        <slot>
+          <name>My Music Apps</name>
+          <description>My Music Apps</description>
+          <rating>267242991</rating>
+          <deepasset>
+            <format>EpixScene</format>
+            <path>EsMusicLibrary</path>
+            <param>MusicLibrarySlot.xur</param>
+          </deepasset>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToURI</cmd>
+            <param>applibrary:_RootTitle=%slot_description%;PackageType=2;Category=2;</param>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>Kelly Rowland</name>
+          <description>Kelly Rowland</description>
+          <description2>Zune featured artist</description2>
+          <rating>267242991</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/ff/b5/ffb58ac8-2273-4d72-89e6-bbc9a14f9b40.JPG?v=1#400x300-kellyrowland-04-v1.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToURI</cmd>
+            <param>title:5848085B:ArtistDetailsPage?ArtistId=c7660500-0600-11db-89ca-0019b92a3933</param>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>DJ Khaled</name>
+          <description>DJ Khaled</description>
+          <rating>267242991</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/38/f3/38f37b7c-2494-4719-91d8-ee91185b32bb.JPG?v=1#197x148-djkhaled-03-v1.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToURI</cmd>
+            <param>title:5848085B:ArtistDetailsPage?ArtistId=86410a00-0600-11db-89ca-0019b92a3933</param>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>Zune Music</name>
+          <description>Music Marketplace</description>
+          <rating>267242991</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/b7/cc/b7ccf5eb-b7c8-4cd4-9989-f862075b6c73.JPG?v=3#slot-ZuneMusic2010-v1.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToURI</cmd>
+            <param>title:5848085B:MusicHomePage</param>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>Paid Ad Placeholder</name>
+          <metadata>
+            <property>
+              <name>showdesc</name>
+              <value>no</value>
+            </property>
+            <property>
+              <name>showcontrollerrequired</name>
+              <value>no</value>
+            </property>
+          </metadata>
+          <rating>267242991</rating>
+          <deepasset>
+            <format>LUAXZP</format>
+            <path>http://epix.xbox.com/shaXam/0204/8b/f7/8bf7dacd-d143-4a76-aa67-1f4afb9163bd.lzp?v=2#Dashboard.Slot.Advertising.lzp</path>
+          </deepasset>
+        </slot>
+      </slotgroup>
+    </channeldef>
+  </channel>
+  <channel>
+    <id>APPS</id>
+    <channeldef layouttemplate="epix://template3.xur">
+      <description>apps</description>
+      <type>online</type>
+      <vui>
+        <visiblephrase>Apps</visiblephrase>
+      </vui>
+      <slotgroup>
+        <slot>
+          <name>My Apps</name>
+          <description>My Apps</description>
+          <rating>267242991</rating>
+          <deepasset>
+            <format>EpixScene</format>
+            <path>EsAppsLibrary</path>
+            <param>AppsLibrarySlot.xur</param>
+          </deepasset>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToURI</cmd>
+            <param>applibrary:_RootTitle=%slot_description%;Category=1;</param>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup maxscenes="5" delay="5000">
+        <slot>
+          <name>Netflix</name>
+          <vui>
+            <visiblephrase>Netflix</visiblephrase>
+            <phrase>Netflix</phrase>
+            <responsetype>ImplicitYes</responsetype>
+            <message>Launching Netflix...</message>
+          </vui>
+          <rating>267242991</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/ac/34/ac34180b-14e0-4f91-a1bb-78121aec4b59.JPG?v=1#400x300-Netflix.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavMarketplaceScriptAction</cmd>
+            <param>LaunchMarketplaceContent</param>
+            <param2>00000003-0000-4000-8000-0000584807d5</param2>
+            <param3>-17957140</param3>
+            <param4>E8D11591DFAD419FA9AE9B9AD286A09334AB98C758</param4>
+            <param5>00000002</param5>
+          </onclick>
+        </slot>
+        <slot>
+          <name>Hulu Plus</name>
+          <vui>
+            <visiblephrase>Hulu Plus</visiblephrase>
+            <phrase>Hulu Plus</phrase>
+            <responsetype>ImplicitYes</responsetype>
+            <message>Launching Hulu Plus...</message>
+          </vui>
+          <rating>267242991</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/0f/16/0f16a506-9296-449f-9378-4e061d7cb7cb.JPG?v=1#400x300-HuluPlus.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavMarketplaceScriptAction</cmd>
+            <param>LaunchMarketplaceContent</param>
+            <param2>0ccf0002-0000-4000-8000-0000584807f7</param2>
+            <param3>-17957140</param3>
+            <param4>daa563af3fad603c67b46940766a1c1a7adf7691</param4>
+            <param5>00000002</param5>
+          </onclick>
+        </slot>
+        <slot>
+          <name>Facebook</name>
+          <vui>
+            <visiblephrase>Facebook</visiblephrase>
+            <phrase>Facebook</phrase>
+            <responsetype>ImplicitYes</responsetype>
+            <message>Launching Facebook...</message>
+          </vui>
+          <rating>267242991</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/4c/44/4c4402e4-4852-457f-a13e-072e9ad493d3.JPG?v=1#400x300-Facebook.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavMarketplaceScriptAction</cmd>
+            <param>LaunchMarketplaceContent</param>
+            <param2>0ccf0001-0000-4000-8000-0000584807e1</param2>
+            <param3>-17957140</param3>
+            <param4>E1E61DE6484AF3EC7220D728470907E679BE9C57</param4>
+            <param5>00000002</param5>
+          </onclick>
+        </slot>
+        <slot>
+          <name>Last.fm</name>
+          <vui>
+            <visiblephrase>Last.fm</visiblephrase>
+            <phrase>Last.fm</phrase>
+            <phrase>last dot fm</phrase>
+            <responsetype>ImplicitYes</responsetype>
+            <message>Launching Last.fm...</message>
+          </vui>
+          <rating>267242991</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/31/cf/31cf6448-0b9d-40c5-96ec-5444b0619363.JPG?v=1#400x300-Lastfm.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavMarketplaceScriptAction</cmd>
+            <param>LaunchMarketplaceContent</param>
+            <param2>0ccf0001-0000-4000-8000-0000584807e3</param2>
+            <param3>-17957140</param3>
+            <param4>E1140072D4F991B1E58F8618FF6075AD01B855C6</param4>
+            <param5>00000002</param5>
+            <param6>nuiMode true</param6>
+          </onclick>
+        </slot>
+        <slot>
+          <name>Video Kinect</name>
+          <vui>
+            <visiblephrase>Video Kinect</visiblephrase>
+            <phrase>Video Kinect</phrase>
+            <responsetype>ImplicitYes</responsetype>
+            <message>Launching Video Kinect</message>
+          </vui>
+          <rating>267242991</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/eb/a2/eba2e4d0-5fa1-4dbb-98a6-1bde0179ae41.JPG?v=1#slots-E3-VideoKinect-v1.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavMarketplaceScriptAction</cmd>
+            <param>LaunchMarketplaceContent</param>
+            <param2>00000001-0000-4000-8000-0000584807ec</param2>
+            <param3>-17957140</param3>
+            <param4>A7CFD4C7275FB78EDBAD6F2ABD9B8A75062E45EF58</param4>
+            <param5>00000002</param5>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>ESPN</name>
+          <vui>
+            <visiblephrase>ESPN</visiblephrase>
+            <phrase>ESPN</phrase>
+            <responsetype>ImplicitYes</responsetype>
+            <message>Launching ESPN...</message>
+          </vui>
+          <rating>267242991</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/4c/c1/4cc112d0-7db7-4ced-ab04-706a0b788145.JPG?v=1#198x148-ESPN.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavMarketplaceScriptAction</cmd>
+            <param>LaunchMarketplaceContent</param>
+            <param2>0ccf0001-0000-4000-8000-0000584807f0</param2>
+            <param3>-17957140</param3>
+            <param4>C4A09C16B3DD1A9698D70592C42AFE252972C68058</param4>
+            <param5>00000002</param5>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>Apps Marketplace</name>
+          <vui>
+            <visiblephrase>Apps Marketplace</visiblephrase>
+            <phrase>Apps Marketplace</phrase>
+            <responsetype>ImplicitYes</responsetype>
+            <message>Launching Apps Marketplace...</message>
+          </vui>
+          <description>Apps Marketplace</description>
+          <rating>267242991</rating>
+          <deepasset>
+            <format>EpixScene</format>
+            <path>EsAppsMarketplace</path>
+            <param>AppsMarketplaceSlot.xur</param>
+          </deepasset>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>Paid Ad Placeholder</name>
+          <metadata>
+            <property>
+              <name>showdesc</name>
+              <value>no</value>
+            </property>
+            <property>
+              <name>showcontrollerrequired</name>
+              <value>no</value>
+            </property>
+          </metadata>
+          <rating>267242991</rating>
+          <deepasset>
+            <format>LUAXZP</format>
+            <path>http://epix.xbox.com/shaXam/0204/8b/f7/8bf7dacd-d143-4a76-aa67-1f4afb9163bd.lzp?v=2#Dashboard.Slot.Advertising.lzp</path>
+          </deepasset>
+        </slot>
+      </slotgroup>
+    </channeldef>
+  </channel>
+  <channel>
+    <id>PRE_RELEASE</id>
+    <channeldef layouttemplate="epix://template9.xur">
+      <description>pre-release</description>
+      <type>online</type>
+      <slotgroup>
+        <slot>
+          <name>Marker Scene 2</name>
+          <description>Madrid</description>
+          <rating>267242991</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/df/e8/dfe8c92a-84b2-4fbc-8ee3-7af37dee567d.JPG?v=1#Beta_Audiences.JPG</shallowimg>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>Beta Announcements</name>
+          <description>Announcements</description>
+          <rating>267242991</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/37/6b/376b27a2-635b-4284-8fb4-713be4c98f60.JPG?v=1#Beta_Announcments.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToDashApp</cmd>
+            <param>http://epix.xbox.com/shaXam/0204/e6/6b/e66b7501-4ec4-4e83-a51d-2fdc6494ce5b.lzp?v=1#Beta_Announcements.lzp</param>
+            <param2>LUAXZP</param2>
+            <param3>url=http://live:11/xedl/BetaChannelXml/internal/announcements.xml</param3>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>Beta New Features</name>
+          <description>New Features</description>
+          <rating>267242991</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/ce/62/ce62f359-4af4-4d3b-b711-430c3e6fcb16.JPG?v=1#Beta_New.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToDashApp</cmd>
+            <param>http://epix.xbox.com/shaXam/0204/51/a3/51a357a3-7d8b-4a3f-b593-23060f08f534.lzp?v=1#Beta_NewFeatures.lzp</param>
+            <param2>LUAXZP</param2>
+            <param3>url=http://live:11/xedl/BetaChannelXml/internal/newfeatures.xml</param3>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>Help and Known Issues</name>
+          <description>Help and Tips</description>
+          <rating>267242991</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/21/f5/21f5d9d4-8e9c-4a45-bc2a-f308571f95ed.JPG?v=1#Beta_Help.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToDashApp</cmd>
+            <param>http://epix.xbox.com/shaXam/0204/8e/9d/8e9d7b91-eab2-4304-8df1-e7723afd8fb0.lzp?v=1#Beta_Help.lzp</param>
+            <param2>LUAXZP</param2>
+            <param3>url=http://live:11/xedl/BetaChannelXml/Internal/betafaq.xml</param3>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>Dance Central 2</name>
+          <vui>
+            <visiblephrase>Dance Central 2</visiblephrase>
+          </vui>
+          <description>Dance Central 2</description>
+          <rating>267242991</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/62/1e/621ea28b-0afc-42f5-a5ae-e14d29a98f88.JPG?v=1#DanceCentral2_v1.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavMarketplaceScriptAction</cmd>
+            <param>LaunchMarketplaceContent</param>
+            <param2>0ddf0001-0000-4000-8000-0000373387d4</param2>
+            <param3>10</param3>
+            <param4>753AD8D83E517B0258E74F8558285603C62BB1B3</param4>
+            <param5>00080000</param5>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>Recorder</name>
+          <vui>
+            <visiblephrase>Recorder</visiblephrase>
+          </vui>
+          <description>Recorder</description>
+          <rating>267242991</rating>
+          <deepasset>
+            <format>EpixScene</format>
+            <path>EsSettings</path>
+            <param>SettingsSlot.xur</param>
+          </deepasset>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToPamApp</cmd>
+            <param>TakehomeRecorder.lex</param>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>Voice Collection</name>
+          <rating>267242991</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/ec/2d/ec2d2e8a-cecf-4967-8a13-924cf3e40423.JPG?v=1#VoiceCollection_v1.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavMarketplaceScriptAction</cmd>
+            <param>LaunchMarketplaceContent</param>
+            <param2>0ddf0001-0000-4000-8000-00004d5308fc</param2>
+            <param3>10</param3>
+            <param4>9C13D34C623C252B79625DBA39F27C4302415F2D</param4>
+            <param5>00080000</param5>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>MORE</name>
+          <vui>
+            <visiblephrase>More</visiblephrase>
+          </vui>
+          <rating>267242991</rating>
+          <shallowimg>http://epix.xbox.com/shaXam/0201/10/ab/10ab22fe-4855-4201-888f-f29544e57a45.JPG?v=1#slot-more-v2_.JPG</shallowimg>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToEpixManifest</cmd>
+            <param>prerelease-more.xml</param>
+            <param2>d3c1ce42-ef79-4c7b-be47-a4669334e7bb</param2>
+          </onclick>
+        </slot>
+      </slotgroup>
+    </channeldef>
+  </channel>
+  <channel>
+    <id>SETTINGS</id>
+    <channeldef layouttemplate="epix://template6.xur">
+      <description>settings</description>
+      <type>online</type>
+      <vui>
+        <visiblephrase>Settings</visiblephrase>
+      </vui>
+      <slotgroup>
+        <slot>
+          <name>Settings</name>
+          <metadata>
+            <property>
+              <name>showcontrollerrequired</name>
+              <value>true</value>
+            </property>
+          </metadata>
+          <description>Settings</description>
+          <rating>267242991</rating>
+          <deepasset>
+            <format>EpixScene</format>
+            <path>EsSettings</path>
+            <param>SettingsSlot.xur</param>
+          </deepasset>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToSettings</cmd>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>System</name>
+          <metadata>
+            <property>
+              <name>showcontrollerrequired</name>
+              <value>true</value>
+            </property>
+          </metadata>
+          <description>System</description>
+          <rating>267242991</rating>
+          <deepasset>
+            <format>EpixScene</format>
+            <path>EsSystem</path>
+            <param>SystemSlot.xur</param>
+          </deepasset>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToSettings</cmd>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>Family</name>
+          <metadata>
+            <property>
+              <name>showcontrollerrequired</name>
+              <value>true</value>
+            </property>
+          </metadata>
+          <description>Family</description>
+          <rating>267242991</rating>
+          <deepasset>
+            <format>EpixScene</format>
+            <path>EsFamilySettings</path>
+            <param>FamilySlot.xur</param>
+          </deepasset>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToPamApp</cmd>
+            <param>dash.familycenter.xex</param>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>Account</name>
+          <metadata>
+            <property>
+              <name>showcontrollerrequired</name>
+              <value>true</value>
+            </property>
+          </metadata>
+          <description>Account</description>
+          <rating>267242991</rating>
+          <deepasset>
+            <format>EpixScene</format>
+            <path>EsAccount</path>
+            <param>AccountSlot.xur</param>
+          </deepasset>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcNavToPamApp</cmd>
+            <param>dash.mp.accountmgmt.lex</param>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>Preferences</name>
+          <metadata>
+            <property>
+              <name>showcontrollerrequired</name>
+              <value>true</value>
+            </property>
+          </metadata>
+          <description>Preferences</description>
+          <rating>267242991</rating>
+          <deepasset>
+            <format>EpixScene</format>
+            <path>EsSettings</path>
+            <param>PreferencesSlot.xur</param>
+          </deepasset>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>Kinect ID</name>
+          <vui>
+            <phrase>Kinect ID</phrase>
+            <message>Starting Kinect ID setup...</message>
+          </vui>
+          <description>Kinect ID</description>
+          <rating>267242991</rating>
+          <deepasset>
+            <format>EpixScene</format>
+            <path>EsSettings</path>
+            <param>SettingsSlot.xur</param>
+          </deepasset>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcLaunchFromSystemPackage</cmd>
+            <param>BiometricSetup.xex</param>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>Kinect Tuner</name>
+          <vui>
+            <phrase>Kinect Tuner</phrase>
+            <message>Launching Kinect Tuner...</message>
+          </vui>
+          <metadata>
+            <property>
+              <name>showcontrollerrequired</name>
+              <value>true</value>
+            </property>
+          </metadata>
+          <description>Kinect Tuner</description>
+          <rating>267242991</rating>
+          <deepasset>
+            <format>EpixScene</format>
+            <path>EsSettings</path>
+            <param>SettingsSlot.xur</param>
+          </deepasset>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcShowNatalTunerUi</cmd>
+          </onclick>
+        </slot>
+      </slotgroup>
+      <slotgroup>
+        <slot>
+          <name>Turn Off</name>
+          <vui>
+            <phrase>%EvResStr(IDS_SLOT_TURNOFF_VUI_PRON)%</phrase>
+            <responsetype>RequestYesNo</responsetype>
+            <message>%EvResStr(IDS_SLOT_TURNOFF_VUI_MESSAGE)%</message>
+          </vui>
+          <metadata>
+            <property>
+              <name>showcontrollerrequired</name>
+              <value>true</value>
+            </property>
+          </metadata>
+          <description>Turn Off</description>
+          <rating>267242991</rating>
+          <deepasset>
+            <format>EpixScene</format>
+            <path>EsSettings</path>
+            <param>TurnOffSlot.xur</param>
+          </deepasset>
+          <onclick>
+            <button>A</button>
+            <helptext>Select</helptext>
+            <action>EpixCmd</action>
+            <cmd>EcShutdownConsole</cmd>
+          </onclick>
+        </slot>
+      </slotgroup>
+    </channeldef>
+  </channel>
+</manifest>

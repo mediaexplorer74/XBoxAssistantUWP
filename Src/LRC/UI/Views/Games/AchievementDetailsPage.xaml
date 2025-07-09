@@ -1,0 +1,55 @@
+﻿<lrc:LrcPage 
+    x:Class="LRC.AchievementDetailsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:lrc="clr-namespace:LRC;assembly=LRC"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:delay="clr-namespace:Delay;assembly=PhonePerformance"
+    toolkit:TiltEffect.IsTiltEnabled="True"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True" >
+
+    <Grid x:Name="LayoutRoot" Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel d:LayoutOverrides="Width, Height" Grid.Row="1" Margin="12,0">
+                <Grid x:Name="AchievementEntry" Margin="0,0,0,24">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="153"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="AchievementTile" Grid.Column="0" Width="99" Stretch="Uniform" delay:LowProfileImageLoader.UriSource="{Binding Achievement.PictureUrl}" Margin="12,0,0,0" Height="99" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    <StackPanel Grid.Column="1" Orientation="Vertical" d:LayoutOverrides="Height" Margin="0,-10,0,0">
+                        <TextBlock x:Name="AchievementTitle" Text="{Binding Achievement.Name}" TextWrapping="Wrap" Style="{StaticResource LRCTextPrimaryTitle}" Foreground="#FDFFFFFF" d:LayoutOverrides="Width" MaxHeight="88" FontSize="32" />
+                        <StackPanel x:Name="Points" Orientation="Horizontal" Margin="0,-4,0,0">
+                            <Image x:Name="GamerscoreG" Height="24" Width="24" Source="/UI/Images/ico_gamerscore_32x.png" Margin="12,0,0,0" Opacity="0.6"/>
+                            <TextBlock x:Name="GamerscoreText" Text="{Binding GamerscoreText}" Style="{StaticResource LRCTextSecondaryTitle}" />
+                        </StackPanel>
+                        <TextBlock x:Name="AchievementDateEarned" TextAlignment="Left" Text="{Binding DateEarnedText}" Foreground="#99FFFFFF" FontFamily="Segoe WP" FontSize="20" Height="28" Style="{StaticResource LRCTextSecondaryTitle}"/>
+                    </StackPanel>
+                </Grid>
+                <TextBlock x:Name="AchievementDescription" Text="{Binding DescriptionText}" TextWrapping="Wrap" Style="{StaticResource LRCTextDescription}"/>
+            </StackPanel>
+            <TextBlock x:Name="PageTitle" Margin="24,17,12,28" Style="{StaticResource LRCTextPivotTitle}" Text="{Binding Converter={StaticResource PageTitleConverter}, Path=Achievement.GameName}" />
+        </Grid>
+
+        <!-- Media Bar -->
+        <lrc:MediaBar x:Name="MediaControls" Grid.Row="1"/>
+    </Grid>
+</lrc:LrcPage>

@@ -1,0 +1,56 @@
+﻿<lrc:LrcPage 
+    x:Class="LRC.TvSeasonSearchDetailsPage"
+    xmlns:lrc="clr-namespace:LRC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:XLToolKit="clr-namespace:XLToolKit"    
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:converter="clr-namespace:LRC"
+    xmlns:delay="clr-namespace:Delay;assembly=PhonePerformance"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True"
+    toolkit:TiltEffect.IsTiltEnabled="True"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    >
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="PageContents" Background="Black" Grid.Row="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Margin="12,17,0,28" Orientation="Vertical" Grid.Row="0">
+                <TextBlock x:Name="PageTitle" Text="{Binding Converter={StaticResource PageTitleConverter}, Path=Title}" Margin="12,0" Style="{StaticResource LRCTextPivotTitle}" d:LayoutOverrides="VerticalAlignment"/>
+                <TextBlock x:Name="PageSubTitle" Text="{Binding SearchItem.TelevisionSeasonNumber, Converter={StaticResource SeasonTitleConverter}}" Visibility="{Binding SearchItem.TelevisionSeriesHasSeasons, Converter={StaticResource VisibilityConverter}}" Margin="9,-7,0,0" Style="{StaticResource LRCTextPivotHeader}" d:LayoutOverrides="VerticalAlignment"/>
+            </StackPanel>
+
+            <XLToolKit:SwitchPanel CurrentState="{Binding SearchItem.CurrentState}" Margin="12,0" MinHeight="493" Grid.Row="1">
+                <!-- 0. Content -->
+                <lrc:ListBoxWithCompression x:Name="EpisodeList" ItemsSource="{Binding SearchItem.TelevisionEpisodes}" SelectionChanged="Episode_SelectionChanged" Style="{StaticResource ListBoxWithCompression}" ItemTemplate="{StaticResource LRCEpisodesListItem}" Loaded="ListBox_Loaded" ScrollingDisabled="{Binding SearchItem.IsAddingData}"/>
+
+                <!-- 1. Error -->
+                <TextBlock x:Name="ErrorText" Text="{Binding Strings.LRC_Error_Code_FailedToRetrieveData, Source={StaticResource ResourceString}}" TextWrapping="Wrap" Style="{StaticResource LRCTextGroupHeader}"/>
+
+                <!-- 2. No Content, an invisible item -->
+                <TextBlock Text=" " Width="0" Height="0"/>
+
+                <!-- 3. Loading -->
+                <lrc:BusyIndicator x:Name="BusyIndicator" HorizontalAlignment="Left" Style="{StaticResource InlineBusyIndicatorStyle}" OverlayVisiblity="Collapsed" BusyText="{Binding Strings.BusyIndicator_LoadingText, Source={StaticResource ResourceString}}" IsBusy="True" IsBlocking="False" />
+            </XLToolKit:SwitchPanel>
+
+        </Grid>
+
+        <!-- Media Bar -->
+        <converter:MediaBar x:Name="MediaControls" Grid.Row="1"/>
+    </Grid>
+</lrc:LrcPage>

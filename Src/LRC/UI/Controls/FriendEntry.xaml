@@ -1,0 +1,28 @@
+﻿<Button x:Class="LRC.FriendEntry"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    BorderThickness="0"
+    Padding="0,0,0,0">
+
+    <Grid Width="432" Margin="0,-12,0,0" MinHeight="105">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="24"/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="Gamertile" Height="99" Width="99" Source="{Binding ImageUrl}" Grid.Column="0" VerticalAlignment="Top"/>
+        <StackPanel x:Name="FriendDetails" Grid.Column="1" Grid.ColumnSpan="2">
+            <TextBlock x:Name="GamerTag" TextWrapping="NoWrap" Text="{Binding GamerTag}" FontSize="32" FontFamily="Segoe WP SemiLight" Foreground="White" Height="43" HorizontalAlignment="Left" Width="296" Margin="12,-10,4,0"/>
+            <TextBlock x:Name="PlayingText" TextWrapping="NoWrap" Text="{Binding Converter={StaticResource FriendPlayingTextConverter}}" FontFamily="Segoe WP" FontSize="20" Foreground="#99FFFFFF" Margin="12,0,0,0"/>
+            <StackPanel x:Name="BeaconGroup" Orientation="Horizontal" Visibility="{Binding IsBeaconSet, Converter={StaticResource VisibilityConverter}}" Margin="12,0,0,0" VerticalAlignment="Top">
+                <Image x:Name="BeaconIcon" Height="24" Width="24" Source="/UI/Images/ico_beacon_32x.png" Margin="0,2,4,0" HorizontalAlignment="Left" Opacity="0.6" VerticalAlignment="Top"/>
+                <TextBlock x:Name="BeaconText" TextWrapping="Wrap" Width="293" Text="{Binding Beacon.BeaconText, Converter={StaticResource FriendBeaconTextConverter}}" FontFamily="Segoe WP" FontSize="20" Foreground="#99FFFFFF" VerticalAlignment="Top"/>
+            </StackPanel>
+        </StackPanel>
+        <Image x:Name="OfflineIcon" Width="24" Source="/UI/Images/ico_friendNotAvailable.png" Grid.Column="2" Visibility="{Binding IsOffline, Converter={StaticResource VisibilityConverter}}" Height="24" VerticalAlignment="Top" Margin="0,1,0,0"/>
+        <Image x:Name="OnlineIcon" Width="24" Source="/UI/Images/ico_friendAvailable.png" Grid.Column="2" Visibility="{Binding IsOnline, Converter={StaticResource VisibilityConverter}}" Height="24" VerticalAlignment="Top" Margin="0,1,0,0"/>
+    </Grid>
+</Button>

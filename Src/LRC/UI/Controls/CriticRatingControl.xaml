@@ -1,0 +1,24 @@
+﻿<UserControl 
+    x:Class="LRC.CriticRatingControl"
+    xmlns:lrc="clr-namespace:LRC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    HorizontalAlignment="Stretch"
+    HorizontalContentAlignment="Stretch"
+    Visibility="{Binding Path=ShowCriticRating, Converter={StaticResource VisibilityConverter}, RelativeSource={RelativeSource Self}}" 
+    d:DesignHeight="480" d:DesignWidth="480" Height="24">
+
+    <Grid x:Name="LayoutRoot" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border Background="#FF78C800" Padding="4,0,4,2" d:LayoutOverrides="Width">
+            <TextBlock x:Name="RatingDisplay" TextAlignment="Left" Margin="0" FontSize="16" FontFamily="Segoe WP" Foreground="White"  />
+        </Border>
+        <Image x:Name="RatingImage" Source="/UI/Images/metacritic.png" HorizontalAlignment="Left" Grid.Column="1" Margin="6,0,0,0" Stretch="None" />
+    </Grid>
+</UserControl>

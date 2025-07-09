@@ -1,0 +1,49 @@
+﻿<lrc:LrcPage
+    xmlns:lrc="clr-namespace:LRC"
+    x:Class="LRC.ImageViewerPivot"
+    xmlns:XLToolKit="clr-namespace:XLToolKit"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:controlsPrimitives="clr-namespace:Microsoft.Phone.Controls.Primitives;assembly=Microsoft.Phone.Controls" 
+    xmlns:Delay="clr-namespace:Delay;assembly=PhonePerformance" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768" 
+    SupportedOrientations="PortraitOrLandscape"
+    shell:SystemTray.IsVisible="True">
+
+    <phone:PhoneApplicationPage.Resources>
+        <Style x:Key="emptyPivot" TargetType="controls:Pivot">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="controls:Pivot">
+                        <Grid HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                            <ItemsPresenter x:Name="PivotItemPresenter" Margin="{TemplateBinding Padding}" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="PhotoVieweritemStyle" TargetType="controls:PivotItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="controls:PivotItem">
+                        <Image x:Name="Image"  Delay:LowProfileImageLoader.UriSource="{Binding}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </phone:PhoneApplicationPage.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="Black">
+        <!--Pivot Control-->
+        <XLToolKit:XLPivot x:Name="PivotItems"  Grid.Row="0" ItemsSource="{Binding}" Style="{StaticResource emptyPivot}" ItemContainerStyle="{StaticResource PhotoVieweritemStyle}" Background="Black" />
+
+    </Grid>
+
+</lrc:LrcPage>

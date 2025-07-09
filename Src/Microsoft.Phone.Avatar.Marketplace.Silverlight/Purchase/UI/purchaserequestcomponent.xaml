@@ -1,0 +1,219 @@
+﻿<UserControl x:Class="Microsoft.Phone.Marketplace.Purchase.UI.PurchaseRequestComponent"
+             x:ClassModifier="internal"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Foreground="Black"
+    FontFamily="Segoe WP"
+    Width="480"
+    Height="800">
+    <UserControl.Resources>
+        <Style TargetType="Button" x:Key="purchaseButton">
+            <Setter Property="FontSize" Value="23"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Margin="0,12,0,12">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <Storyboard>
+                                            <ColorAnimation To="#000000" Duration="00:00:00" Storyboard.TargetName="contentColor" Storyboard.TargetProperty="(SolidColorBrush.Color)" />
+                                            <ColorAnimation To="#000000" Duration="00:00:00" Storyboard.TargetName="borderColor" Storyboard.TargetProperty="(SolidColorBrush.Color)" />
+                                            <ColorAnimation To="Transparent" Duration="00:00:00" Storyboard.TargetName="borderFill" Storyboard.TargetProperty="(SolidColorBrush.Color)" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ColorAnimation To="White" Duration="00:00:00" Storyboard.TargetName="contentColor" Storyboard.TargetProperty="(SolidColorBrush.Color)" />
+                                            <ColorAnimation To="#000000" Duration="00:00:00" Storyboard.TargetName="borderColor" Storyboard.TargetProperty="(SolidColorBrush.Color)" />
+                                            <ColorAnimation To="#000000" Duration="00:00:00" Storyboard.TargetName="borderFill" Storyboard.TargetProperty="(SolidColorBrush.Color)" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <ColorAnimation To="#999999" Duration="00:00:00" Storyboard.TargetName="contentColor" Storyboard.TargetProperty="(SolidColorBrush.Color)" />
+                                            <ColorAnimation To="#000000" Duration="00:00:00" Storyboard.TargetName="borderColor" Storyboard.TargetProperty="(SolidColorBrush.Color)" />
+                                            <ColorAnimation To="Transparent" Duration="00:00:00" Storyboard.TargetName="borderFill" Storyboard.TargetProperty="(SolidColorBrush.Color)" />
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Border BorderThickness="3">
+                                <Border.BorderBrush>
+                                    <SolidColorBrush x:Name="borderColor" Color="#006a3b" />
+                                </Border.BorderBrush>
+                                <Border.Background>
+                                    <SolidColorBrush x:Name="borderFill" Color="Transparent" />
+                                </Border.Background>
+                            </Border>
+                            <ContentControl VerticalAlignment="Center" HorizontalAlignment="Center" Content="{TemplateBinding Content}">
+                                <ContentControl.Foreground>
+                                    <SolidColorBrush x:Name="contentColor" Color="#006a3b" />
+                                </ContentControl.Foreground>
+                            </ContentControl>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <QuadraticEase x:Key="Accelerate" EasingMode="EaseIn" />
+        <QuadraticEase x:Key="Decelerate" EasingMode="EaseOut" />        
+        <Storyboard x:Name="BlockingBusyStoryboard" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Image.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="BlockingBusyBig">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="720"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Image.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="BlockingBusySmall">
+                <EasingDoubleKeyFrame KeyTime="0" Value="180"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="540"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="900"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <Grid Background="#9fd748">
+        <Image Name="BackgroundImage" VerticalAlignment="Top" />
+        <Image Source="xbox_logo.png" VerticalAlignment="Top" Height="20" Margin="00,20,280,0" />
+        <Grid Name="BlockingBusyIndicator" Visibility="{Binding Path=[17]}">
+            <Rectangle Fill="#66000000" Width="480" Height="800" />
+            <Image x:Name="BlockingBusyBig" Width="160" Height="160" Stretch="UniformToFill" Source="spinner.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <CompositeTransform />
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="BlockingBusySmall" Width="80" Height="80" Stretch="UniformToFill" Source="spinner.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <CompositeTransform />
+                </Image.RenderTransform>
+            </Image>
+        </Grid>
+        <Grid Margin="24,0,24,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="566" />
+                <RowDefinition Height="12" />
+                <RowDefinition Height="72" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" VerticalAlignment="Bottom" Text="{Binding Path=[3]}" FontSize="36" FontWeight="SemiBold"/>
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="128" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0"> <!--Offer Header-->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="140" />
+                        <ColumnDefinition Width="290" />
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="OfferImage" Grid.Column="0" Source="" Height="128" Width="128" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,0,12,12"/>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <TextBlock Text="{Binding Path=[0].OfferName}" FontSize="23"/>
+                        <TextBlock Text="{Binding Path=[0].TitleName}" FontSize="23"/>
+                        <TextBlock Text="{Binding Path=[4]}" FontSize="23"/>
+                    </StackPanel>
+                </Grid>
+                <StackPanel Grid.Row="2">
+                    <Grid> <!--Current Balance-->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding Path=[5]}" FontSize="23" MaxWidth="300"/>
+                        <TextBlock Grid.Column="1" Text="{Binding Path=[6]}" FontSize="23" HorizontalAlignment="Right" />
+                        <Image Grid.Column="2" Source="points_icon_black.png" Stretch="None" Margin="12,0,0,0" />
+                    </Grid>
+                    <Grid> <!--Offer Cost-->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding Path=[0].OfferName}" FontSize="23" MaxWidth="300"/>
+                        <TextBlock Grid.Column="1" Text="{Binding Path=[0].PointsPrice}" FontSize="23" HorizontalAlignment="Right" />
+                        <Image Grid.Column="2" Source="points_icon_black.png" Stretch="None" Margin="12,0,0,0" />
+                    </Grid>
+                </StackPanel>
+                <Rectangle Grid.Row="4" Height="2" Fill="Black" />
+                <Grid Grid.Row="6" Visibility="{Binding Path=[16]}"> <!--New Balance, not enough points -->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock  Text="{Binding Path=[7]}" FontSize="23" Foreground="Red"/>
+                    <TextBlock Grid.Column="1" Text="{Binding Path=[8]}" FontSize="23" HorizontalAlignment="Right" Foreground="Red"/>
+                    <Image Grid.Column="2" Source="points_icon_red.png" Stretch="None" Margin="12,0,0,0" />
+                </Grid>
+                <Grid Grid.Row="6" Visibility="{Binding Path=[15]}"> <!--New Balance-->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock  Text="{Binding Path=[7]}" FontSize="23" />
+                    <TextBlock Grid.Column="1" Text="{Binding Path=[8]}" FontSize="23" HorizontalAlignment="Right" />
+                    <Image Grid.Column="2" Source="points_icon_black.png" Stretch="None" Margin="12,0,0,0" />
+                </Grid>
+                <Grid Name="InsufficientPoints" Grid.Row="7" Margin="0,20,0,0" Visibility="{Binding Path=[16]}"> <!--InsufficientPointsMessage-->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="error.png" Stretch="None"/>
+                    <TextBlock Grid.Column="1" Foreground="Red" TextWrapping="Wrap" Text="{Binding Path=[10]}" FontSize="23" />
+                </Grid>
+                <!--cannot retrive balance-->
+                <Grid Name="CannotRetrivePointsBalance" Grid.Row="7" Margin="0,20,0,0" Visibility="{Binding Path=[21]}">
+                    <!--cannot retrive Message-->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="error.png" Stretch="None"/>
+                    <TextBlock Grid.Column="1" Foreground="Red" TextWrapping="Wrap" Text="{Binding Path=[9]}" FontSize="23" />
+                </Grid>
+                <!--Redeem-->
+                <TextBlock Name="RedeemText" Grid.Row="9" HorizontalAlignment="Left" FontSize="23" Foreground="Black" TextDecorations="Underline" Text="{Binding Path=[11]}" MouseLeftButtonUp="OnRedeem" />
+
+                <!--Terms Of Use-->
+                <TextBlock Name="TermsOfUseText" Grid.Row="10" TextWrapping="Wrap" VerticalAlignment="Bottom" FontSize="20" Foreground="#99000000" MouseLeftButtonUp="OnTermsOfUse"><Run x:Name="TermsOfUseRun1"/><Run x:Name="TermsOfUseRun2" TextDecorations="Underline" /><Run x:Name="TermsOfUseRun3" /></TextBlock>
+            </Grid>
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="24" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!--Add Points Button-->
+                <Button Name="AddPointsButton" Visibility="{Binding Path=[16]}" Grid.Column="0" Style="{StaticResource purchaseButton}" IsEnabled="{Binding Path=[18]}" Click="OnAddPoints">
+                    <TextBlock Text="{Binding Path=[12]}" />
+                </Button>
+                
+                <!--Buy Button-->
+                <Button Name="BuyButton" Visibility="{Binding Path=[15]}"  Grid.Column="0" Style="{StaticResource purchaseButton}" IsEnabled="{Binding Path=[18]}" Click="OnBuy">
+                    <TextBlock Text="{Binding Path=[13]}" />
+                </Button>
+                
+                <!--Cancel Button-->
+                <Button Name="CancelButton" Grid.Column="2" Style="{StaticResource purchaseButton}" Click="OnCancel" IsEnabled="{Binding Path=[19]}">
+                    <TextBlock Text="{Binding Path=[14]}" />
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

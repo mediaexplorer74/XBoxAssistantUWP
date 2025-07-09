@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="LRC.RelatedItems"
+    xmlns:lrc="clr-namespace:LRC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="800" d:DesignWidth="480">
+
+    <Grid HorizontalAlignment="Stretch" CacheMode="BitmapCache">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="RelatedItemsListBox" HorizontalAlignment="Stretch" ItemsSource="{Binding RelatedItems}" SelectionChanged="RelatedItemsListBox_SelectionChanged" d:LayoutOverrides="Height" Grid.Row="1" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <lrc:RelatedItem  Margin="0"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <!--
+            Use a stackpanel as the panel for this listbox. Otherwise it will use VirtualizingStackpanel by default
+            we have limited the number to 10, so it make sense to show everthing and make the scrolling perform better. 
+            -->
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+        <TextBlock x:Name="RelatedItemsNoItemsFound" Text="{Binding RelatedItemsNotFound}" Style="{StaticResource LRCTextGroupHeader}" TextWrapping="Wrap" />
+    </Grid>
+
+</UserControl>

@@ -1,0 +1,50 @@
+﻿<ResourceDictionary    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"    
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:LRC"
+    xmlns:delay="clr-namespace:Delay;assembly=PhonePerformance"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+    >
+    <DataTemplate x:Key="EpisodeTemplate">
+        <Grid Margin="12,0" Height="108" CacheMode="BitmapCache">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel d:LayoutOverrides="Width" Grid.Column="1" Orientation="Horizontal" Grid.Row="1">
+                <TextBlock Text="{Binding EpisodeNumber}" TextAlignment="Left" FontFamily="Segoe WP" FontSize="20" Foreground="#99FFFFFF" Margin="0,0,12,0"/>
+            </StackPanel>
+            <TextBlock Text="{Binding Title}" TextAlignment="Left" FontFamily="Segoe WP SemiLight" FontSize="42" Foreground="White" d:LayoutOverrides="HorizontalAlignment" Margin="0,-12,0,0" Grid.Column="1"/>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="TwoPerRowTemplate">
+        <Grid Width="210" Margin="12,0,0,12" CacheMode="BitmapCache" Height="344">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="282"/>
+                <RowDefinition Height="62"/>
+            </Grid.RowDefinitions>
+            <Image delay:LowProfileImageLoader.UriSource="{Binding DetailsImageUrl}" delay:LowProfileImageLoader.DefaultUriSource="{Binding Converter={StaticResource MediaItemBoxArtConverter}}" Stretch="Uniform"/>
+            <TextBlock Text="{Binding Title}" FontSize="22" FontFamily="Segoe WP" Foreground="White" TextWrapping="Wrap" LineStackingStrategy="BlockLineHeight" LineHeight="26" Width="210" Margin="0,6,0,4" Grid.Row="1" Height="52"/>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="TwoPerRowTvTemplate">
+        <Grid Width="210" Margin="12,0,0,12" CacheMode="BitmapCache" Height="272">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="210"/>
+                <RowDefinition Height="62"/>
+            </Grid.RowDefinitions>
+            <Image delay:LowProfileImageLoader.UriSource="{Binding DetailsImageUrl}" delay:LowProfileImageLoader.DefaultUriSource="{Binding Converter={StaticResource MediaItemBoxArtConverter}}" Stretch="Uniform"/>
+            <TextBlock Text="{Binding Title}" FontSize="22" FontFamily="Segoe WP" Foreground="White" TextWrapping="Wrap" LineStackingStrategy="BlockLineHeight" LineHeight="26" Width="210" Grid.Row="1" Margin="0,6,0,4" Height="52"/>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ListTemplate">
+        <TextBlock Text="{Binding Title}" Margin="12,0,12,16" Foreground="White" FontSize="42" FontFamily="Segoe WP SemiLight" Height="58"/>
+    </DataTemplate>
+</ResourceDictionary>

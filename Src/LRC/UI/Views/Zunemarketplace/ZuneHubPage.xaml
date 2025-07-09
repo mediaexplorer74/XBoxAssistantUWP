@@ -1,0 +1,47 @@
+﻿<lrc:LrcPage 
+    x:Class="LRC.ZuneHubPage"
+    xmlns:lrc="clr-namespace:LRC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:converter="clr-namespace:LRC"
+    xmlns:delay="clr-namespace:Delay;assembly=PhonePerformance"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True"
+    toolkit:TiltEffect.IsTiltEnabled="True"
+    SupportedOrientations="Portrait" Orientation="Portrait">
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="PageContents" Background="Black" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Vertical" Margin="12,17,0,28" Grid.Row="0" MinHeight="130">
+                <TextBlock x:Name="PageTitle" Text="{Binding ItemList.Title, Converter={StaticResource PageTitleConverter}}" Margin="12,0" Style="{StaticResource LRCTextPivotTitle}"/>
+                <TextBlock x:Name="PageSubTitle" Text="{Binding ItemList.SubTitle}" Margin="9,-7,0,0" Style="{StaticResource LRCTextPivotHeader}"/>
+            </StackPanel>
+
+
+            <lrc:BusyIndicator Grid.Row="1" x:Name="BusyIndicator" Style="{StaticResource BusyIndicatorStyle}" VerticalAlignment="{Binding ItemList.BusyIndicatorVerticalAlignment}" BusyText="{Binding Strings.BusyIndicator_LoadingText, Source={StaticResource ResourceString}}" IsBusy="{Binding IsBusy}" OverlayVisiblity="Collapsed">
+                <Grid x:Name="ContentPanel" Margin="12,0" >
+                    <lrc:ListBoxWithCompression MinHeight="493" x:Name="ListBox" VerticalAlignment="Stretch" ItemsSource="{Binding ItemList.Items}" Loaded="VideoList_Loaded" SelectionChanged="ListBox_SelectionChanged"/>
+                </Grid>
+            </lrc:BusyIndicator>
+        </Grid>
+
+        <!-- Media Bar -->
+        <converter:MediaBar x:Name="MediaControls" Grid.Row="1"/>
+    </Grid>
+</lrc:LrcPage>

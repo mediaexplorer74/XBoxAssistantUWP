@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="LRC.PlayNow"
+    xmlns:lrc="clr-namespace:LRC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:delay="clr-namespace:Delay;assembly=PhonePerformance"
+    mc:Ignorable="d"
+    BorderThickness="0"
+    Padding="0,0,0,0"
+    toolkit:TiltEffect.IsTiltEnabled="True" Foreground="{x:Null}">
+
+    <ScrollViewer x:Name="ScrollViewerWrapper" MaxHeight="600" HorizontalAlignment="Stretch" Foreground="{x:Null}" >
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="Collapsed"/>
+                <VisualState x:Name="Expanded">
+                    <Storyboard>
+                        <DoubleAnimation Duration="0" To="2000" Storyboard.TargetProperty="(FrameworkElement.MaxHeight)" Storyboard.TargetName="Description" d:IsOptimized="True"/>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="MoreButton">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Collapsed</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="LessButton">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Visible</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid x:Name="MovieRootPanel">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid x:Name="MovieGrid" d:LayoutOverrides="Width, Height" Margin="0,0,0,24">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="{Binding SearchItem.ImageSize, Converter={StaticResource HeightScalingConverter}, ConverterParameter=130}" Margin="12,0,0,0">
+                    <Image x:Name="MovieImage" VerticalAlignment="Top" Stretch="Uniform" delay:LowProfileImageLoader.UriSource="{Binding SearchItem.ImageUrl}" delay:LowProfileImageLoader.DefaultUriSource="{Binding SearchItem, Converter={StaticResource SearchItemBoxArtConverter}}"/>
+                </Grid>
+                <StackPanel Orientation="Vertical" Grid.Column="1">
+                    <TextBlock x:Name="MovieDetailsName" Text="{Binding SearchItem.Title}" Style="{StaticResource LRCTextPrimaryTitle}" MaxHeight="114" Margin="12,-12,0,0" />
+                    <TextBlock x:Name="MovieDetailsReleaseDetails" Text="{Binding SearchItem.ExtendedReleaseDetails}" Style="{StaticResource LRCTextSecondaryTitle}" Margin="12,0,0,0" />
+                    <Grid Margin="12,0,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <lrc:StarRatingControl x:Name="StarRating" UserRating="{Binding SearchItem.AverageUserRating}" UserCount="{Binding SearchItem.UserRatingCount}" Height="24" MaxWidth="120" Margin="0,12,12,0" Visibility="{Binding SearchItem.AverageUserRating, Converter={StaticResource NullToVisibilityConverter}, ConverterParameter=1}" />
+                        <lrc:CriticRatingControl x:Name="CriticRating" CriticRating="{Binding SearchItem.CriticRating}" Height="24" Grid.Column="1" Margin="0,12,0,0" Visibility="{Binding SearchItem.CriticRating, Converter={StaticResource NullToVisibilityConverter}, ConverterParameter=2}" />
+                    </Grid>
+                </StackPanel>
+            </Grid>
+            <Grid d:LayoutOverrides="Width, Height" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" d:LayoutOverrides="Height" Grid.Row="2" Margin="0,0,0,4">
+                    <Button x:Name="MoreButton" Content="{Binding Strings.NowPlaying_MoreInfo, Source={StaticResource ResourceString}}" Style="{StaticResource LRCTertiaryButton}" Click="MoreButton_Click" Visibility="Collapsed" />
+                    <Button x:Name="LessButton" Content="{Binding Strings.NowPlaying_LessInfo, Source={StaticResource ResourceString}}" Style="{StaticResource LRCTertiaryButton}" Click="LessButton_Click" Visibility="Collapsed" />
+                </StackPanel>
+                <TextBlock x:Name="Description" Text="{Binding SearchItem.Description}" TextWrapping="Wrap" Style="{StaticResource LRCTextDescription}" Grid.Row="1" SizeChanged="Description_SizeChanged" MaxHeight="88" />
+                <TextBlock x:Name="DescriptionTitle" Text="{Binding Strings.Synopsis_Header, Source={StaticResource ResourceString}}" Style="{StaticResource LRCTextGroupHeader}" Margin="12,0,12,12" />
+
+            </Grid>
+            <TextBlock x:Name="playOnXboxTitle" Text="{Binding Strings.Search_PlayOnXbox, Source={StaticResource ResourceString}}" Style="{StaticResource LRCTextGroupHeader}" Margin="12,0,12,12" Visibility="{Binding SearchItem.ShowProviders, Converter={StaticResource VisibilityConverter}}" Grid.Row="2" />
+            <ItemsControl x:Name="ProvidersList" ItemsSource="{Binding SearchItem.Providers}" Visibility="{Binding SearchItem.ShowProviders, Converter={StaticResource VisibilityConverter}}" Grid.Row="3">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <lrc:ProviderButton x:Name="ProviderButton" DataContext="{Binding}" Click="ProviderButton_Click"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <toolkit:WrapPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+
+        </Grid>
+    </ScrollViewer>
+
+</UserControl>

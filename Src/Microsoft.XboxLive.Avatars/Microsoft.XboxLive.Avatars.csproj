@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{567E9804-3A30-4871-B927-FB4B38D81331}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.XboxLive.Avatars</RootNamespace>
+    <AssemblyName>Microsoft.XboxLive.Avatars</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.15063.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <PlatformTarget>ARM</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <PlatformTarget>ARM</PlatformTarget>
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM64'">
+    <PlatformTarget>ARM64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM64'">
+    <PlatformTarget>ARM64</PlatformTarget>
+    <OutputPath>bin\ARM64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Internal\Animations\Animation.cs" />
+    <Compile Include="Internal\Animations\AnimationCursor.cs" />
+    <Compile Include="Internal\Animations\AnimationPlayMode.cs" />
+    <Compile Include="Internal\Animations\AvatarAnimation.cs" />
+    <Compile Include="Internal\Animations\AvatarGetAnimation.cs" />
+    <Compile Include="Internal\AssetCacheKey.cs" />
+    <Compile Include="Internal\AssetDataManager.cs" />
+    <Compile Include="Internal\AssetGuidType.cs" />
+    <Compile Include="Internal\AssetLoader.cs" />
+    <Compile Include="Internal\AssetLocalCache.cs" />
+    <Compile Include="Internal\AssetMatchingMode.cs" />
+    <Compile Include="Internal\AssetsAsyncLoadContext.cs" />
+    <Compile Include="Internal\AssetsAsyncLoadContextCommon.cs" />
+    <Compile Include="Internal\AssetStorageDataProvider.cs" />
+    <Compile Include="Internal\AssetSubcategory.cs" />
+    <Compile Include="Internal\Assets\AvatarCarryable.cs" />
+    <Compile Include="Internal\Assets\AvatarComponent.cs" />
+    <Compile Include="Internal\Assets\Bone.cs" />
+    <Compile Include="Internal\Assets\ComponentColors.cs" />
+    <Compile Include="Internal\Assets\ComponentColorTable.cs" />
+    <Compile Include="Internal\Assets\ComponentInfo.cs" />
+    <Compile Include="Internal\Assets\ComponentManifest.cs" />
+    <Compile Include="Internal\Assets\Joint.cs" />
+    <Compile Include="Internal\Assets\Limits.cs" />
+    <Compile Include="Internal\Assets\Pose.cs" />
+    <Compile Include="Internal\Assets\ShaderConstantInt.cs" />
+    <Compile Include="Internal\Assets\ShaderConstantOverride.cs" />
+    <Compile Include="Internal\Assets\ShaderConstantValue.cs" />
+    <Compile Include="Internal\Assets\ShaderId.cs" />
+    <Compile Include="Internal\Assets\ShaderInstance.cs" />
+    <Compile Include="Internal\Assets\ShaderParameter.cs" />
+    <Compile Include="Internal\Assets\ShaderParameterData.cs" />
+    <Compile Include="Internal\Assets\ShaderParameterType.cs" />
+    <Compile Include="Internal\Assets\ShaderParameterUsage.cs" />
+    <Compile Include="Internal\Assets\Skeleton.cs" />
+    <Compile Include="Internal\Assets\TextureInstance.cs" />
+    <Compile Include="Internal\Assets\TextureWrapModes.cs" />
+    <Compile Include="Internal\Assets\TriangleBatch.cs" />
+    <Compile Include="Internal\AssetUrlDataProvider.cs" />
+    <Compile Include="Internal\AssetWebRequestProvider.cs" />
+    <Compile Include="Internal\Avatar.cs" />
+    <Compile Include="Internal\AvatarAssetCache.cs" />
+    <Compile Include="Internal\AvatarAssetCacheManager.cs" />
+    <Compile Include="Internal\AvatarAssetDependency.cs" />
+    <Compile Include="Internal\AvatarAssetsDependenciesResolver.cs" />
+    <Compile Include="Internal\AvatarAssetsPack.cs" />
+    <Compile Include="Internal\AvatarComponentMasks.cs" />
+    <Compile Include="Internal\AvatarComponentType.cs" />
+    <Compile Include="Internal\AvatarException.cs" />
+    <Compile Include="Internal\AvatarExpression.cs" />
+    <Compile Include="Internal\AvatarEyebrowTextureIndex.cs" />
+    <Compile Include="Internal\AvatarGender.cs" />
+    <Compile Include="Internal\AvatarLeftEyeTextureIndex.cs" />
+    <Compile Include="Internal\AvatarManifest.cs" />
+    <Compile Include="Internal\AvatarManifestCreator.cs" />
+    <Compile Include="Internal\AvatarMouthTextureIndex.cs" />
+    <Compile Include="Internal\AvatarRightEyeTextureIndex.cs" />
+    <Compile Include="Internal\AvatarSkeletonScaling.cs" />
+    <Compile Include="Internal\AvatarSkeletonScalingV2.cs" />
+    <Compile Include="Internal\AvatarStreamFactory.cs" />
+    <Compile Include="Internal\BinaryAssetType.cs" />
+    <Compile Include="Internal\BlendShapeType.cs" />
+    <Compile Include="Internal\CachedAsset.cs" />
+    <Compile Include="Internal\ComponentCategories.cs" />
+    <Compile Include="Internal\CoordinateSystem.cs" />
+    <Compile Include="Internal\CreateRandomManifestCompletedEventArgs.cs" />
+    <Compile Include="Internal\CreateRandomManifestCompletedEventHandler.cs" />
+    <Compile Include="Internal\DataIdType.cs" />
+    <Compile Include="Internal\DataManagerBase.cs" />
+    <Compile Include="Internal\DataProvider.cs" />
+    <Compile Include="Internal\DataRequest.cs" />
+    <Compile Include="Internal\DataRequestCompletedEventArgs.cs" />
+    <Compile Include="Internal\DataRequestGuid.cs" />
+    <Compile Include="Internal\DataRequestString.cs" />
+    <Compile Include="Internal\DebugLog.cs" />
+    <Compile Include="Internal\DownloadPriority.cs" />
+    <Compile Include="Internal\DownloadProgressEventArgs.cs" />
+    <Compile Include="Internal\DownloadProgressEventHandler.cs" />
+    <Compile Include="Internal\DownloadRequestEventHandler.cs" />
+    <Compile Include="Internal\DynamicColorType.cs" />
+    <Compile Include="Internal\DynamicTextureType.cs" />
+    <Compile Include="Internal\EmbeddedAssetDataProvider.cs" />
+    <Compile Include="Internal\EndianSwapper.cs" />
+    <Compile Include="Internal\ErrorLog.cs" />
+    <Compile Include="Internal\GetAvatarAnimationAsync.cs" />
+    <Compile Include="Internal\GetAvatarAnimationEventArgs.cs" />
+    <Compile Include="Internal\GetAvatarAssetsAsync.cs" />
+    <Compile Include="Internal\GetAvatarAssetsEventArgs.cs" />
+    <Compile Include="Internal\GetAvatarCarryableAsync.cs" />
+    <Compile Include="Internal\GetAvatarCarryableEventArgs.cs" />
+    <Compile Include="Internal\GetAvatarComponentAsync.cs" />
+    <Compile Include="Internal\GetAvatarComponentEventArgs.cs" />
+    <Compile Include="Internal\GetComponentColorTableAsync.cs" />
+    <Compile Include="Internal\GetComponentColorTableEventArgs.cs" />
+    <Compile Include="Internal\IDataManager.cs" />
+    <Compile Include="Internal\IDataProvider.cs" />
+    <Compile Include="Internal\IncreaseQuotaEventArgs.cs" />
+    <Compile Include="Internal\IResourceFactory.cs" />
+    <Compile Include="Internal\IsolatedStorageAccess.cs" />
+    <Compile Include="Internal\LocalCacheIndex.cs" />
+    <Compile Include="Internal\LocalCacheRecord.cs" />
+    <Compile Include="Internal\LocalCacheSortRecord.cs" />
+    <Compile Include="Internal\Log.cs" />
+    <Compile Include="Internal\LogEventArgs.cs" />
+    <Compile Include="Internal\Logger.cs" />
+    <Compile Include="Internal\ManifestUpdateCompletedEventArgs.cs" />
+    <Compile Include="Internal\ManifestUpdateCompletedEventHandler.cs" />
+    <Compile Include="Internal\ManifestUpdateDependenciesCompletedEventHandler.cs" />
+    <Compile Include="Internal\NetDataProvider.cs" />
+    <Compile Include="Internal\NoAvatarManifestException.cs" />
+    <Compile Include="Internal\Parsers\AssetAnimationParser.cs" />
+    <Compile Include="Internal\Parsers\AssetCustomColorTableParser.cs" />
+    <Compile Include="Internal\Parsers\AssetMetadataParser.cs" />
+    <Compile Include="Internal\Parsers\AssetModelParser.cs" />
+    <Compile Include="Internal\Parsers\AssetShapeOverrideParser.cs" />
+    <Compile Include="Internal\Parsers\AssetSkeletonParser.cs" />
+    <Compile Include="Internal\Parsers\AssetTextureParser.cs" />
+    <Compile Include="Internal\Parsers\AssetTriangleBatchParser.cs" />
+    <Compile Include="Internal\Parsers\AssetTriangleOverrideParser.cs" />
+    <Compile Include="Internal\Parsers\AssetVertexOverrideParser.cs" />
+    <Compile Include="Internal\Parsers\BitStream.cs" />
+    <Compile Include="Internal\Parsers\BlockIterator.cs" />
+    <Compile Include="Internal\Parsers\ByteStreamUnpacker`1.cs" />
+    <Compile Include="Internal\Parsers\DataUnpackerGeneric`1.cs" />
+    <Compile Include="Internal\Parsers\DecompressStream.cs" />
+    <Compile Include="Internal\Parsers\EndianStream.cs" />
+    <Compile Include="Internal\Parsers\IntegerDataUnpacker.cs" />
+    <Compile Include="Internal\Parsers\InterleavedDataUnpacker`2.cs" />
+    <Compile Include="Internal\Parsers\LZXDeflate.cs" />
+    <Compile Include="Internal\Parsers\QuaternionDataUnpacker.cs" />
+    <Compile Include="Internal\Parsers\SmallDataUnpacker`1.cs" />
+    <Compile Include="Internal\Parsers\StructuredBinary.cs" />
+    <Compile Include="Internal\Parsers\Vector3dDataUnpacker.cs" />
+    <Compile Include="Internal\Software\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\StructuredBinaryBlockId.cs" />
+    <Compile Include="Internal\SyncDownloadContext.cs" />
+    <Compile Include="Internal\Utilities.cs" />
+    <Compile Include="Internal\Version1\AvatarAssetCacheV1.cs" />
+    <Compile Include="Internal\Version1\AvatarGetData.cs" />
+    <Compile Include="Internal\Version1\AvatarManifestV1.cs" />
+    <Compile Include="Internal\Version1\BinaryAsset.cs" />
+    <Compile Include="Internal\Version1\BinaryAssetAnimation.cs" />
+    <Compile Include="Internal\Version1\BinaryAssetBlendShape.cs" />
+    <Compile Include="Internal\Version1\BinaryAssetCarryable.cs" />
+    <Compile Include="Internal\Version1\BinaryAssetColorTable.cs" />
+    <Compile Include="Internal\Version1\BinaryAssetModel.cs" />
+    <Compile Include="Internal\Version1\BinaryAssetParseContext.cs" />
+    <Compile Include="Internal\Version1\BinaryAssetParserType.cs" />
+    <Compile Include="Internal\Version1\BinaryAssetShapeOverride.cs" />
+    <Compile Include="Internal\Version1\BinaryAssetTexture.cs" />
+    <Compile Include="Internal\Version1\CachedBinaryAsset.cs" />
+    <Compile Include="Internal\Version1\CachedBinaryAssetAnimation.cs" />
+    <Compile Include="Internal\Version1\CachedBinaryAssetBlendShape.cs" />
+    <Compile Include="Internal\Version1\CachedBinaryAssetCarryable.cs" />
+    <Compile Include="Internal\Version1\CachedBinaryAssetColorTable.cs" />
+    <Compile Include="Internal\Version1\CachedBinaryAssetModel.cs" />
+    <Compile Include="Internal\Version1\CachedBinaryAssetShapeOverride.cs" />
+    <Compile Include="Internal\Version1\CachedBinaryAssetTexture.cs" />
+    <Compile Include="Internal\Version1\ComponentDescription.cs" />
+    <Compile Include="Internal\Version1\EmbeddedSkeleton.cs" />
+    <Compile Include="Internal\Version1\RandomAvatar.cs" />
+    <Compile Include="Internal\WebClientsManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources.cs" />
+    <EmbeddedResource Include="Internal\Software\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Microsoft.XboxLive.Avatars.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.2.14</Version>
+    </PackageReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

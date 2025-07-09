@@ -1,0 +1,1254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="PARENTAL_RATING_ESRB_E10" xml:space="preserve">
+    <value>Everyone 10+</value>
+  </data>
+  <data name="PARENTAL_RATING_FINLAND_K11" xml:space="preserve">
+    <value>K-11</value>
+  </data>
+  <data name="PARENTAL_RATING_FINLAND_K13" xml:space="preserve">
+    <value>K-13</value>
+  </data>
+  <data name="PARENTAL_RATING_FINLAND_K15" xml:space="preserve">
+    <value>K-15</value>
+  </data>
+  <data name="PARENTAL_RATING_FINLAND_K18" xml:space="preserve">
+    <value>K-18</value>
+  </data>
+  <data name="PARENTAL_RATING_MPAA_PG13" xml:space="preserve">
+    <value>PG-13</value>
+  </data>
+  <data name="PARENTAL_RATING_MPAA_NC17" xml:space="preserve">
+    <value>NC-17</value>
+  </data>
+  <data name="PARENTAL_RATING_KMRB_18" xml:space="preserve">
+    <value>GRB 18+</value>
+  </data>
+  <data name="PARENTAL_RATING_KMRB_12" xml:space="preserve">
+    <value>GRB 12+</value>
+  </data>
+  <data name="PARENTAL_RATING_KMRB_15" xml:space="preserve">
+    <value>GRB 15+</value>
+  </data>
+  <data name="PARENTAL_RATING_OFLC_NZ_PG" xml:space="preserve">
+    <value>Parental Guidance Recommended</value>
+  </data>
+  <data name="PARENTAL_RATING_OFLC_AU_G8" xml:space="preserve">
+    <value>Parental Guidance Recommended</value>
+  </data>
+  <data name="PARENTAL_RATING_OFLC_AU_PG" xml:space="preserve">
+    <value>PG - Parental Guidance</value>
+  </data>
+  <data name="PARENTAL_RATING_NORWAY_11" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="PARENTAL_RATING_NORWAY_15" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="PARENTAL_RATING_NORWAY_18" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="PARENTAL_RATING_FRANCE_12" xml:space="preserve">
+    <value>-12</value>
+  </data>
+  <data name="PARENTAL_RATING_FRANCE_16" xml:space="preserve">
+    <value>-16</value>
+  </data>
+  <data name="PARENTAL_RATING_FRANCE_18" xml:space="preserve">
+    <value>-18</value>
+  </data>
+  <data name="PARENTAL_RATING_GERMANY_FSK18" xml:space="preserve">
+    <value>FSK 18</value>
+  </data>
+  <data name="PARENTAL_RATING_GERMANY_FSK12" xml:space="preserve">
+    <value>FSK 12</value>
+  </data>
+  <data name="PARENTAL_RATING_GERMANY_FSK16" xml:space="preserve">
+    <value>FSK 16</value>
+  </data>
+  <data name="PARENTAL_RATING_TAIWAN_GENERAL" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="PARENTAL_RATING_AUSTRALIATV_MA15" xml:space="preserve">
+    <value>MA15+</value>
+  </data>
+  <data name="PARENTAL_RATING_AUSTRALIATV_AV15" xml:space="preserve">
+    <value>AV15+</value>
+  </data>
+  <data name="PARENTAL_RATING_FINLAND_K3" xml:space="preserve">
+    <value>K-3</value>
+  </data>
+  <data name="PARENTAL_RATING_FINLAND_K7" xml:space="preserve">
+    <value>K-7</value>
+  </data>
+  <data name="PARENTAL_RATING_FINLAND_ST" xml:space="preserve">
+    <value>S/T</value>
+  </data>
+  <data name="PARENTAL_RATING_ITALYTV_ADULT" xml:space="preserve">
+    <value>Red</value>
+  </data>
+  <data name="PARENTAL_RATING_ITALYTV_MINOR" xml:space="preserve">
+    <value>Green</value>
+  </data>
+  <data name="PARENTAL_RATING_NETHERLANDS_12" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="PARENTAL_RATING_NETHERLANDS_16" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="PARENTAL_RATING_NETHERLANDS_AL" xml:space="preserve">
+    <value>AL</value>
+  </data>
+  <data name="PARENTAL_RATING_AUSTRALIATV_PG" xml:space="preserve">
+    <value>PG</value>
+  </data>
+  <data name="PARENTAL_RATING_AUSTRALIA_MA15" xml:space="preserve">
+    <value>MA15+</value>
+  </data>
+  <data name="PARENTAL_RATING_TAIWAN_RESTRICTED" xml:space="preserve">
+    <value>Restricted</value>
+  </data>
+  <data name="PARENTAL_RATING_SPAIN_18" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="PARENTAL_RATING_SPAIN_13" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="PARENTAL_RATING_SPAIN_15" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="PARENTAL_RATING_SPAIN_16" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="PARENTAL_RATING_SPAIN_TP" xml:space="preserve">
+    <value>TP/ALL</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_320060" xml:space="preserve">
+    <value>Sex</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_320040" xml:space="preserve">
+    <value>Violence</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_320020" xml:space="preserve">
+    <value>Drug and Alcohol Abuse</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_320050" xml:space="preserve">
+    <value>Coarse Language</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_320030" xml:space="preserve">
+    <value>Fear</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_320010" xml:space="preserve">
+    <value>Discrimination</value>
+  </data>
+  <data name="PARENTAL_RATING_PEGIBBFC_3" xml:space="preserve">
+    <value>PEGI 3</value>
+  </data>
+  <data name="PARENTAL_RATING_PEGIBBFC_7" xml:space="preserve">
+    <value>PEGI 7</value>
+  </data>
+  <data name="PARENTAL_RATING_PEGIBBFC_4" xml:space="preserve">
+    <value>BBFC U</value>
+  </data>
+  <data name="PARENTAL_RATING_PEGIBBFC_8" xml:space="preserve">
+    <value>BBFC PG</value>
+  </data>
+  <data name="PARENTAL_RATING_SINGAPORE_AGE_ADVISORY" xml:space="preserve">
+    <value>Age Advisory</value>
+  </data>
+  <data name="PARENTAL_RATING_PEGIBBFC_12" xml:space="preserve">
+    <value>PEGI 12 / BBFC 12</value>
+  </data>
+  <data name="PARENTAL_RATING_PEGIBBFC_16" xml:space="preserve">
+    <value>PEGI 16</value>
+  </data>
+  <data name="PARENTAL_RATING_PEGIBBFC_15" xml:space="preserve">
+    <value>BBFC 15</value>
+  </data>
+  <data name="PARENTAL_RATING_PEGIBBFC_18" xml:space="preserve">
+    <value>PEGI 18 / BBFC 18</value>
+  </data>
+  <data name="PARENTAL_RATING_EXPLICIT_EXPLICIT" xml:space="preserve">
+    <value>EXPLICIT</value>
+  </data>
+  <data name="PARENTAL_RATING_NEW_ZEALAND_MATURE" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="PARENTAL_RATING_CANADATV_C8" xml:space="preserve">
+    <value>C8</value>
+  </data>
+  <data name="PARENTAL_RATING_CANADATV_PG" xml:space="preserve">
+    <value>PG</value>
+  </data>
+  <data name="PARENTAL_RATING_CANADATV_14" xml:space="preserve">
+    <value>14+</value>
+  </data>
+  <data name="PARENTAL_RATING_CANADATV_18" xml:space="preserve">
+    <value>18+</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_5002" xml:space="preserve">
+    <value>Drugs</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_5003" xml:space="preserve">
+    <value>Fear</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_5000" xml:space="preserve">
+    <value>Bad Language</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_5001" xml:space="preserve">
+    <value>Discrimination</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_5006" xml:space="preserve">
+    <value>Gambling</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_5004" xml:space="preserve">
+    <value>Sex</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_5005" xml:space="preserve">
+    <value>Violence</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_6001" xml:space="preserve">
+    <value>Discrimination</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_6000" xml:space="preserve">
+    <value>Bad Language</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_6003" xml:space="preserve">
+    <value>Fear</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_6002" xml:space="preserve">
+    <value>Drugs</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_6005" xml:space="preserve">
+    <value>Violence</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_6004" xml:space="preserve">
+    <value>Sex</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_6006" xml:space="preserve">
+    <value>Gambling</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_4999" xml:space="preserve">
+    <value>CWS Sample RatingDescriptor</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_4003" xml:space="preserve">
+    <value>Fear</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_4002" xml:space="preserve">
+    <value>Drugs</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_4001" xml:space="preserve">
+    <value>Discrimination</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_4000" xml:space="preserve">
+    <value>Bad Language</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_4006" xml:space="preserve">
+    <value>Gambling</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_4005" xml:space="preserve">
+    <value>Violence</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_4004" xml:space="preserve">
+    <value>Sex</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_2283" xml:space="preserve">
+    <value>Sample RatingDescriptor</value>
+  </data>
+  <data name="PARENTAL_RATING_SINGAPORE_GENERAL" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_14002" xml:space="preserve">
+    <value>Drugs</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_14003" xml:space="preserve">
+    <value>Fear</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_14000" xml:space="preserve">
+    <value>Bad Language</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_14001" xml:space="preserve">
+    <value>Discrimination</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_14006" xml:space="preserve">
+    <value>Gambling</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_14004" xml:space="preserve">
+    <value>Sex</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_14005" xml:space="preserve">
+    <value>Violence</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_10010" xml:space="preserve">
+    <value>Violence</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_10008" xml:space="preserve">
+    <value>Rape</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_10009" xml:space="preserve">
+    <value>Strong Sexual Content</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_10006" xml:space="preserve">
+    <value>Mild Violence</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_10007" xml:space="preserve">
+    <value>Nudity</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_10004" xml:space="preserve">
+    <value>Graphic Violence</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_10005" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_10002" xml:space="preserve">
+    <value>Brief Nudity</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_10003" xml:space="preserve">
+    <value>Graphic Language</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_10001" xml:space="preserve">
+    <value>Adult Situations</value>
+  </data>
+  <data name="PARENTAL_RATING_USK_NO_YOUTH" xml:space="preserve">
+    <value>USK 18</value>
+  </data>
+  <data name="PARENTAL_RATING_IRELAND_15A" xml:space="preserve">
+    <value>15A</value>
+  </data>
+  <data name="PARENTAL_RATING_IRELAND_12A" xml:space="preserve">
+    <value>12A</value>
+  </data>
+  <data name="PARENTAL_RATING_JAPAN_8" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="PARENTAL_RATING_JAPAN_1" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="PARENTAL_RATING_JAPAN_2" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="PARENTAL_RATING_JAPAN_3" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="PARENTAL_RATING_JAPAN_4" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="PARENTAL_RATING_JAPAN_5" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="PARENTAL_RATING_JAPAN_6" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="PARENTAL_RATING_JAPAN_7" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="PARENTAL_RATING_MEXICO_A" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="PARENTAL_RATING_MEXICO_C" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="PARENTAL_RATING_MEXICO_B" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="PARENTAL_RATING_MEXICO_D" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="PARENTAL_RATING_MEXICO_AA" xml:space="preserve">
+    <value>AA</value>
+  </data>
+  <data name="PARENTAL_RATING_UK_U" xml:space="preserve">
+    <value>U</value>
+  </data>
+  <data name="PARENTAL_RATING_GAME" xml:space="preserve">
+    <value>Rating: %s</value>
+  </data>
+  <data name="PARENTAL_RATING_AUSTRALIA_M" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="PARENTAL_RATING_AUSTRALIA_E" xml:space="preserve">
+    <value>E</value>
+  </data>
+  <data name="PARENTAL_RATING_AUSTRALIA_G" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="PARENTAL_RATING_AUSTRIA_14" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="PARENTAL_RATING_AUSTRIA_16" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="PARENTAL_RATING_AUSTRIA_10" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="PARENTAL_RATING_AUSTRIA_12" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="PARENTAL_RATING_AUSTRIA_18" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="PARENTAL_RATING_BRAZIL_12" xml:space="preserve">
+    <value>DJCTQ 12</value>
+  </data>
+  <data name="PARENTAL_RATING_BRAZIL_10" xml:space="preserve">
+    <value>DJCTQ 10</value>
+  </data>
+  <data name="PARENTAL_RATING_BRAZIL_16" xml:space="preserve">
+    <value>DJCTQ 16</value>
+  </data>
+  <data name="PARENTAL_RATING_BRAZIL_14" xml:space="preserve">
+    <value>DJCTQ 14</value>
+  </data>
+  <data name="PARENTAL_RATING_BRAZIL_18" xml:space="preserve">
+    <value>DJCTQ 18</value>
+  </data>
+  <data name="PARENTAL_RATING_BRAZIL_ER" xml:space="preserve">
+    <value>DJCTQ ER</value>
+  </data>
+  <data name="PARENTAL_RATING_DENMARK_A" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="PARENTAL_RATING_DENMARK_7" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="PARENTAL_RATING_NETHERLANDS_9" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="PARENTAL_RATING_NETHERLANDS_6" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="PARENTAL_RATING_KMRB_ALL" xml:space="preserve">
+    <value>GRB All</value>
+  </data>
+  <data name="PARENTAL_RATING_BRAZILTV_ER" xml:space="preserve">
+    <value>ER</value>
+  </data>
+  <data name="PARENTAL_RATING_BRAZILTV_10" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="PARENTAL_RATING_BRAZILTV_12" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="PARENTAL_RATING_BRAZILTV_14" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="PARENTAL_RATING_BRAZILTV_16" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="PARENTAL_RATING_BRAZILTV_18" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="PARENTAL_RATING_PEGI_7" xml:space="preserve">
+    <value>PEGI 7</value>
+  </data>
+  <data name="PARENTAL_RATING_PEGI_6" xml:space="preserve">
+    <value>PEGI 6</value>
+  </data>
+  <data name="PARENTAL_RATING_PEGI_4" xml:space="preserve">
+    <value>PEGI 4</value>
+  </data>
+  <data name="PARENTAL_RATING_PEGI_3" xml:space="preserve">
+    <value>PEGI 3</value>
+  </data>
+  <data name="PARENTAL_RATING_ESRB_AO" xml:space="preserve">
+    <value>Adults Only</value>
+  </data>
+  <data name="PARENTAL_RATING_ESRB_EC" xml:space="preserve">
+    <value>Early Childhood</value>
+  </data>
+  <data name="PARENTAL_RATING_ESRB_RP" xml:space="preserve">
+    <value>Rating Pending or Unrated</value>
+  </data>
+  <data name="PARENTAL_RATING_AUSTRIA_6" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="PARENTAL_RATING_AUSTRIA_0" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="PARENTAL_RATING_SWEDEN_BTL" xml:space="preserve">
+    <value>Btl</value>
+  </data>
+  <data name="PARENTAL_RATING_UK_R18" xml:space="preserve">
+    <value>R18</value>
+  </data>
+  <data name="PARENTAL_RATING_UK_12A" xml:space="preserve">
+    <value>12A</value>
+  </data>
+  <data name="PARENTAL_RATING_USTV_G" xml:space="preserve">
+    <value>TV-G</value>
+  </data>
+  <data name="PARENTAL_RATING_USTV_Y" xml:space="preserve">
+    <value>TV-Y</value>
+  </data>
+  <data name="PARENTAL_RATING_USK_12" xml:space="preserve">
+    <value>USK 12</value>
+  </data>
+  <data name="PARENTAL_RATING_USK_16" xml:space="preserve">
+    <value>USK 16</value>
+  </data>
+  <data name="PARENTAL_RATING_NORWAY_7" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="PARENTAL_RATING_NORWAY_A" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="PARENTAL_RATING_AUSTRALIATV_M" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="PARENTAL_RATING_AUSTRALIATV_C" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="PARENTAL_RATING_AUSTRALIATV_G" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="PARENTAL_RATING_AUSTRALIATV_P" xml:space="preserve">
+    <value>P</value>
+  </data>
+  <data name="PARENTAL_RATING_AUSTRALIA_X18" xml:space="preserve">
+    <value>X18+</value>
+  </data>
+  <data name="PARENTAL_RATING_AUSTRALIA_R18" xml:space="preserve">
+    <value>MA18+</value>
+  </data>
+  <data name="PARENTAL_RATING_OFLC_NZ_R13" xml:space="preserve">
+    <value>Restricted to 13+</value>
+  </data>
+  <data name="PARENTAL_RATING_OFLC_NZ_R16" xml:space="preserve">
+    <value>Restricted to 16+</value>
+  </data>
+  <data name="PARENTAL_RATING_OFLC_NZ_R15" xml:space="preserve">
+    <value>Restricted to 15+</value>
+  </data>
+  <data name="PARENTAL_RATING_OFLC_NZ_R18" xml:space="preserve">
+    <value>Restricted to 18+</value>
+  </data>
+  <data name="PARENTAL_RATING_MEXICOTV_B15" xml:space="preserve">
+    <value>B15</value>
+  </data>
+  <data name="PARENTAL_RATING_CANADA_E" xml:space="preserve">
+    <value>E</value>
+  </data>
+  <data name="PARENTAL_RATING_CANADA_G" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="PARENTAL_RATING_CANADA_R" xml:space="preserve">
+    <value>R</value>
+  </data>
+  <data name="PARENTAL_RATING_FRANCE_U" xml:space="preserve">
+    <value>U</value>
+  </data>
+  <data name="PARENTAL_RATING_FRANCE_X" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="PARENTAL_RATING_IRELAND_16" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="PARENTAL_RATING_IRELAND_18" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="PARENTAL_RATING_IRELAND_PG" xml:space="preserve">
+    <value>PG</value>
+  </data>
+  <data name="PARENTAL_RATING_CERO_Z" xml:space="preserve">
+    <value>CERO Z</value>
+  </data>
+  <data name="PARENTAL_RATING_CERO_D" xml:space="preserve">
+    <value>CERO D / CERO 18</value>
+  </data>
+  <data name="PARENTAL_RATING_CERO_C" xml:space="preserve">
+    <value>CERO C / CERO 15</value>
+  </data>
+  <data name="PARENTAL_RATING_CERO_B" xml:space="preserve">
+    <value>CERO B / CERO 12</value>
+  </data>
+  <data name="PARENTAL_RATING_CERO_A" xml:space="preserve">
+    <value>CERO A / CERO All</value>
+  </data>
+  <data name="PARENTAL_RATING_OFLC_AU_REFUSED" xml:space="preserve">
+    <value>Not Classified</value>
+  </data>
+  <data name="PARENTAL_RATING_USK_ALL_AGES" xml:space="preserve">
+    <value>USK 0</value>
+  </data>
+  <data name="PARENTAL_RATING_OFLC_AU_M15" xml:space="preserve">
+    <value>Recommended for Mature Audiences</value>
+  </data>
+  <data name="PARENTAL_RATING_OFLC_AU_R18" xml:space="preserve">
+    <value>R 18+ - Restricted</value>
+  </data>
+  <data name="PARENTAL_RATING_OFLC_AU_X18" xml:space="preserve">
+    <value>X 18+ - Explicit</value>
+  </data>
+  <data name="PARENTAL_RATING_FPB_18" xml:space="preserve">
+    <value>FPB 18</value>
+  </data>
+  <data name="PARENTAL_RATING_FPB_10" xml:space="preserve">
+    <value>FPB 10</value>
+  </data>
+  <data name="PARENTAL_RATING_FPB_13" xml:space="preserve">
+    <value>FPB 13</value>
+  </data>
+  <data name="PARENTAL_RATING_FPB_16" xml:space="preserve">
+    <value>FPB 16</value>
+  </data>
+  <data name="PARENTAL_RATING_FPB_PG" xml:space="preserve">
+    <value>FPB PG</value>
+  </data>
+  <data name="PARENTAL_RATING_OFLC_AU_MA15" xml:space="preserve">
+    <value>MA 15+ - Mature Accompanied</value>
+  </data>
+  <data name="PARENTAL_RATING_BRAZILTV_L" xml:space="preserve">
+    <value>L</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_9" xml:space="preserve">
+    <value>Fantasy Violence</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_8" xml:space="preserve">
+    <value>Edutainment</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_7" xml:space="preserve">
+    <value>Drug Reference</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_6" xml:space="preserve">
+    <value>Crude Humor</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_5" xml:space="preserve">
+    <value>Comic Mischief</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_4" xml:space="preserve">
+    <value>Cartoon Violence</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_3" xml:space="preserve">
+    <value>Blood and Gore</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_2" xml:space="preserve">
+    <value>Blood</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_1" xml:space="preserve">
+    <value>Animated Blood</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_0" xml:space="preserve">
+    <value>Alcohol Reference</value>
+  </data>
+  <data name="PARENTAL_UNRATED" xml:space="preserve">
+    <value>Unrated</value>
+  </data>
+  <data name="PARENTAL_RATING_SPAINTV_MINOR" xml:space="preserve">
+    <value>For Children</value>
+  </data>
+  <data name="PARENTAL_RATING_ESRB_M" xml:space="preserve">
+    <value>Mature</value>
+  </data>
+  <data name="PARENTAL_RATING_ESRB_E" xml:space="preserve">
+    <value>Everyone</value>
+  </data>
+  <data name="PARENTAL_RATING_ESRB_T" xml:space="preserve">
+    <value>Teen</value>
+  </data>
+  <data name="PARENTAL_RATING_NEW_ZEALAND_R15" xml:space="preserve">
+    <value>R15</value>
+  </data>
+  <data name="PARENTAL_RATING_NEW_ZEALAND_R16" xml:space="preserve">
+    <value>R16</value>
+  </data>
+  <data name="PARENTAL_RATING_NEW_ZEALAND_R13" xml:space="preserve">
+    <value>R13</value>
+  </data>
+  <data name="PARENTAL_RATING_NEW_ZEALAND_R18" xml:space="preserve">
+    <value>R18</value>
+  </data>
+  <data name="PARENTAL_UNRATED_OR_PENDING" xml:space="preserve">
+    <value>Pending or Unrated</value>
+  </data>
+  <data name="PARENTAL_RATING_NOT_RATED" xml:space="preserve">
+    <value>Unrated</value>
+  </data>
+  <data name="PARENTAL_RATING_MEXICOTV_AA" xml:space="preserve">
+    <value>AA</value>
+  </data>
+  <data name="PARENTAL_RATING_MPAA_R" xml:space="preserve">
+    <value>R</value>
+  </data>
+  <data name="PARENTAL_RATING_MPAA_X" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="PARENTAL_RATING_MPAA_G" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="PARENTAL_RATING_SPAINTV_7" xml:space="preserve">
+    <value>+7</value>
+  </data>
+  <data name="PARENTAL_RATING_SPAINTV_X" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_110" xml:space="preserve">
+    <value>Drinking &amp; Smoking</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_108" xml:space="preserve">
+    <value>Drugs</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_109" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_106" xml:space="preserve">
+    <value>Alcohol</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_107" xml:space="preserve">
+    <value>Tobacco</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_104" xml:space="preserve">
+    <value>Gambling</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_105" xml:space="preserve">
+    <value>Crime</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_102" xml:space="preserve">
+    <value>Violence</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_103" xml:space="preserve">
+    <value>Horror</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_100" xml:space="preserve">
+    <value>Love</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_101" xml:space="preserve">
+    <value>Sexual</value>
+  </data>
+  <data name="PARENTAL_RATING_ITALY_T" xml:space="preserve">
+    <value>T</value>
+  </data>
+  <data name="PARENTAL_RATING_ITALY_VM18" xml:space="preserve">
+    <value>VM18</value>
+  </data>
+  <data name="PARENTAL_RATING_ITALY_VM14" xml:space="preserve">
+    <value>VM14</value>
+  </data>
+  <data name="PARENTAL_RATING_ITALYTV_14" xml:space="preserve">
+    <value>Yellow</value>
+  </data>
+  <data name="PARENTAL_RATING_TAIWAN_PG" xml:space="preserve">
+    <value>Parental Guidance</value>
+  </data>
+  <data name="PARENTAL_RATING_OFLC_NZ_G" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="PARENTAL_RATING_OFLC_NZ_M" xml:space="preserve">
+    <value>Suitable for Mature Audiences 16+</value>
+  </data>
+  <data name="PARENTAL_RATING_OFLC_NZ_R" xml:space="preserve">
+    <value>Restricted</value>
+  </data>
+  <data name="PARENTAL_RATING_OFLC_AU_E" xml:space="preserve">
+    <value>E - Exempt from Classification</value>
+  </data>
+  <data name="PARENTAL_RATING_OFLC_AU_G" xml:space="preserve">
+    <value>G - General</value>
+  </data>
+  <data name="PARENTAL_RATING_OFLC_AU_M" xml:space="preserve">
+    <value>M - Mature</value>
+  </data>
+  <data name="PARENTAL_RATING" xml:space="preserve">
+    <value>Rated %s</value>
+  </data>
+  <data name="PARENTAL_RATING_GERMANY_SPIO_JK" xml:space="preserve">
+    <value>SPIO/JK</value>
+  </data>
+  <data name="PARENTAL_RATING_SWEDEN_11" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="PARENTAL_RATING_SWEDEN_15" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="PARENTAL_RATING_FRANCETV_12" xml:space="preserve">
+    <value>-12</value>
+  </data>
+  <data name="PARENTAL_RATING_FRANCETV_10" xml:space="preserve">
+    <value>-10</value>
+  </data>
+  <data name="PARENTAL_RATING_FRANCETV_16" xml:space="preserve">
+    <value>-16</value>
+  </data>
+  <data name="PARENTAL_RATING_FRANCETV_18" xml:space="preserve">
+    <value>-18</value>
+  </data>
+  <data name="PARENTAL_RATING_DENMARK_15" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="PARENTAL_RATING_DENMARK_11" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="PARENTAL_RATING_AUSTRALIATV_R18" xml:space="preserve">
+    <value>R18+</value>
+  </data>
+  <data name="PARENTAL_RATING_CANADATV_G" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="PARENTAL_RATING_CANADATV_E" xml:space="preserve">
+    <value>E</value>
+  </data>
+  <data name="PARENTAL_RATING_CANADATV_C" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="PARENTAL_RATING_BRAZIL_L" xml:space="preserve">
+    <value>DJCTQ L</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_78" xml:space="preserve">
+    <value>Gambling</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_79" xml:space="preserve">
+    <value>Game Experience May Change During Online Play</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_70" xml:space="preserve">
+    <value>Mild Use of Drugs, Alcohol, and Tobacco</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_71" xml:space="preserve">
+    <value>Drug and Alcohol Reference</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_72" xml:space="preserve">
+    <value>Mild Drug and Alcohol Reference</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_73" xml:space="preserve">
+    <value>Drug and Tobacco Reference</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_74" xml:space="preserve">
+    <value>Mild Drug and Tobacco Reference</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_75" xml:space="preserve">
+    <value>Drug, Alcohol, and Tobacco Reference</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_76" xml:space="preserve">
+    <value>Mild Drug, Alcohol, and Tobacco Reference</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_77" xml:space="preserve">
+    <value>Mature Sexual Themes</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_58" xml:space="preserve">
+    <value>Violent References</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_59" xml:space="preserve">
+    <value>Mild Violent References</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_52" xml:space="preserve">
+    <value>Mild Tobacco Reference</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_53" xml:space="preserve">
+    <value>Mild Use of Drugs</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_50" xml:space="preserve">
+    <value>Mild Simulated Gambling</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_51" xml:space="preserve">
+    <value>Mild Suggestive Themes</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_56" xml:space="preserve">
+    <value>Mild Violence</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_57" xml:space="preserve">
+    <value>Mild Sexual Content</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_54" xml:space="preserve">
+    <value>Mild Use of Alcohol</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_55" xml:space="preserve">
+    <value>Mild Use of Tobacco</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_69" xml:space="preserve">
+    <value>Mild Use of Alcohol and Tobacco</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_68" xml:space="preserve">
+    <value>Mild Use of Drugs and Tobacco</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_61" xml:space="preserve">
+    <value>Use of Alcohol and Tobacco</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_60" xml:space="preserve">
+    <value>Use of Drugs and Alcohol</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_63" xml:space="preserve">
+    <value>Animated Violence</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_62" xml:space="preserve">
+    <value>Alcohol and Tobacco Reference</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_65" xml:space="preserve">
+    <value>Animated Blood and Gore</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_64" xml:space="preserve">
+    <value>Mild Animated Violence</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_67" xml:space="preserve">
+    <value>Mild Use of Drugs and Alcohol</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_66" xml:space="preserve">
+    <value>Gore</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_38" xml:space="preserve">
+    <value>Mild Comic Mischief</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_39" xml:space="preserve">
+    <value>Mild Crude Humor</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_34" xml:space="preserve">
+    <value>Mild Animated Blood</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_35" xml:space="preserve">
+    <value>Mild Blood</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_36" xml:space="preserve">
+    <value>Mild Blood and Gore</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_37" xml:space="preserve">
+    <value>Mild Cartoon Violence</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_30" xml:space="preserve">
+    <value>Use of Tobacco</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_31" xml:space="preserve">
+    <value>Violence</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_32" xml:space="preserve">
+    <value>Sexual Content</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_33" xml:space="preserve">
+    <value>Mild Alcohol Reference</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_49" xml:space="preserve">
+    <value>Mild Sexual Violence</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_48" xml:space="preserve">
+    <value>Mild Sexual Themes</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_43" xml:space="preserve">
+    <value>Mild Lyrics</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_42" xml:space="preserve">
+    <value>Mild Language</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_41" xml:space="preserve">
+    <value>Mild Fantasy Violence</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_40" xml:space="preserve">
+    <value>Mild Drug Reference</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_47" xml:space="preserve">
+    <value>Mild Real Gambling</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_46" xml:space="preserve">
+    <value>Mild Partial Nudity</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_45" xml:space="preserve">
+    <value>Mild Nudity</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_44" xml:space="preserve">
+    <value>Mild Mature Humor</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_18" xml:space="preserve">
+    <value>Real Gambling</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_19" xml:space="preserve">
+    <value>Sexual Themes</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_16" xml:space="preserve">
+    <value>Nudity</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_17" xml:space="preserve">
+    <value>Partial Nudity</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_14" xml:space="preserve">
+    <value>Mature Humor</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_15" xml:space="preserve">
+    <value>Mild Violence</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_12" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_13" xml:space="preserve">
+    <value>Lyrics</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_10" xml:space="preserve">
+    <value>Informational</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_11" xml:space="preserve">
+    <value>Intense Violence</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_29" xml:space="preserve">
+    <value>Use of Alcohol</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_28" xml:space="preserve">
+    <value>Use of Drugs</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_25" xml:space="preserve">
+    <value>Strong Sexual Content</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_24" xml:space="preserve">
+    <value>Strong Lyrics</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_27" xml:space="preserve">
+    <value>Tobacco Reference</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_26" xml:space="preserve">
+    <value>Suggestive Themes</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_21" xml:space="preserve">
+    <value>Simulated Gambling</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_20" xml:space="preserve">
+    <value>Sexual Violence</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_23" xml:space="preserve">
+    <value>Strong Language</value>
+  </data>
+  <data name="PARENTAL_RATING_DESCRIPTOR_22" xml:space="preserve">
+    <value>Some Adult Assistance May Be Needed</value>
+  </data>
+  <data name="PARENTAL_RATING_ESRB_E10_RP" xml:space="preserve">
+    <value>Rating Pending</value>
+  </data>
+  <data name="PARENTAL_RATING_NEW_ZEALAND_PG" xml:space="preserve">
+    <value>PG</value>
+  </data>
+  <data name="PARENTAL_RATING_MEXICOTV_C" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="PARENTAL_RATING_MEXICOTV_B" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="PARENTAL_RATING_MEXICOTV_A" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="PARENTAL_RATING_MEXICOTV_D" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="PARENTAL_RATING_MEXICO_B15" xml:space="preserve">
+    <value>B15</value>
+  </data>
+  <data name="PARENTAL_RATING_GERMANY_FSK0" xml:space="preserve">
+    <value>FSK 0</value>
+  </data>
+  <data name="PARENTAL_RATING_GERMANY_FSK6" xml:space="preserve">
+    <value>FSK 6</value>
+  </data>
+  <data name="PARENTAL_RATING_MPAA_PG" xml:space="preserve">
+    <value>PG</value>
+  </data>
+  <data name="PARENTAL_RATING_MPAA_AO" xml:space="preserve">
+    <value>AO</value>
+  </data>
+  <data name="PARENTAL_RATING_USTV_14" xml:space="preserve">
+    <value>TV-14</value>
+  </data>
+  <data name="PARENTAL_RATING_USTV_MA" xml:space="preserve">
+    <value>TV-MA</value>
+  </data>
+  <data name="PARENTAL_RATING_USTV_Y7" xml:space="preserve">
+    <value>TV-Y7</value>
+  </data>
+  <data name="PARENTAL_RATING_USTV_PG" xml:space="preserve">
+    <value>TV-PG</value>
+  </data>
+  <data name="PARENTAL_RATING_USTV_Y7FV" xml:space="preserve">
+    <value>TV-Y7-FV</value>
+  </data>
+  <data name="PARENTAL_RATING_CANADA_14" xml:space="preserve">
+    <value>14A</value>
+  </data>
+  <data name="PARENTAL_RATING_CANADA_18" xml:space="preserve">
+    <value>18A</value>
+  </data>
+  <data name="PARENTAL_RATING_CANADA_PG" xml:space="preserve">
+    <value>PG</value>
+  </data>
+  <data name="PARENTAL_RATING_PEGI_16" xml:space="preserve">
+    <value>PEGI 16</value>
+  </data>
+  <data name="PARENTAL_RATING_PEGI_15" xml:space="preserve">
+    <value>PEGI 15</value>
+  </data>
+  <data name="PARENTAL_RATING_PEGI_12" xml:space="preserve">
+    <value>PEGI 12</value>
+  </data>
+  <data name="PARENTAL_RATING_PEGI_11" xml:space="preserve">
+    <value>PEGI 11</value>
+  </data>
+  <data name="PARENTAL_RATING_PEGI_18" xml:space="preserve">
+    <value>PEGI 18</value>
+  </data>
+  <data name="PARENTAL_RATING_UK_PG" xml:space="preserve">
+    <value>PG</value>
+  </data>
+  <data name="PARENTAL_RATING_UK_UC" xml:space="preserve">
+    <value>Uc</value>
+  </data>
+  <data name="PARENTAL_RATING_UK_12" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="PARENTAL_RATING_UK_15" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="PARENTAL_RATING_UK_18" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="PARENTAL_RATING_USK_6" xml:space="preserve">
+    <value>USK 6</value>
+  </data>
+  <data name="PARENTAL_RATING_FPB_A" xml:space="preserve">
+    <value>FPB A</value>
+  </data>
+  <data name="PARENTAL_RATING_NEW_ZEALAND_R" xml:space="preserve">
+    <value>R</value>
+  </data>
+  <data name="PARENTAL_RATING_NEW_ZEALAND_G" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="PARENTAL_RATING_IRELAND_G" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="PARENTAL_RATING_SINGAPORE_MATURE_18" xml:space="preserve">
+    <value>Mature 18</value>
+  </data>
+  <data name="PARENTAL_RATING_SPAIN_7" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="PARENTAL_RATING_SPAIN_E" xml:space="preserve">
+    <value>E</value>
+  </data>
+  <data name="PARENTAL_RATING_SPAIN_X" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="PARENTAL_RATING_TAIWAN_PROTECTED" xml:space="preserve">
+    <value>Protected</value>
+  </data>
+  <data name="PARENTAL_RATING_AUSTRALIA_PG" xml:space="preserve">
+    <value>PG</value>
+  </data>
+  <data name="PARENTAL_RATING_SPAINTV_18" xml:space="preserve">
+    <value>+18</value>
+  </data>
+  <data name="PARENTAL_RATING_SPAINTV_13" xml:space="preserve">
+    <value>+13</value>
+  </data>
+  <data name="PARENTAL_RATING_SPAINTV_GP" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="PARENTAL_RATING_SWEDEN_7" xml:space="preserve">
+    <value>7</value>
+  </data>
+</root>

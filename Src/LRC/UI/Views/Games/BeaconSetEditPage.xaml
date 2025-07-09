@@ -1,0 +1,66 @@
+﻿<lrc:LrcPage 
+    xmlns:lrc="clr-namespace:LRC"
+    x:Class="LRC.BeaconSetEditPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:delay="clr-namespace:Delay;assembly=PhonePerformance"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:viewmodel="clr-namespace:LRC.ViewModel;assembly=LRC.ViewModel"
+    toolkit:TiltEffect.IsTiltEnabled="True"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True">
+
+    <phone:PhoneApplicationPage.Resources>
+        <viewmodel:BeaconSetEditViewModel x:Key="BeaconSetEditViewModel" />
+    </phone:PhoneApplicationPage.Resources>
+
+    <lrc:BusyIndicator x:Name="BusyIndicator" Style="{StaticResource BusyIndicatorStyle}" OverlayVisiblity="Collapsed" IsBusy="{Binding IsBlocking}" IsBlocking="True">
+        <Grid x:Name="LayoutRoot" Background="Black">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="PageTitle" Text="{Binding Converter={StaticResource PageTitleConverter}, Path=BeaconHeaderText}" Style="{StaticResource LRCTextPivotTitle}" Margin="24,17,12,28"/>
+                <Grid x:Name="BeaconEntry" Margin="12,0,12,24" Grid.Row="1" d:LayoutOverrides="Height" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="GameImage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="173" Stretch="Uniform" delay:LowProfileImageLoader.UriSource="{Binding GameItemViewModel.SearchItemViewModel.ImageUrl}" delay:LowProfileImageLoader.DefaultUriSource="{Binding GameItemViewModel.SearchItemViewModel, Converter={StaticResource SearchItemBoxArtConverter}}" Margin="12,0,0,0" d:LayoutOverrides="HorizontalMargin"/>
+                    <StackPanel d:LayoutOverrides="Width" Grid.Column="1" Margin="0,-12,0,0">
+                        <TextBlock x:Name="GameTitle" Text="{Binding GameItemViewModel.SearchItemViewModel.Title}" Style="{StaticResource LRCTextPrimaryTitle}" MaxHeight="114" Margin="12,0,0,0" />
+                        <TextBlock x:Name="FriendsPlayingNowText" Text="{Binding GameItemViewModel.FriendsPlaying.FriendsPlayingNowText}" FontSize="20" FontFamily="Segoe WP" Foreground="#99FFFFFF" Style="{StaticResource LRCTextSecondaryTitle}" Margin="12,0,0,0"/>
+                        <TextBlock x:Name="FriendsWithBeaconsText" Text="{Binding GameItemViewModel.FriendsPlaying.FriendsWithBeaconsText}" Foreground="#99FFFFFF" FontSize="20" FontFamily="Segoe WP" Style="{StaticResource LRCTextSecondaryTitle}"/>
+                    </StackPanel>
+                </Grid>
+                <TextBlock x:Name="CommentLabel" Text="{Binding Strings.Beacon_CommentLabel, Source={StaticResource ResourceString}}" Style="{StaticResource LRCTextSecondaryTitle}" Grid.Row="2" d:LayoutOverrides="Height" Margin="24,0" />
+                <TextBox x:Name="CommentBody" Text="{Binding CommentBody}" MaxLength="{Binding MaxCommentBodyCharacterCountProperty, Source={StaticResource BeaconSetEditViewModel}}" TextWrapping="Wrap" TextChanged="CommentBody_TextChanged" IsEnabled="{Binding CanUserSetBeaconText}" Grid.Row="3" Margin="24,12,24,24" Style="{StaticResource TextBoxStyle}" Height="112"/>
+                <Grid Grid.Row="4" VerticalAlignment="Top" Margin="12,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="0.5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="RemoveBeaconButton" Content="{Binding Strings.Beacon_RemoveBeaconButtonText, Source={StaticResource ResourceString}}" Click="RemoveBeaconButton_Click" Visibility="{Binding IsBeaconSet, Converter={StaticResource VisibilityConverter}}" d:LayoutOverrides="Width, Height" Grid.Column="1" Style="{StaticResource LRCDefaultSystemButton}" />
+                    <Button x:Name="SetBeaconButton" Content="{Binding SetBeaconButtonText}" Click="SetBeaconButton_Click" d:LayoutOverrides="Height" Style="{StaticResource LRCDefaultSystemButton}" />
+                </Grid>
+            </Grid>
+
+            <!-- Media Bar -->
+            <lrc:MediaBar x:Name="MediaControls" Grid.Row="1"/>
+        </Grid>
+    </lrc:BusyIndicator>
+</lrc:LrcPage>

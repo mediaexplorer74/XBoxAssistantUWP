@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="LRC.VideoDetailsPanel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converter="clr-namespace:LRC"
+    xmlns:delay="clr-namespace:Delay;assembly=PhonePerformance"
+    mc:Ignorable="d"
+    d:DesignHeight="480" d:DesignWidth="480">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="DetailsImage" delay:LowProfileImageLoader.UriSource="{Binding SelectedMediaDetails.DetailsImageUrl}" delay:LowProfileImageLoader.DefaultUriSource="{Binding SelectedMediaDetails, Converter={StaticResource MediaItemBoxArtConverter}}" Margin="12,0,0,0" Width="173" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <StackPanel d:LayoutOverrides="Width" Grid.Column="1" >
+            <TextBlock x:Name="DetailTitleTextBlock" Text="{Binding SelectedMediaDetails.DetailTitle}"  TextWrapping="Wrap" Style="{StaticResource LRCTextPrimaryTitle}" Margin="12,-12,0,0" MaxHeight="114" />
+            <TextBlock x:Name="ReleaseDetailsTextBlock" Text="{Binding SelectedMediaDetails.ReleaseDetails}" TextWrapping="Wrap" Style="{StaticResource LRCTextSecondaryTitle}" Margin="12,0,0,0"/>
+            <TextBlock x:Name="StudioTextBlock" Text="{Binding SelectedMediaDetails.Studio}" TextWrapping="Wrap" Style="{StaticResource LRCTextSecondaryTitle}" Margin="12,0,0,0"/>
+            <Grid Height="24" Margin="12,12,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>

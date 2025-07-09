@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{25B0AB17-5655-408F-B58D-92D8111F82C1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Xbox.Live.Phone.Services</RootNamespace>
+    <AssemblyName>Xbox.Live.Phone.Services</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.15063.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <PlatformTarget>ARM</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <PlatformTarget>ARM</PlatformTarget>
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM64'">
+    <PlatformTarget>ARM64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM64'">
+    <PlatformTarget>ARM64</PlatformTarget>
+    <OutputPath>bin\ARM64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Avatar\Services\Closet\Library\Asset.cs" />
+    <Compile Include="Avatar\Services\Closet\Library\ClosetAssets.cs" />
+    <Compile Include="Avatar\Services\ManifestRead\Library\AvatarManifest.cs" />
+    <Compile Include="Avatar\Services\ManifestRead\Library\AvatarManifests.cs" />
+    <Compile Include="Avatar\Services\ManifestWrite\Library\UpdateGamerPicRequest.cs" />
+    <Compile Include="Avatar\Services\ManifestWrite\Library\UpdateManifestRequest.cs" />
+    <Compile Include="Avatar\Services\ManifestWrite\Library\UpdateManifestResponse.cs" />
+    <Compile Include="Gds\Contracts\Achievements.cs" />
+    <Compile Include="Gds\Contracts\Friend.cs" />
+    <Compile Include="Gds\Contracts\GameInfo.cs" />
+    <Compile Include="Gds\Contracts\Games.cs" />
+    <Compile Include="Gds\Contracts\Presence.cs" />
+    <Compile Include="Gds\Contracts\PrivacyLevel.cs" />
+    <Compile Include="Gds\Contracts\PrivacySetting.cs" />
+    <Compile Include="Gds\Contracts\ProfileEx.cs" />
+    <Compile Include="Gds\Contracts\UserAchievements.cs" />
+    <Compile Include="Gds\Contracts\UserGames.cs" />
+    <Compile Include="Leet\MessageService\DataContracts\MessageDetails.cs" />
+    <Compile Include="Leet\MessageService\DataContracts\MessageSummariesResponse.cs" />
+    <Compile Include="Leet\MessageService\DataContracts\MessageSummary.cs" />
+    <Compile Include="Leet\MessageService\DataContracts\MessageTypeEnum.cs" />
+    <Compile Include="Leet\MessageService\DataContracts\ResponseWithErrorCode.cs" />
+    <Compile Include="Leet\MessageService\DataContracts\SendMessageRequest.cs" />
+    <Compile Include="Leet\Silverlight\RESTProxy\ILogging.cs" />
+    <Compile Include="Leet\Silverlight\RESTProxy\Logging.cs" />
+    <Compile Include="Leet\Silverlight\RESTProxy\MobileLogging.cs" />
+    <Compile Include="Leet\Silverlight\XLiveWeb\HttpStack.cs" />
+    <Compile Include="Leet\Silverlight\XLiveWeb\XLiveHttpWebException.cs" />
+    <Compile Include="Leet\Silverlight\XLiveWeb\XLiveWebHttpClient.cs" />
+    <Compile Include="Leet\Silverlight\XLiveWeb\XLiveWebHttpClientEventArgs.cs" />
+    <Compile Include="Leet\UserGameData\DataContracts\Achievement.cs" />
+    <Compile Include="Leet\UserGameData\DataContracts\GameInfo.cs" />
+    <Compile Include="Leet\UserGameData\DataContracts\GeneralProperty.cs" />
+    <Compile Include="Leet\UserGameData\DataContracts\ProfileProperty.cs" />
+    <Compile Include="Leet\UserGameData\DataContracts\ProfileSections.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Xbox\Live\Phone\ClosetAsset.cs" />
+    <Compile Include="Xbox\Live\Phone\EnvironmentState.cs" />
+    <Compile Include="Xbox\Live\Phone\PlayerState.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\AchievementsData.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\AvatarItem.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\AvatarServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\AvatarStore.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\AvatarStoreCache.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Beacons\ActivityListForTitleData.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Beacons\BeaconCodes.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Beacons\BeaconDefaultTextData.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Beacons\BeaconInfo.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Beacons\BeaconsResponseParser.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Beacons\BeaconsServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Beacons\Friend.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Beacons\IBeaconsServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Beacons\SetBeaconRequest.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Beacons\SimpleDuration.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Beacons\SimpleDurationUnit.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Beacons\StubBeaconsServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\CatalogBlacklistCache.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\CatalogBlacklistProvider.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Category.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\CategoryUserState.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\ClosetAssetsHolder.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Facebook\ErrorCode.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Facebook\FacebookServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Facebook\IFacebookServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Facebook\StubFacebookServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\FriendEntryData.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\FriendServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\FriendsListData.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\FriendState.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Game.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\GameDataServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\GamerpicParameters.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\GamesData.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\GamesResponse.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\IAvatarServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\IFriendServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\IGameDataServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\IMarketplaceServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\IMessageServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\IProfileServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Leaderboards\ILeaderboardsServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Leaderboards\LeaderboardEntry.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Leaderboards\LeaderboardInfo.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Leaderboards\LeaderboardsForTitleData.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Leaderboards\LeaderboardsResponseParser.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Leaderboards\LeaderboardsServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Leaderboards\StubLeaderboardsServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\LoadingObjectWrapper.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\LoadingObjectWrapperState.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\LoadState.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Marketplace.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\MarketPlaceCategory.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\MarketPlacePage`1.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\MarketplaceServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\MessagesData.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\MessageServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\OfferUserState.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Product.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\ProductResponse`1.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\ProductUserState.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\ProfileData.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\ProfileServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Programming\IProgrammingServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Programming\ProgramingServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Programming\ProgrammingParser.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Programming\PromoChannelType.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Programming\PromoItem.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Programming\PromoItemType.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Programming\StubProgramingServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\PromotedCategoryUtility.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\RecentlyViewedFriendsData.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Resources\Resource.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\Resources\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Xbox\Live\Phone\Services\ServiceCommon.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\ServiceErrorMessage.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\ServiceManagerFactory.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\ServiceProxyEventArgs`1.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\StoreCategory.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\StoreData.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\TitleHistory\ITitleHistoryServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\TitleHistory\PlatformType.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\TitleHistory\StubTitleHistoryServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\TitleHistory\TitleHistoryInfo.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\TitleHistory\TitleHistoryResponseParser.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\TitleHistory\TitleHistoryServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\TitleHistory\TitleType.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\UserClaims\IUserClaimsServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\UserClaims\StubUserClaimsServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\UserClaims\UserClaimsResponseParser.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\UserClaims\UserClaimsServiceManager.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\UserClaims\UserInfo.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\XboxLiveGamer.cs" />
+    <Compile Include="Xbox\Live\Phone\Services\XboxLiveGamerState.cs" />
+    <Compile Include="Xbox\Live\Phone\Utils\AvatarManagerComponentCategories.cs" />
+    <Compile Include="Xbox\Live\Phone\Utils\ClosetAssetCategory.cs" />
+    <EmbeddedResource Include="Properties\Xbox.Live.Phone.Services.rd.xml" />
+    <EmbeddedResource Include="Xbox\Live\Phone\Services\Resources\Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      <DependentUpon>Resource.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.2.14</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Xbox\Live\Phone\Services\Avatar\MarketPlace\BlacklistedGamesAndCategories.xml" />
+    <Content Include="Xbox\Live\Phone\Services\StubData\ActivityListForTitle.txt" />
+    <Content Include="Xbox\Live\Phone\Services\StubData\BeaconDefaultText.txt" />
+    <Content Include="Xbox\Live\Phone\Services\StubData\BeaconForTitle.txt" />
+    <Content Include="Xbox\Live\Phone\Services\StubData\LeaderboardDetails.txt" />
+    <Content Include="Xbox\Live\Phone\Services\StubData\LeaderboardsForTitle.txt" />
+    <Content Include="Xbox\Live\Phone\Services\StubData\Programming.xml" />
+    <Content Include="Xbox\Live\Phone\Services\StubData\TitleHistory.txt" />
+    <Content Include="Xbox\Live\Phone\Services\StubData\UserInfo.txt" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

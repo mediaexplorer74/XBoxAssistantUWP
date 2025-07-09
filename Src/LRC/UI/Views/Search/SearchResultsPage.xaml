@@ -1,0 +1,67 @@
+﻿<lrc:LrcPage 
+    x:Class="LRC.SearchResultsPage"
+    xmlns:lrc="clr-namespace:LRC"
+    xmlns:XLToolKit="clr-namespace:XLToolKit"        
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:converter="clr-namespace:LRC"
+    xmlns:delay="clr-namespace:Delay;assembly=PhonePerformance"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True"
+    toolkit:TiltEffect.IsTiltEnabled="True"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    >
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="Black">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="0.896*"/>
+            </Grid.RowDefinitions>
+            
+            <TextBlock x:Name="PageTitle" Grid.Row="0" Text="{Binding Converter={StaticResource PageTitleConverter}, Path=Strings.SearchResults_PageTitle, Source={StaticResource ResourceString}}" Style="{StaticResource LRCTextPivotTitle}" Margin="24,17,12,12" d:LayoutOverrides="Height"/>
+            
+            <Grid x:Name="searchGrid" Height="48" Width="432" Grid.Row="1" Margin="24,0,0,0" HorizontalAlignment="Left">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="48"/>
+                </Grid.ColumnDefinitions>
+                <lrc:WatermarkedTextBox x:Name="ResultsSearchTextBox" Text="{Binding SearchText}" MaxLength="500" KeyUp="SearchTextBox_KeyUp" Grid.ColumnSpan="2" Background="#FDFFFFFF" BorderBrush="#FDFFFFFF" Watermark="{Binding Strings.SearchHelpText_BasicPrompt, Source={StaticResource ResourceString}}" />
+                <Button x:Name="ResultsSearchButton" Content="{Binding Strings.SearchResults_StartSearch, Source={StaticResource ResourceString}}" Margin="0" Click="SearchButton_Click" IsEnabled="{Binding Text, Converter={StaticResource TextLengthToBooleanConverter}, ElementName=SearchTextBox}" Grid.Column="1" Style="{StaticResource SearchButtonStyle}" Width="48" Padding="0" Height="48"/>
+            </Grid>
+            
+            <Button x:Name="SelectFilterButton" HorizontalContentAlignment="Left" Content="{Binding SearchFilterViewModel.SelectedSearchFilter.FilterSummary}" Click="SelectFilterButton_Click" Style="{StaticResource LRCSearchButton}" Padding="0" Grid.Row="2" Margin="12,5,12,5" Height="65"/>
+
+            <lrc:BusyIndicator x:Name="BusyIndicator" Grid.Row="3" Style="{StaticResource BusyIndicatorStyle}" VerticalAlignment="{Binding BusyIndicatorVerticalAlignment}" BusyText="{Binding Strings.SearchResult_BusyIndicatorText, Source={StaticResource ResourceString}}" IsBusy="{Binding IsBusy}" OverlayVisiblity="Collapsed">
+
+                <XLToolKit:SwitchPanel x:Name="ResultSwitchPanel" CurrentState="{Binding CurrentState}" MinHeight="493" >
+                    <lrc:ListBoxWithCompression x:Name="SearchResultsListBox" Style="{StaticResource ListBoxWithCompression}" ItemsSource="{Binding SearchResults}" Loaded="SearchResultsListBox_Loaded" SelectionChanged="SearchResultsListBox_SelectionChanged" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" Margin="12,0" VerticalAlignment="Stretch" ScrollingDisabled="{Binding IsAddingData}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <converter:SearchItem />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </lrc:ListBoxWithCompression>
+                    <TextBlock x:Name="ErrorTextBlock" Text="{Binding Strings.Search_ErrorText, Source={StaticResource ResourceString}}" Style="{StaticResource LRCTextGroupHeader}" Margin="24,12"/>
+                    <TextBlock x:Name="NoResultsFoundTextBlock" Text="{Binding NoResultsFoundText}" Style="{StaticResource LRCTextGroupHeader}" Margin="24,12"/>
+                    <TextBlock x:Name="LoadingTextBlock" Style="{StaticResource LRCTextGroupHeader}" Margin="24,12"/>
+                </XLToolKit:SwitchPanel>
+            </lrc:BusyIndicator>
+        </Grid>
+
+        <converter:MediaBar x:Name="MediaControls" Grid.Row="1"/>
+    </Grid>
+</lrc:LrcPage>

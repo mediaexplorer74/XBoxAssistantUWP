@@ -1,0 +1,187 @@
+<lrc:LrcPanoramaPage 
+    xmlns:lrc="clr-namespace:LRC"
+    x:Class="LRC.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:local="clr-namespace:LRC"
+    xmlns:converter="clr-namespace:LRC"
+    xmlns:viewmodel="clr-namespace:LRC.ViewModel;assembly=LRC.ViewModel"
+    xmlns:delay="clr-namespace:Delay;assembly=PhonePerformance"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800" 
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:XLToolKit="clr-namespace:XLToolKit" toolkit:TiltEffect.IsTiltEnabled="True"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True"
+    shell:SystemTray.Opacity="0"
+    CacheMode="BitmapCache">
+
+    <Page.Resources>
+        <viewmodel:SearchViewModel x:Key="SearchViewModel" />
+        <!-- Прежние стили PanoramaItem удалены как нерелевантные для UWP PivotItem. Добавьте UWP-стили PivotItem при необходимости -->
+    </Page.Resources>
+    <local:BusyIndicator x:Name="BusyIndicator" Style="{StaticResource BusyIndicatorStyle}" BusyText="{Binding Strings.BusyIndicator_LaunchingText, Source={StaticResource ResourceString}}" OverlayVisiblity="Collapsed" IsBusy="{Binding IsBlocking}" IsBlocking="True">
+        <!--LayoutRoot is the root grid where all page content is placed-->
+        <Grid x:Name="LayoutRoot">
+            <Grid.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="/UI/Images/xboxBackground.jpg"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Showing can not connect error when in error state-->
+            <Grid Grid.Row="0" Visibility="{Binding IsSessionConnected, Converter={StaticResource NotVisibilityConverter}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="260"/>
+                    <RowDefinition Height="120"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="88"/>
+                </Grid.RowDefinitions>
+
+                <Grid.Background>
+                    <ImageBrush Stretch="UniformToFill" ImageSource="/UI/Images/Connecting_Error.jpg"/>
+                </Grid.Background>
+
+                <Grid x:Name="ErrorPane" Grid.Row="1" Grid.RowSpan="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel x:Name="TextStackPanel_ErrorTitle" Margin="12,40,12,24" RenderTransformOrigin="0.5,0.5">
+                        <StackPanel.RenderTransform>
+                            <CompositeTransform/>
+                        </StackPanel.RenderTransform>
+                        <TextBlock x:Name="ErrorTitle" Text="{Binding ErrorHeaderString}" TextWrapping="Wrap" Foreground="White" FontSize="42" Margin="24,0" FontFamily="Segoe WP SemiLight" RenderTransformOrigin="0.5,0.5" />
+                    </StackPanel>
+                    <ScrollViewer x:Name="ScrollViewerWrapper" Grid.Row="1">
+                        <StackPanel x:Name="TextStackPanel_Error"  Margin="12,0,12,0" RenderTransformOrigin="0.5,0.5">
+                            <StackPanel.RenderTransform>
+                                <CompositeTransform/>
+                            </StackPanel.RenderTransform>
+                            <TextBlock x:Name="ErrorText" Text="{Binding ErrorString}" TextWrapping="Wrap" Foreground="White" FontSize="24" Margin="24,0,24,0" FontFamily="Segoe WP SemiLight" RenderTransformOrigin="0.5,0.5" />
+                            <StackPanel x:Name="stackPanel" Orientation="Horizontal" Margin="24,12,0,0" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5">
+                                <TextBlock x:Name="ErrorCodeLabel" Text="{Binding Strings.ErrorCode, Source={StaticResource ResourceString}}" HorizontalAlignment="Left" TextWrapping="Wrap" Foreground="#99FFFFFF" FontSize="20" FontFamily="Segoe WP"/>
+                                <TextBlock x:Name="ErrorCode" Text="{Binding ErrorCode}" TextWrapping="Wrap" Foreground="#99FFFFFF" HorizontalAlignment="Left" FontSize="20" Margin="8,0,0,0" FontFamily="Segoe WP"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+                
+                <Image Source="/UI/Images/xboxlive.png" Stretch="None" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="36,56,0,0" d:LayoutOverrides="HorizontalAlignment" Width="134" Height="20"/>
+                <Button x:Name="RetryButton" Content="{Binding Strings.LookForXboxPage_RetryButtonText, Source={StaticResource ResourceString}}" Click="RetryButton_Click" BorderBrush="White" Foreground="White" Style="{StaticResource LRCDefaultButtonStyle}" Margin="24,0" VerticalAlignment="Bottom" Grid.Row="4" Visibility="Visible"/>
+
+                <Ellipse x:Name="shadow" Width="400" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Grid.Row="5" Height="44" VerticalAlignment="Bottom" Margin="0,0,0,24" d:LayoutOverrides="GridBox">
+                    <Ellipse.RenderTransform>
+                        <CompositeTransform/>
+                    </Ellipse.RenderTransform>
+                    <Ellipse.Fill>
+                        <RadialGradientBrush>
+                            <GradientStop Color="#19000000" Offset="0.32"/>
+                            <GradientStop Offset="1"/>
+                        </RadialGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+            </Grid>
+
+            <Pivot x:Name="MainPivot" SelectionChanged="MainPivot_SelectionChanged" Visibility="{Binding IsSessionConnected, Converter={StaticResource VisibilityConverter}}">
+                <!--Pivot item one-->
+                <PivotItem x:Name="home" Header="{Binding Strings.NowPlayingHeader, Source={StaticResource ResourceString}}">
+                    <StackPanel x:Name="NowPlayingPanel">
+                        <Button x:Name="NowPlayingButton"
+                                Visibility="{Binding NowPlayingItem.IsNotDashboardOrUnknown, Converter={StaticResource VisibilityConverter}}" 
+                                Click="NowPlayingItem_Click"
+                                Padding="0"
+                                Margin="0,-12,12,26"
+                                Width="396"
+                                Background="Transparent"
+                                BorderThickness="0" HorizontalAlignment="Left">
+                            <Grid x:Name="NowPlayingButtonRoot" Height="173" Margin="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition x:Name="ImageRow" Height="0"/>
+                                    <RowDefinition Height="78" MaxHeight="78" MinHeight="78"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Image x:Name="background" Grid.ColumnSpan="2" Grid.RowSpan="5" Stretch="UniformToFill" Source="/UI/Images/nowplayingBackground.jpg"/>
+                                <Image x:Name="ImageCtrl" IsHitTestVisible="False" Margin="12" Grid.RowSpan="4" Grid.Row="1" Height="149" MaxWidth="149" MinWidth="108"/>
+                                <TextBlock x:Name="ImageText" Foreground="Black" TextWrapping="Wrap" Visibility="Collapsed" Height="0"/>
+                                <TextBlock x:Name="title" Text="{Binding NowPlayingItem.Title}" TextWrapping="Wrap" Foreground="White" Visibility="{Binding NowPlayingItem.Title, Converter={StaticResource TextLengthToVisibilityConverter}}" Grid.Column="1" FontSize="26" FontFamily="Segoe UI Semilight" Grid.Row="1" Margin="0,12,12,0" MaxHeight="70" VerticalAlignment="Bottom"/>
+                                <TextBlock x:Name="NowPlayingOnXboxText" Text="{Binding Strings.NowPlaying_OnYourXbox, Source={StaticResource ResourceString}}" TextWrapping="Wrap" Foreground="#99FFFFFF" FontSize="20" FontFamily="Segoe UI" Grid.Row="2" Grid.Column="1" Visibility="{Binding NowPlayingItem.IsAppAndNoMediaPlaying, Converter={StaticResource VisibilityConverter}}"/>
+                                <TextBlock x:Name="NowPlayingMoreInfoHeader" Foreground="#FF78C800" Text="{Binding Strings.NowPlaying_DiscoverMore, Source={StaticResource ResourceString}}" Visibility="{Binding NowPlayingItem.ShowMoreInfo, Converter={StaticResource VisibilityConverter}}" Grid.Column="1" FontFamily="Segoe UI Semilight" Grid.Row="3" FontSize="22" Margin="0,0,12,0"/>
+                                <TextBlock x:Name="NowPlayingMoreInfoDetails" Visibility="{Binding NowPlayingItem.ShowMoreInfo, Converter={StaticResource VisibilityConverter}}" Grid.Row="4" Grid.Column="1" Foreground="#99FFFFFF" FontSize="20" FontFamily="Segoe UI"/>
+                            </Grid>
+                        </Button>
+                        <TextBlock x:Name="NowPlayingDashboardText" Text="{Binding Strings.NowPlaying_Dashboard, Source={StaticResource ResourceString}}" Visibility="{Binding NowPlayingItem.IsDashboardOrUnknown, Converter={StaticResource VisibilityConverter}}" TextWrapping="Wrap" Foreground="#99000000" FontSize="26" FontFamily="Segoe UI Semilight" Margin="12,0,12,48"/>
+                        <TextBlock Text="{Binding Strings.NowPlaying_RecentlyPlayedHeader, Source={StaticResource ResourceString}}" TextWrapping="Wrap" Foreground="#FF787878" Margin="12,0,12,28"/>
+                        <ListView x:Name="RecentListBox" ItemsSource="{Binding RecentsData.RecentItems}" SelectionChanged="RecentItem_SelectionChanged" />
+                    </StackPanel>
+                </PivotItem>
+
+                <!--Pivot item features plus zune video marketplace -->
+                <PivotItem x:Name="featured" Header="{Binding Strings.NowPlaying_FeatureHeader, Source={StaticResource ResourceString}}">
+                    <StackPanel>
+                        <ListView x:Name="FeaturedListBox" ItemsSource="{Binding Features.FeaturesOneByOne}" />
+                        <ListView x:Name="FeaturedListBoxFourByThree" ItemsSource="{Binding Features.FeaturesFourByThree}" />
+                    </StackPanel>
+                </PivotItem>
+                            <ListBox x:Name="FeaturedListBox" CacheMode="BitmapCache" ItemsSource="{Binding Features.FeaturesOneByOne}" Style="{StaticResource ListBoxWithWrapping}" SelectionChanged="PromotedItem_SelectionChanged" ItemTemplate="{StaticResource LRCImagePromoContentListItem}" ScrollViewer.VerticalScrollBarVisibility="Disabled" />
+                            <ListBox x:Name="FeaturedListBoxFourByThree" CacheMode="BitmapCache" ItemsSource="{Binding Features.FeaturesFourByThree}" Style="{StaticResource ListBoxWithWrapping}" SelectionChanged="PromotedItem_SelectionChanged" ItemTemplate="{StaticResource LRCImagePromoContentListItemFourByThree}" ScrollViewer.VerticalScrollBarVisibility="Disabled" />
+                        </StackPanel>
+
+                        <!-- 1. Error -->
+                        <TextBlock Text="" Width="0" Height="0"/>
+
+                        <!-- 2. No Content, an invisible item -->
+                        <TextBlock Text="" Width="0" Height="0"/>
+
+                        <!-- 3. Loading -->
+                        <TextBlock Text="{Binding Strings.BusyIndicator_LoadingText, Source={StaticResource ResourceString}}" TextWrapping="Wrap" Style="{StaticResource LRCTextDescription}"/>
+                    </XLToolKit:SwitchPanel>
+                </controls:PanoramaItem>
+
+                <!--Panorama item search-->
+                <controls:PanoramaItem x:Name="search"  Header="{Binding Strings.NowPlaying_SearchHeader, Source={StaticResource ResourceString}}" Foreground="#FF323232" Style="{StaticResource PanoramaItemNormalStyle}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="48"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="0.904*"/>
+                        </Grid.RowDefinitions>
+                        <Grid x:Name="searchBox" Grid.Row="0"  Width="360" HorizontalAlignment="Left" Margin="12,0,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="48"/>
+                            </Grid.ColumnDefinitions>
+                            <local:WatermarkedTextBox x:Name="SearchTextBox" Margin="0,0,0,0" Text="{Binding SearchText}" MaxLength="{Binding MaxSearchStringLengthProperty, Source={StaticResource SearchViewModel}}" KeyUp="SearchTextBox_KeyUp" Grid.ColumnSpan="2" />
+                            <Button x:Name="SearchButton" Click="SearchButton_Click" IsEnabled="{Binding Text, Converter={StaticResource TextLengthToBooleanConverter}, ElementName=SearchTextBox}" Grid.Column="1" Style="{StaticResource SearchButtonStyle}"/>
+                        </Grid>
+                        <TextBlock x:Name="SearchTermsTitle" Grid.Row="1" Text="{Binding SearchTerms.Title}" Style="{StaticResource PhoneTextGroupHeaderStyle}" Margin="12,8,0,8" Foreground="#FF646464" d:LayoutOverrides="Width" />
+                        <ListBox x:Name="SearchTermsListBox" Grid.Row="2" ItemsSource="{Binding SearchTerms.Items}" SelectionChanged="SearchTermsListBox_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemTemplate="{StaticResource LRCDefaultTextListItem}"/>
+                    </Grid>
+                </controls:PanoramaItem>
+            </controls:Panorama>
+
+            <!-- Media controls for Now Playing. This is outside the panorama so it's on every pane. -->
+            <local:MediaBar x:Name="MediaControls" Grid.Row="1" Visibility="{Binding IsSessionConnected, Converter={StaticResource VisibilityConverter}}"/>
+
+        </Grid>
+    </local:BusyIndicator>
+    <!--Panorama-based applications should not show an ApplicationBar-->
+
+</Page>

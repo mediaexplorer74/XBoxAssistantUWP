@@ -1,0 +1,83 @@
+﻿<local:LrcPage 
+    xmlns:lrc="clr-namespace:LRC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:LRC"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    x:Class="LRC.SuccessfulConnectionPage"
+    toolkit:TiltEffect.IsTiltEnabled="True"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True"
+    shell:SystemTray.Opacity="0">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <!--Note that the Height here must match the DesignHeight above. The reason for specifying
+    height and aligning to bottom is to deal with an issue where the SystemTray sometimes takes
+    a moment to occupy its space, which causes everything on the page to bobble up and down
+    by the height of the SystemTray. Pinning to bottom works around this. -->
+    <Grid x:Name="LayoutRoot" Height="800" VerticalAlignment="Bottom">
+        <Grid.Background>
+            <ImageBrush Stretch="UniformToFill" ImageSource="/UI/Images/connect_bg.png"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="88"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <local:WelcomeHeaderControl x:Name="WelcomeHeader" Grid.Row="0"/>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <Image Source="/UI/Images/xboxliveDark.png" Stretch="None" HorizontalAlignment="Left" Height="20" Width="134" VerticalAlignment="Top" Margin="36,56,0,0" Grid.Row="0" d:LayoutOverrides="HorizontalAlignment"/>
+        <Ellipse x:Name="shadow" Width="400" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Grid.Row="2" Height="44" VerticalAlignment="Bottom" Margin="0,0,0,24" d:LayoutOverrides="GridBox">
+            <Ellipse.RenderTransform>
+                <CompositeTransform ScaleX="1.2"/>
+            </Ellipse.RenderTransform>
+            <Ellipse.Fill>
+                <RadialGradientBrush>
+                    <GradientStop Color="#19000000" Offset="0.32"/>
+                    <GradientStop Offset="1"/>
+                </RadialGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+
+        <!--ContentPanel - place additional content here-->
+        <Button x:Name="ContinueButton" Content="{Binding Strings.SuccessfulConnectionPage_ContinueButtonText, Source={StaticResource ResourceString}}" Click="ContinueButton_Click" Grid.Row="1" VerticalAlignment="Bottom" Style="{StaticResource LRCDefaultButtonStyle}" Margin="24,0" d:LayoutOverrides="VerticalAlignment" Height="88"/>
+        <StackPanel x:Name="InformationalPanel" Grid.Row="1" Margin="12,40,12,0" RenderTransformOrigin="0.5,0.5">
+            <StackPanel.RenderTransform>
+                <CompositeTransform/>
+            </StackPanel.RenderTransform>
+            <TextBlock x:Name="Header" Text="{Binding Strings.SuccessfulConnectionPage_Header, Source={StaticResource ResourceString}}" Style="{StaticResource LRCConnectingTextTitle}"/>
+            <TextBlock x:Name="InformationalText1" Text="{Binding Strings.SuccessfulConnectionPage_InformationalText_Section1, Source={StaticResource ResourceString}}" Style="{StaticResource LRCConnectingTextDetail}"/>
+            <TextBlock x:Name="InformationalText2" Text="{Binding Strings.SuccessfulConnectionPage_InformationalText_Section2, Source={StaticResource ResourceString}}" Style="{StaticResource LRCConnectingTextDetail}"/>
+        </StackPanel>
+    </Grid>
+
+    <!--Intro Storyboard-->
+    <local:LrcPage.Resources>
+        <Storyboard x:Name="IntroStoryboard">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ContinueButton">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.999756"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="InformationalPanel">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="InformationalPanel">
+                <EasingDoubleKeyFrame KeyTime="0" Value="20"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="shadow">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </local:LrcPage.Resources>
+</local:LrcPage>

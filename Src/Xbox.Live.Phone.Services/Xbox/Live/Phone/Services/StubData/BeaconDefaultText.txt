@@ -1,0 +1,1 @@
+﻿{"defaultBeaconText":"I want to play this game."}

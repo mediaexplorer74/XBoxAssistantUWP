@@ -1,0 +1,245 @@
+﻿<lrc:LrcPivotPage 
+    xmlns:lrc="clr-namespace:LRC"
+    x:Class="LRC.GameDetailsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:XLToolKit="clr-namespace:XLToolKit"    
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:converter="clr-namespace:LRC"
+    xmlns:delay="clr-namespace:Delay;assembly=PhonePerformance"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True"
+    toolkit:TiltEffect.IsTiltEnabled="True"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    >
+
+    <lrc:BusyIndicator x:Name="BusyIndicator" Style="{StaticResource BusyIndicatorStyle}" BusyText="{Binding Strings.BusyIndicator_LaunchingText, Source={StaticResource ResourceString}}" IsBusy="{Binding IsBlocking}" IsBlocking="True">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="Collapsed"/>
+                <VisualState x:Name="Expanded">
+                    <Storyboard>
+                        <DoubleAnimation Duration="0" To="2000" Storyboard.TargetProperty="(FrameworkElement.MaxHeight)" Storyboard.TargetName="Description" d:IsOptimized="True"/>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="MoreButton">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Collapsed</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="LessButton">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Visible</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!--Pivot item - Related Items: It is outside of the Pivot control until we know there are results. Then it will get moved inside so it is visible.  -->
+            <controls:PivotItem x:Name="related" Header="{Binding Strings.Related_Header, Source={StaticResource ResourceString}}" Visibility="Collapsed" >
+                <lrc:RelatedItems x:Name="GameRelatedItems" DataContext="{Binding RelatedItemsViewModel}"/>
+            </controls:PivotItem>
+
+            <XLToolKit:XLPivot x:Name="GameDetailsPivot" Grid.Row="0" Title="{Binding SearchItemViewModel.Title}" Style="{StaticResource LRCPivotStyle}" SelectionChanged="Pivot_SelectionChanged" Loaded="Pivot_Loaded">
+
+                <!--Pivot item - game overview -->
+                <controls:PivotItem x:Name="overview" Header="{Binding Strings.NowPlaying_Overview_Header, Source={StaticResource ResourceString}}" >
+                    <XLToolKit:SwitchPanel CurrentState="{Binding CurrentState}">
+                        <!-- 0. Content -->
+                        <ScrollViewer x:Name="GameOverview" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+                            <Grid x:Name="GameRootPanel">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid x:Name="GameGrid" d:LayoutOverrides="Width" Margin="0,0,0,24">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Image x:Name="GameImage" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Stretch="Uniform" delay:LowProfileImageLoader.UriSource="{Binding SearchItemViewModel.ImageUrl}" delay:LowProfileImageLoader.DefaultUriSource="{Binding SearchItemViewModel, Converter={StaticResource SearchItemBoxArtConverter}}" d:LayoutOverrides="GridBox" Margin="12,0,0,0"/>
+                                    <StackPanel Orientation="Vertical" Grid.Column="1">
+                                        <TextBlock x:Name="GameDetailsName" Text="{Binding SearchItemViewModel.Title}" TextWrapping="Wrap" Style="{StaticResource LRCTextPrimaryTitle}" MaxHeight="114" Margin="12,-12,0,0" />
+                                        <TextBlock x:Name="PublisherName" Text="{Binding SearchItemViewModel.Publisher}" Style="{StaticResource LRCTextSecondaryTitle}" Margin="12,0,0,0"/>
+                                        <converter:StarRatingControl x:Name="StarRating" UserRating="{Binding SearchItemViewModel.AverageUserRating}" UserCount="{Binding SearchItemViewModel.UserRatingCount}" Margin="12,0,0,0" BorderThickness="0,8" />
+                                        <TextBlock x:Name="GameDetailsRelease" Text="{Binding SearchItemViewModel.GameReleaseDetails}" Style="{StaticResource LRCTextSecondaryTitle}" Padding="0,0,0,0" Margin="12,0,0,0"/>
+                                        <Button x:Name="BeaconButton" Click="BeaconButton_Click" Style="{StaticResource LRCBeaconButton}" d:LayoutOverrides="Width" Margin="0,0,0,0">
+                                            <TextBlock Text="{Binding Strings.GameDetails_SetBeaconText, Source={StaticResource ResourceString}}" TextWrapping="Wrap" Margin="0" Padding="0" />
+                                        </Button>
+                                    </StackPanel>
+                                </Grid>
+                                <StackPanel Orientation="Vertical" x:Name="GameDescriptionPanel" d:LayoutOverrides="Width, Height" Grid.Row="1" Margin="0,0,0,12">
+                                    <TextBlock x:Name="DescriptionTitle" Text="{Binding Strings.Description_Header, Source={StaticResource ResourceString}}" TextWrapping="Wrap" Style="{StaticResource LRCTextGroupHeader}" Margin="12,0,12,12" />
+                                    <TextBlock x:Name="Description" Text="{Binding SearchItemViewModel.Description}" TextWrapping="Wrap" Style="{StaticResource LRCTextDescription}" SizeChanged="Description_SizeChanged" MaxHeight="60" />
+                                    <Button x:Name="MoreButton" Content="{Binding Strings.NowPlaying_MoreInfo, Source={StaticResource ResourceString}}" Style="{StaticResource LRCTertiaryButton}" Click="MoreButton_Click" Visibility="Collapsed" />
+                                    <Button x:Name="LessButton" Content="{Binding Strings.NowPlaying_LessInfo, Source={StaticResource ResourceString}}" Style="{StaticResource LRCTertiaryButton}" Click="LessButton_Click" Visibility="Collapsed" />
+                                </StackPanel>
+
+                                <TextBlock x:Name="PlayOnXboxTitle" Text="{Binding Strings.Search_PlayOnXbox, Source={StaticResource ResourceString}}" TextWrapping="Wrap" Visibility="{Binding SearchItemViewModel.IsNowPlaying, Converter={StaticResource NotVisibilityConverter}}" Style="{StaticResource LRCTextGroupHeader}" d:LayoutOverrides="Width" Grid.Row="2" Margin="12,0,12,12" />
+                                <Button x:Name="LaunchGame" Click="LaunchGame_Click" Visibility="{Binding SearchItemViewModel.IsNowPlaying, Converter={StaticResource NotVisibilityConverter}}" Style="{StaticResource LRCXboxProviderButton}" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+                                <TextBlock x:Name="GameRating" Text="{Binding Converter={StaticResource PageTitleConverter}, Path=SearchItemViewModel.ParentalRating}" Style="{StaticResource LRCTextTertiaryTitle}" d:LayoutOverrides="Width" Grid.Row="4"/>
+
+                                <StackPanel Orientation="Horizontal" d:LayoutOverrides="Width" Grid.Row="5" Margin="12,8,0,16">
+                                    <Image x:Name="GameRatingIcon" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Source="{Binding SearchItemViewModel.RatingIconUrl}"/>
+                                    <ItemsControl x:Name="GameRatingDescriptorControl" ItemsSource="{Binding SearchItemViewModel.GameRatingDescriptor}" Margin="0,-6,0,0" ItemTemplate="{StaticResource LRCTextDetailsControl}"/>
+                                </StackPanel>
+                            </Grid>
+                        </ScrollViewer>
+
+                        <!-- 1. Error -->
+                        <TextBlock x:Name="OverviewErrorText" Text="{Binding Strings.LRC_Error_Code_FailedToRetrieveData, Source={StaticResource ResourceString}}" TextWrapping="Wrap" Style="{StaticResource LRCTextGroupHeader}"/>
+
+                        <!-- 2. No Content, an invisible item -->
+                        <TextBlock Text=" " Width="0" Height="0"/>
+
+                        <!-- 3. Loading -->
+                        <lrc:BusyIndicator x:Name="OverviewLoadingIndicator" HorizontalAlignment="Left" Style="{StaticResource InlineBusyIndicatorStyle}" OverlayVisiblity="Collapsed" BusyText="{Binding Strings.BusyIndicator_LoadingText, Source={StaticResource ResourceString}}" IsBusy="{Binding IsBusy}" IsBlocking="False" />
+                    </XLToolKit:SwitchPanel>
+                </controls:PivotItem>
+
+                <!--Pivot item - game friends playing -->
+                <controls:PivotItem x:Name="friends" Header="{Binding Strings.FriendsHeader, Source={StaticResource ResourceString}}" >
+                    <Grid x:Name="FriendPivotGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- FriendPivotGrid Row 0 contains the fixed content (refresh button) -->
+                        <Button x:Name="FriendsRefreshButton" Style="{StaticResource LRCRefreshButton}" Click="FriendsRefreshButton_Click" Content="{Binding Strings.Refresh_SetRefreshButtonText, Source={StaticResource ResourceString}}" Margin="0,0,0,12"/>
+
+                        <!-- FriendPivotGrid Row 1 contains the switch panel -->
+                        <XLToolKit:SwitchPanel CurrentState="{Binding FriendsPlaying.CurrentState}" Grid.Row="1">
+                            <!-- 0. Content -->
+                            <ScrollViewer x:Name="FriendsPlayingScrollViewer">
+                                <StackPanel>
+                                    <TextBlock x:Name="FriendActivity" Text="{Binding Strings.Friends_FriendActivityText, Source={StaticResource ResourceString}}" TextWrapping="Wrap" Style="{StaticResource LRCTextGroupHeader}" Margin="12,0,12,12" Visibility="{Binding FriendsPlaying.HasFriends, Converter={StaticResource VisibilityConverter}}"/>
+                                    <ListBox x:Name="FriendsPlayingListBox" ItemsSource="{Binding FriendsPlaying.FriendsList}" ScrollViewer.VerticalScrollBarVisibility="Disabled" SelectionChanged="FriendsListBox_SelectionChanged">
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <converter:FriendEntry IsHitTestVisible="False"/>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                </StackPanel>
+                            </ScrollViewer>
+
+                            <!-- 1. Error -->
+                            <TextBlock x:Name="FriendsErrorText" Text="{Binding Strings.LRC_Error_Code_FailedToGetFriendList, Source={StaticResource ResourceString}}" TextWrapping="Wrap" Style="{StaticResource LRCTextGroupHeader}"/>
+
+                            <!-- 2. No Content -->
+                            <TextBlock x:Name="NoFriendsText" Text="{Binding Strings.Friends_NoFriendsText, Source={StaticResource ResourceString}}" TextWrapping="Wrap" Style="{StaticResource LRCTextGroupHeader}"/>
+
+                            <!-- 3. Loading -->
+                            <lrc:BusyIndicator x:Name="FriendsLoadingIndicator" HorizontalAlignment="Left" Style="{StaticResource InlineBusyIndicatorStyle}" OverlayVisiblity="Collapsed" BusyText="{Binding Strings.BusyIndicator_LoadingText, Source={StaticResource ResourceString}}" IsBusy="{Binding FriendsPlaying.IsBusy}" IsBlocking="False" />
+                        </XLToolKit:SwitchPanel>
+                    </Grid>
+                </controls:PivotItem>
+
+                <!--Pivot item - game achievements -->
+                <controls:PivotItem x:Name="achievements" Header="{Binding Strings.AchievementsHeader, Source={StaticResource ResourceString}}" >
+                    <Grid x:Name="AchievementPivotGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- AchievementPivotGrid Row 0 contains the fixed content (refresh button and totals) -->
+                        <Grid x:Name="AchievementsTotals" Margin="0,0,0,24" Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="12"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock x:Name="GamerscoreText" Text="{Binding AchievementListViewModel.GamerscoreText}" Style="{StaticResource LRCTextTertiaryTitle}" TextAlignment="Right" Grid.Column="3" TextWrapping="NoWrap" VerticalAlignment="Center" Margin="8,0" Visibility="{Binding AchievementListViewModel.HasAchievements, Converter={StaticResource VisibilityConverter}}"/>
+                            <Image x:Name="GamerscoreG" Source="/UI/Images/ico_gamerscore_32x.png" Width="24" Stretch="Fill" Grid.Column="4" Height="24" VerticalAlignment="Center" HorizontalAlignment="Left" Visibility="{Binding AchievementListViewModel.HasAchievements, Converter={StaticResource VisibilityConverter}}"/>
+                            <TextBlock x:Name="AchievementProgressText" Text="{Binding AchievementListViewModel.AchievementProgressText}" Style="{StaticResource LRCTextTertiaryTitle}" TextAlignment="Right" Grid.Column="1" TextWrapping="NoWrap" VerticalAlignment="Center" Margin="8,0" Visibility="{Binding AchievementListViewModel.HasAchievements, Converter={StaticResource VisibilityConverter}}"/>
+                            <Image x:Name="AchievementsIcon" Source="/UI/Images/ico_achivements_32x.png" Width="24" Stretch="Fill" Height="24" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Visibility="{Binding AchievementListViewModel.HasAchievements, Converter={StaticResource VisibilityConverter}}"/>
+                            <Button x:Name="AchievementsRefreshButton" Style="{StaticResource LRCRefreshButton}" Click="AchievementsRefreshButton_Click" Content="{Binding Strings.Refresh_SetRefreshButtonText, Source={StaticResource ResourceString}}" VerticalAlignment="Center"/>
+                        </Grid>
+
+                        <!-- AchievementPivotGrid Row 1 contains the switch panel -->
+                        <XLToolKit:SwitchPanel CurrentState="{Binding AchievementListViewModel.CurrentState}" Grid.Row="1">
+                            <!-- 0. Content -->
+                            <lrc:BusyIndicator x:Name="AchievementsBusyIndicator" Style="{StaticResource BusyIndicatorStyle}" VerticalAlignment="Bottom" OverlayVisiblity="Collapsed" BusyText="{Binding Strings.BusyIndicator_LoadingText, Source={StaticResource ResourceString}}" IsBusy="{Binding AchievementListViewModel.IsProcessingAchievements}">
+                                <lrc:ListBoxWithCompression x:Name="AchievementsListBox" Style="{StaticResource ListBoxWithCompression}" Grid.Row="0" ItemsSource="{Binding AchievementListViewModel.AchievementList}" SelectionChanged="AchievementsListBox_SelectionChanged" Loaded="AchievementsListBox_Loaded">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <converter:AchievementEntry IsHitTestVisible="False"/>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+
+                                    <!--
+                                        Use a stackpanel as the panel for this listbox. Otherwise it will use VirtualizingStackpanel by default
+                                    it make sense to show everthing and make the scrolling perform better. 
+                                    -->
+
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel/>
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+
+                                </lrc:ListBoxWithCompression>
+                            </lrc:BusyIndicator>
+
+                            <!-- 1. Error -->
+                            <TextBlock x:Name="AchievementsErrorText" Text="{Binding Strings.Achievements_ErrorToShowInPlaceOfList, Source={StaticResource ResourceString}}" TextWrapping="Wrap" Style="{StaticResource LRCTextGroupHeader}" d:LayoutOverrides="Height"/>
+
+                            <!-- 2. No Content -->
+                            <TextBlock x:Name="NoAchievementsText" Text="{Binding Strings.Achievements_NoAchievementsText, Source={StaticResource ResourceString}}" TextWrapping="Wrap" Style="{StaticResource LRCTextGroupHeader}" d:LayoutOverrides="Height"/>
+
+                            <!-- 3. Loading -->
+                            <lrc:BusyIndicator x:Name="AchievementLoadingIndicator" HorizontalAlignment="Left" Style="{StaticResource InlineBusyIndicatorStyle}" OverlayVisiblity="Collapsed" BusyText="{Binding Strings.BusyIndicator_LoadingText, Source={StaticResource ResourceString}}" IsBusy="{Binding AchievementListViewModel.IsBusy}" IsBlocking="False" />
+                        </XLToolKit:SwitchPanel>
+                    </Grid>
+                </controls:PivotItem>
+
+                <!--Pivot item - game image -->
+                <controls:PivotItem x:Name="images" Header="{Binding Strings.Images_Header, Source={StaticResource ResourceString}}" >
+                    <XLToolKit:SwitchPanel CurrentState="{Binding CurrentState}">
+                        <!-- 0. Content -->
+                        <lrc:GameImages x:Name="GameImages" DataContext="{Binding SearchItemViewModel}" />
+
+                        <!-- 1. Error -->
+                        <TextBlock x:Name="ImageErrorText" Text="{Binding Strings.LRC_Error_Code_FailedToRetrieveData, Source={StaticResource ResourceString}}" TextWrapping="Wrap" Style="{StaticResource LRCTextGroupHeader}"/>
+
+                        <!-- 2. No Content, an invisible item -->
+                        <TextBlock Text=" " Width="0" Height="0"/>
+
+                        <!-- 3. Loading -->
+                        <lrc:BusyIndicator x:Name="ImageLoadingIndicator" HorizontalAlignment="Left" Style="{StaticResource InlineBusyIndicatorStyle}" OverlayVisiblity="Collapsed" BusyText="{Binding Strings.BusyIndicator_LoadingText, Source={StaticResource ResourceString}}" IsBusy="{Binding SearchItemViewModel.IsBusy}" IsBlocking="False" />
+
+                    </XLToolKit:SwitchPanel>
+                </controls:PivotItem>
+
+            </XLToolKit:XLPivot>
+
+            <!-- Media Bar -->
+            <lrc:MediaBar x:Name="MediaControls" Grid.Row="1"/>
+        </Grid>
+    </lrc:BusyIndicator>
+</lrc:LrcPivotPage> 

@@ -1,0 +1,54 @@
+﻿<lrc:SearchDetailsPageBase 
+    x:Class="LRC.TvSeriesSearchDetailsPage"
+    xmlns:lrc="clr-namespace:LRC"
+    xmlns:XLToolKit="clr-namespace:XLToolKit"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:converter="clr-namespace:LRC"
+    xmlns:delay="clr-namespace:Delay;assembly=PhonePerformance"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True"
+    toolkit:TiltEffect.IsTiltEnabled="True"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    >
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!--Pivot item - Related Items: It is outside of the Pivot control until we know there are results. Then it will get moved inside so it is visible.  -->
+        <controls:PivotItem x:Name="related" Header="{Binding Strings.Related_Header, Source={StaticResource ResourceString}}" Visibility="Collapsed" >
+            <lrc:RelatedItems x:Name="RelatedItems" DataContext="{Binding SearchItem.RelatedItemsViewModel}"/>
+        </controls:PivotItem>
+
+        <XLToolKit:XLPivot x:Name="TvSeriesSearchDetailsControl" Title="{Binding Title}" Style="{StaticResource LRCPivotStyle}" SelectionChanged="Pivot_SelectionChanged">
+            <controls:PivotItem x:Name="seasons"  Header="{Binding Strings.TVDetails_SeasonsHeader, Source={StaticResource ResourceString}}">
+                <XLToolKit:SwitchPanel CurrentState="{Binding SearchItem.CurrentState}" MinHeight="493" >
+                    <!-- 0. Content -->
+                    <lrc:ListBoxWithCompression x:Name="SeasonsListBox" ItemsSource="{Binding SearchItem.TelevisionSeasons}" SelectionChanged="Season_SelectionChanged" Style="{StaticResource ListBoxWithWrapping}" ItemTemplate="{StaticResource LRCSeasonImageListItem}" Loaded="ListBox_Loaded" ScrollingDisabled="{Binding SearchItem.IsAddingData}"/>
+
+                    <!-- 1. Error -->
+                    <TextBlock x:Name="ErrorText" Text="{Binding Strings.LRC_Error_Code_FailedToRetrieveData, Source={StaticResource ResourceString}}" TextWrapping="Wrap" Style="{StaticResource LRCTextGroupHeader}"/>
+
+                    <!-- 2. No Content, an invisible item -->
+                    <TextBlock Text=" " Width="0" Height="0"/>
+
+                    <!-- 3. Loading -->
+                    <lrc:BusyIndicator x:Name="BusyIndicator" HorizontalAlignment="Left" Style="{StaticResource InlineBusyIndicatorStyle}" OverlayVisiblity="Collapsed" BusyText="{Binding Strings.BusyIndicator_LoadingText, Source={StaticResource ResourceString}}" IsBusy="True" IsBlocking="False" />
+                </XLToolKit:SwitchPanel>
+            </controls:PivotItem>
+
+        </XLToolKit:XLPivot>
+
+        <!-- Media Bar -->
+        <lrc:MediaBar x:Name="MediaControls" Grid.Row="1"/>
+    </Grid>
+</lrc:SearchDetailsPageBase>

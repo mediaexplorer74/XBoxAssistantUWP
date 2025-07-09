@@ -1,0 +1,86 @@
+﻿<lrc:SearchDetailsPageBase 
+    x:Class="LRC.ArtistSearchDetailsPage"
+    xmlns:lrc="clr-namespace:LRC"
+    xmlns:XLToolKit="clr-namespace:XLToolKit"    
+    xmlns:local="clr-namespace:LRC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:converter="clr-namespace:LRC"
+    xmlns:delay="clr-namespace:Delay;assembly=PhonePerformance"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True"
+    toolkit:TiltEffect.IsTiltEnabled="True"
+    SupportedOrientations="Portrait" Orientation="Portrait">
+    <local:BusyIndicator x:Name="BusyIndicator" Style="{StaticResource BusyIndicatorStyle}" OverlayVisiblity="Collapsed" IsBusy="{Binding IsBlocking}" IsBlocking="True">
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <controls:PivotItem x:Name="bio" Grid.Row="0" Visibility="Collapsed" Header="{Binding Strings.Bio_Header, Source={StaticResource ResourceString}}">
+                <ScrollViewer>
+                    <ItemsControl ItemsSource="{Binding ExtendedBio}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock x:Name="BioTextBlock" Text="{Binding}" TextWrapping="Wrap" Style="{StaticResource LRCTextDescription}" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </controls:PivotItem>
+            <controls:PivotItem x:Name="related" Visibility="Collapsed" Header="{Binding Strings.Related_Header, Source={StaticResource ResourceString}}">
+                <Grid HorizontalAlignment="Stretch">
+                    <ListBox x:Name="RelatedItemsListBox" ItemsSource="{Binding Related}" SelectionChanged="AlbumItemsListBox_SelectionChanged">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <converter:MediaItemControl x:Name="relatedalbum" ImageUrl="{Binding ImageUrl}" LineOne ="{Binding Title}" LineTwo="{Binding Artist}" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </controls:PivotItem>
+
+
+            <XLToolKit:XLPivot x:Name="DetailsControl" Grid.Row="0" Title="{Binding Artist}" Style="{StaticResource LRCPivotStyle}" SelectionChanged="Pivot_SelectionChanged">
+                <controls:PivotItem x:Name="albums" Header="{Binding Strings.Discography_Header, Source={StaticResource ResourceString}}">
+                    <XLToolKit:SwitchPanel CurrentState="{Binding CurrentState}" >
+                        <!-- 0. Content -->
+                        <Grid HorizontalAlignment="Stretch">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock x:Name="DiscographyNotFound" Text="{Binding DiscographyNotFound}" Style="{StaticResource LRCTextGroupHeader}" />
+                            <ListBox x:Name="AlbumsOfSameArtistListBox" ItemsSource="{Binding AlbumsBySameArtist}" SelectionChanged="AlbumItemsListBox_SelectionChanged" Grid.Row="1">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <converter:MediaItemControl x:Name="albumitem" ImageUrl="{Binding ImageUrl}" LineOne ="{Binding Title}" LineTwo="{Binding Artist}" />
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Grid>
+
+                        <!-- 1. Error -->
+                        <TextBlock x:Name="OverviewErrorText" Text="{Binding Strings.LRC_Error_Code_FailedToRetrieveData, Source={StaticResource ResourceString}}" TextWrapping="Wrap" Style="{StaticResource LRCTextGroupHeader}"/>
+
+                        <!-- 2. No Cotent -->
+                        <TextBlock Text="{Binding Strings.Discography_NotFound, Source={StaticResource ResourceString}}" TextWrapping="Wrap" Style="{StaticResource LRCTextGroupHeader}" />
+
+                        <!-- 3. Loading -->
+                        <lrc:BusyIndicator x:Name="OverviewLoadingIndicator" HorizontalAlignment="Left" Style="{StaticResource InlineBusyIndicatorStyle}" OverlayVisiblity="Collapsed" BusyText="{Binding Strings.BusyIndicator_LoadingText, Source={StaticResource ResourceString}}" IsBusy="True" IsBlocking="False" />                      
+                    </XLToolKit:SwitchPanel>
+                </controls:PivotItem>
+            </XLToolKit:XLPivot>
+
+            <!-- Media Bar -->
+            <lrc:MediaBar x:Name="MediaControls" Grid.Row="1"/>
+        </Grid>
+    </local:BusyIndicator>
+</lrc:SearchDetailsPageBase>

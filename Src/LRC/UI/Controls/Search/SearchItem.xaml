@@ -1,0 +1,36 @@
+﻿<UserControl 
+    xmlns:lrc="clr-namespace:LRC"
+    x:Class="LRC.SearchItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:delay="clr-namespace:Delay;assembly=PhonePerformance"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    HorizontalAlignment="Stretch"
+    HorizontalContentAlignment="Left"
+    d:DesignHeight="480" d:DesignWidth="480" VerticalContentAlignment="Top">
+
+    <Grid x:Name="LayoutRoot" Height="{Binding Converter={StaticResource SearchItemHeightConverter}}" VerticalAlignment="Top" Margin="12,0,12,12" CacheMode="BitmapCache">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="Image" Grid.Row="0" Height="{Binding Converter={StaticResource SearchItemHeightConverter}}" Width="99" delay:LowProfileImageLoader.UriSource="{Binding ImageUrl}" VerticalAlignment="Top" delay:LowProfileImageLoader.DefaultUriSource="{Binding Converter={StaticResource SearchItemBoxArtConverter}}" Margin="0"/>
+        <StackPanel x:Name="DetailsPanel" Orientation="Vertical" VerticalAlignment="Top" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Stretch" Margin="12,-10,0,0">
+            <TextBlock x:Name="Title" HorizontalAlignment="Stretch" VerticalAlignment="Top" TextAlignment="Left" Text="{Binding Title}" Visibility="{Binding Title, Converter={StaticResource TextLengthToVisibilityConverter}}" Margin="0" Foreground="White" FontSize="32" FontFamily="Segoe WP SemiLight" />
+            <TextBlock x:Name="Artist" HorizontalAlignment="Stretch" VerticalAlignment="Top" TextAlignment="Left" Text="{Binding Artist}" Margin="0,0,0,4" Visibility="{Binding Artist, Converter={StaticResource TextLengthToVisibilityConverter}}" Foreground="#99FFFFFF" FontSize="20" FontFamily="Segoe WP" />
+            <StackPanel x:Name="infoStack" Orientation="Horizontal">
+                <Image x:Name="Icon" HorizontalAlignment="Right" VerticalAlignment="Top" Width="24" Height="24" Opacity="0.6" Source="{Binding ItemType, Converter={StaticResource SearchItemTypeToIconConverter}}"/>
+                <TextBlock x:Name="ReleaseDetails" HorizontalAlignment="Stretch" VerticalAlignment="Top" TextAlignment="Left" Text="{Binding ReleaseDetails}" Visibility="{Binding ReleaseDetails, Converter={StaticResource TextLengthToVisibilityConverter}}" FontSize="20" Margin="8,-2,8,0" FontFamily="Segoe WP" Foreground="#99FFFFFF" />
+            </StackPanel>
+            <lrc:StarRatingControl x:Name="StarRating" UserRating="{Binding AverageUserRating}" UserCount="{Binding UserRatingCount}" Visibility="Visible" VerticalAlignment="Top" Margin="0" HorizontalAlignment="Left"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

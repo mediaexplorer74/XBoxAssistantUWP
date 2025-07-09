@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Friend_PlayedOneHourAgoText" xml:space="preserve">
+    <value>Played 1 Hour Ago</value>
+  </data>
+  <data name="LookForXboxPage_RetryButtonText" xml:space="preserve">
+    <value>Try Again</value>
+  </data>
+  <data name="LRC_Error_Code_CriticalFailure" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ZuneMarketplace_MoviesHeader" xml:space="preserve">
+    <value>movies</value>
+  </data>
+  <data name="Achievements_NoAchievementsText" xml:space="preserve">
+    <value>No achievements.</value>
+  </data>
+  <data name="SearchHelpText_Prompt1_Category2" xml:space="preserve">
+    <value>search Xbox for albums,</value>
+  </data>
+  <data name="SearchHelpText_Prompt1_Category3" xml:space="preserve">
+    <value>search Xbox for games,</value>
+  </data>
+  <data name="SearchHelpText_Prompt1_Category1" xml:space="preserve">
+    <value>search Xbox for movies,</value>
+  </data>
+  <data name="TVDetailsTitle" xml:space="preserve">
+    <value>{0}: season {1}</value>
+  </data>
+  <data name="Beacon_RemoveBeaconButtonText" xml:space="preserve">
+    <value>remove</value>
+  </data>
+  <data name="ProviderOffer_PayPerView" xml:space="preserve">
+    <value>Pay Per View</value>
+  </data>
+  <data name="SearchGameDetail_NoImages" xml:space="preserve">
+    <value>No images found.</value>
+  </data>
+  <data name="ConnectingMessage" xml:space="preserve">
+    <value>Connecting...</value>
+  </data>
+  <data name="NowPlaying_MoreInfo_Related" xml:space="preserve">
+    <value>related</value>
+  </data>
+  <data name="MessageBody_LaunchOnConsoleFailed" xml:space="preserve">
+    <value>Sorry, couldn't start this on the console. Try again.</value>
+  </data>
+  <data name="SearchResults_PageTitle" xml:space="preserve">
+    <value>results</value>
+  </data>
+  <data name="LRC_Error_Code_ActionNotAllowed" xml:space="preserve">
+    <value>Operation not allowed</value>
+  </data>
+  <data name="NowPlaying_MoreInfo_Overview" xml:space="preserve">
+    <value>overview</value>
+  </data>
+  <data name="Writer_Header" xml:space="preserve">
+    <value>writer</value>
+  </data>
+  <data name="Search_UserVoterCount" xml:space="preserve">
+    <value>({0})</value>
+  </data>
+  <data name="SearchResultFilterSummary" xml:space="preserve">
+    <value>{0} ({1})</value>
+  </data>
+  <data name="SearchHelpText_Prompt2_Category1" xml:space="preserve">
+    <value>search Xbox for movies, TV...</value>
+  </data>
+  <data name="SearchHelpText_Prompt2_Category3" xml:space="preserve">
+    <value>search Xbox for games, apps...</value>
+  </data>
+  <data name="SearchHelpText_Prompt2_Category2" xml:space="preserve">
+    <value>search Xbox for albums, artists...</value>
+  </data>
+  <data name="NowPlaying_OnYourXbox" xml:space="preserve">
+    <value>on your console</value>
+  </data>
+  <data name="SlowConnectionDetected_Header" xml:space="preserve">
+    <value>Slow connection detected</value>
+  </data>
+  <data name="Beacon_UserBannedCommentBoxText" xml:space="preserve">
+    <value>Can't add comment. You're currently suspended from communications.</value>
+  </data>
+  <data name="Friend_DefaultBeaconText" xml:space="preserve">
+    <value>beacon set</value>
+  </data>
+  <data name="Content_Explicit" xml:space="preserve">
+    <value>explicit</value>
+  </data>
+  <data name="ZuneVideoMarketPlace_TitleFilter" xml:space="preserve">
+    <value>title</value>
+  </data>
+  <data name="LookForXboxPage_Information" xml:space="preserve">
+    <value>Make sure your console is on and Xbox Companion is set to Available in Settings, System, Console Settings.</value>
+  </data>
+  <data name="ZuneVideoMarketPlace_TV_EpisodeNumber" xml:space="preserve">
+    <value>episode {0}</value>
+  </data>
+  <data name="BusyIndicator_LoadingText" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="Friend_PlayedOneMinuteAgoText" xml:space="preserve">
+    <value>Played 1 Minute Ago</value>
+  </data>
+  <data name="Images_Header" xml:space="preserve">
+    <value>images</value>
+  </data>
+  <data name="HowToConnect_Header" xml:space="preserve">
+    <value>Welcome to Xbox Companion</value>
+  </data>
+  <data name="HowToConnect_BulletText1" xml:space="preserve">
+    <value>Make sure your console is on and you're signed in to Xbox LIVE.</value>
+  </data>
+  <data name="HowToConnect_BulletText2" xml:space="preserve">
+    <value>On your console, set Xbox Companion to Available in Settings, System, Console Settings.</value>
+  </data>
+  <data name="FriendsHeader" xml:space="preserve">
+    <value>friends</value>
+  </data>
+  <data name="NowPlaying_MoreInfo_Friends" xml:space="preserve">
+    <value>friends</value>
+  </data>
+  <data name="NowPlaying_SearchHeader" xml:space="preserve">
+    <value>Bing</value>
+  </data>
+  <data name="ZuneMusic_ProviderName" xml:space="preserve">
+    <value>Zune Music</value>
+  </data>
+  <data name="CastAndCrew_Header" xml:space="preserve">
+    <value>cast and crew</value>
+  </data>
+  <data name="Beacon_OneFriendPlayingNow" xml:space="preserve">
+    <value>1 friend playing now</value>
+  </data>
+  <data name="NowPlaying_MoreInfo_Achievements" xml:space="preserve">
+    <value>achievements</value>
+  </data>
+  <data name="LookForXboxPage_Error_CanNotSignIn" xml:space="preserve">
+    <value>Can't connect to Xbox LIVE. Make sure your Windows Phone is connected to the Internet.
+
+For more info, visit
+http://support.xbox.com</value>
+  </data>
+  <data name="Cancel_Text" xml:space="preserve">
+    <value>cancel</value>
+  </data>
+  <data name="Home_Panorama_Title" xml:space="preserve">
+    <value>Xbox Companion</value>
+  </data>
+  <data name="ZuneVideoMarketPlace_TopRentalFilter" xml:space="preserve">
+    <value>top rented</value>
+  </data>
+  <data name="LRC_Error_Code_FailedToSetBeacon_BeaconTextTooLong" xml:space="preserve">
+    <value>Your comment is too long.</value>
+  </data>
+  <data name="SearchResultFilterItem_Music" xml:space="preserve">
+    <value>music</value>
+  </data>
+  <data name="WelcomeText" xml:space="preserve">
+    <value>Welcome</value>
+  </data>
+  <data name="Discography_NotFound" xml:space="preserve">
+    <value>Albums are currently unavailable.</value>
+  </data>
+  <data name="SearchResultFilterItem_Games" xml:space="preserve">
+    <value>games</value>
+  </data>
+  <data name="SearchResultFilterItem_Movies" xml:space="preserve">
+    <value>movies</value>
+  </data>
+  <data name="LRC_Error_Code_FailedToAuthenticate" xml:space="preserve">
+    <value>Can't sign in.</value>
+  </data>
+  <data name="Bio_Header" xml:space="preserve">
+    <value>bio</value>
+  </data>
+  <data name="Achievements_DateEarned" xml:space="preserve">
+    <value>Unlocked {0}</value>
+  </data>
+  <data name="SigningInMessage" xml:space="preserve">
+    <value>Signing in...</value>
+  </data>
+  <data name="Search_ErrorText" xml:space="preserve">
+    <value>Sorry, search isn't available. Try again in a while.</value>
+  </data>
+  <data name="LookForXboxPage_ErrorHeader_CanNotConnect" xml:space="preserve">
+    <value>Can't connect to your console</value>
+  </data>
+  <data name="SearchResults_StartSearch" xml:space="preserve">
+    <value>Go</value>
+  </data>
+  <data name="Search_PlayOnXbox" xml:space="preserve">
+    <value>play on your console:</value>
+  </data>
+  <data name="LRC_Error_Code_FailedToSetBeacon" xml:space="preserve">
+    <value>Sorry, can't set your beacon right now. Try again later.</value>
+  </data>
+  <data name="LookForXboxPage_Error_CanNotFind" xml:space="preserve">
+    <value>Make sure you're signed into Xbox LIVE on both the console and your Windows Phone.
+
+To enable Xbox Companion on your console, go to Settings, System, Console Settings, Xbox Companion.
+
+For more info, visit
+http://support.xbox.com</value>
+  </data>
+  <data name="SearchHelpText_BasicPrompt" xml:space="preserve">
+    <value>search Xbox for</value>
+  </data>
+  <data name="NowPlayingSongs_Hide" xml:space="preserve">
+    <value>hide</value>
+  </data>
+  <data name="NowPlayingSongs_Show" xml:space="preserve">
+    <value>show</value>
+  </data>
+  <data name="Fatal_Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Related_Header" xml:space="preserve">
+    <value>related</value>
+  </data>
+  <data name="NowPlaying_MoreInfo_Images" xml:space="preserve">
+    <value>images</value>
+  </data>
+  <data name="Writers_Header" xml:space="preserve">
+    <value>writers</value>
+  </data>
+  <data name="LRC_Error_Code_FailedToRetrieveData" xml:space="preserve">
+    <value>There was a problem retrieving data from the service.</value>
+  </data>
+  <data name="LookForXboxPage_ErrorHeader_CanNotFind" xml:space="preserve">
+    <value>Can't find your console</value>
+  </data>
+  <data name="NowPlaying_TimeSpan_Format" xml:space="preserve">
+    <value>{0:00}:{1:00}:{2:00}</value>
+  </data>
+  <data name="Actors_Header" xml:space="preserve">
+    <value>cast</value>
+  </data>
+  <data name="TitleUpdate_Title" xml:space="preserve">
+    <value>Update required</value>
+  </data>
+  <data name="SearchTerms_Title" xml:space="preserve">
+    <value>popular now</value>
+  </data>
+  <data name="SuccessfulConnectionPage_ContinueButtonText" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="HowToConnect_InformationalText1" xml:space="preserve">
+    <value>Xbox Companion lets you use your Windows Phone to connect and play content on your console.</value>
+  </data>
+  <data name="LookForXboxPage_ConnectingHeader" xml:space="preserve">
+    <value>Looking for your Xbox 360 console</value>
+  </data>
+  <data name="TVDetails_DescriptionHeader" xml:space="preserve">
+    <value>description</value>
+  </data>
+  <data name="ProviderOffer_Purchase" xml:space="preserve">
+    <value>Purchase</value>
+  </data>
+  <data name="SuccessfulConnectionPage_InformationalText_Section1" xml:space="preserve">
+    <value>You're now connected to your Xbox 360 console.</value>
+  </data>
+  <data name="SuccessfulConnectionPage_InformationalText_Section2" xml:space="preserve">
+    <value>Use your Windows Phone to find videos, music, games, and more, and play them directly on your console.</value>
+  </data>
+  <data name="LookForXboxPage_ErrorHeader_DeviceLimitReached" xml:space="preserve">
+    <value>Too many devices</value>
+  </data>
+  <data name="LRC_Error_Code_FailedToLaunchGamercard" xml:space="preserve">
+    <value>Can't find this friend's info.</value>
+  </data>
+  <data name="NowPlaying_FeatureHeader" xml:space="preserve">
+    <value>featured</value>
+  </data>
+  <data name="LookForXboxPage_Error_TooManyClients" xml:space="preserve">
+    <value>Only 4 devices can connect to your console at a time. Disconnect a device and try again.
+
+For more info, visit
+http://support.xbox.com</value>
+  </data>
+  <data name="ProviderOffer_FreeWithSubscription" xml:space="preserve">
+    <value>Subscription</value>
+  </data>
+  <data name="Artist_Header" xml:space="preserve">
+    <value>artist</value>
+  </data>
+  <data name="NowPlaying_ZuneMarketplaceTitle" xml:space="preserve">
+    <value>Zune Video Marketplace</value>
+  </data>
+  <data name="LRC_Error_Code_FailedToSetBeacon_BeaconLimitReached" xml:space="preserve">
+    <value>You've set all 3 of your beacons. Remove one before setting another.</value>
+  </data>
+  <data name="NowPlaying_Dashboard" xml:space="preserve">
+    <value>Check out featured items or use Bing to search for content to play on your console.</value>
+  </data>
+  <data name="SearchResults_FilterHeader" xml:space="preserve">
+    <value>show</value>
+  </data>
+  <data name="Friends_NoFriendsText" xml:space="preserve">
+    <value>No friend activity.</value>
+  </data>
+  <data name="LRC_Error_Code_FailedToConnectToConsole" xml:space="preserve">
+    <value>Can't connect to your console.</value>
+  </data>
+  <data name="NowPlaying_MoreInfo_Artist" xml:space="preserve">
+    <value>artist</value>
+  </data>
+  <data name="BusyIndicator_LaunchingText" xml:space="preserve">
+    <value>Starting on console...</value>
+  </data>
+  <data name="ZuneVideoMarketPlace_TopPurchases" xml:space="preserve">
+    <value>top purchased</value>
+  </data>
+  <data name="AlbumSongs_Title" xml:space="preserve">
+    <value>songs</value>
+  </data>
+  <data name="Friends_FriendActivityText" xml:space="preserve">
+    <value>friend activity</value>
+  </data>
+  <data name="Friend_PlayedHoursAgoText" xml:space="preserve">
+    <value>Played {0} Hours Ago</value>
+  </data>
+  <data name="ZuneVideoMarketPlace_NewReleases" xml:space="preserve">
+    <value>new releases</value>
+  </data>
+  <data name="Beacon_SetBeaconHeader" xml:space="preserve">
+    <value>set beacon</value>
+  </data>
+  <data name="Overview_Header" xml:space="preserve">
+    <value>overview</value>
+  </data>
+  <data name="Achievements_SecretGamerscore" xml:space="preserve">
+    <value>--</value>
+  </data>
+  <data name="RelatedItems_NoResultsFound" xml:space="preserve">
+    <value>No related items are currently available.</value>
+  </data>
+  <data name="NowPlayingAlbums_ShowLess" xml:space="preserve">
+    <value>show less</value>
+  </data>
+  <data name="NowPlayingAlbums_ShowMore" xml:space="preserve">
+    <value>show more</value>
+  </data>
+  <data name="LeaderboardsHeader" xml:space="preserve">
+    <value>leaderboards</value>
+  </data>
+  <data name="ProviderOffer_Free" xml:space="preserve">
+    <value>Free</value>
+  </data>
+  <data name="ProviderOffer_Rent" xml:space="preserve">
+    <value>Rent</value>
+  </data>
+  <data name="LRC_Error_Code_FailedToSignIn" xml:space="preserve">
+    <value>Couldn't sign in to Xbox LIVE. Please try again.</value>
+  </data>
+  <data name="ZuneVideoMarketPlace_Genres" xml:space="preserve">
+    <value>genres</value>
+  </data>
+  <data name="SearchResult_BusyIndicatorText" xml:space="preserve">
+    <value>Searching . . .</value>
+  </data>
+  <data name="Directors_Header" xml:space="preserve">
+    <value>directors</value>
+  </data>
+  <data name="Beacon_EditBeaconHeader" xml:space="preserve">
+    <value>update beacon</value>
+  </data>
+  <data name="Discography_Header" xml:space="preserve">
+    <value>albums</value>
+  </data>
+  <data name="NowPlaying_RecentlyPlayedHeader" xml:space="preserve">
+    <value>quickplay</value>
+  </data>
+  <data name="NowPlaying_MoreInfo_Review" xml:space="preserve">
+    <value>review</value>
+  </data>
+  <data name="Friend_BeaconText" xml:space="preserve">
+    <value>"{0}"</value>
+  </data>
+  <data name="SlowConnectionDescription2" xml:space="preserve">
+    <value>To connect, go to Settings, Wi-Fi, then choose the same network your console is on. Xbox Companion will work on a separate network, but it may affect performance.</value>
+  </data>
+  <data name="SlowConnectionDescription1" xml:space="preserve">
+    <value>For the best experience, the console and your Windows Phone should be on the same network.</value>
+  </data>
+  <data name="Launch_DifferentTitle_Warning_Message" xml:space="preserve">
+    <value>This will exit the current session on your console. Continue?</value>
+  </data>
+  <data name="TVSeasonTitle" xml:space="preserve">
+    <value>Season {0}</value>
+  </data>
+  <data name="Friend_PlayedMinutesAgoText" xml:space="preserve">
+    <value>Played {0} Minutes Ago</value>
+  </data>
+  <data name="Error_Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ZuneMarketplace_FeaturedHeader" xml:space="preserve">
+    <value>spotlight</value>
+  </data>
+  <data name="LRC_Error_Code_FailedToGetUserProfile" xml:space="preserve">
+    <value>Couldn't retrieve this profile. Try again.</value>
+  </data>
+  <data name="ContinueWithoutWifi" xml:space="preserve">
+    <value>Continue without Wi-Fi</value>
+  </data>
+  <data name="Friend_PlayedOneMonthAgoText" xml:space="preserve">
+    <value>Played 1 Month Ago</value>
+  </data>
+  <data name="ConnectedMessage" xml:space="preserve">
+    <value>Connected</value>
+  </data>
+  <data name="NoItemsFound" xml:space="preserve">
+    <value>No items found.</value>
+  </data>
+  <data name="ZuneMarketplace_PicksForYouHeader" xml:space="preserve">
+    <value>picks for me</value>
+  </data>
+  <data name="NowPlaying_MoreInfo_CastAndCrew" xml:space="preserve">
+    <value>cast &amp; crew</value>
+  </data>
+  <data name="SearchResultFilterItem_Apps" xml:space="preserve">
+    <value>apps</value>
+  </data>
+  <data name="AlbumDetails_Song_Title" xml:space="preserve">
+    <value>overview</value>
+  </data>
+  <data name="SearchResultFilterItem_All" xml:space="preserve">
+    <value>all</value>
+  </data>
+  <data name="LRC_Error_Code_RequestCancelled" xml:space="preserve">
+    <value>The operation was canceled. </value>
+  </data>
+  <data name="ZuneVideo_ProviderName" xml:space="preserve">
+    <value>Zune Video</value>
+  </data>
+  <data name="ZuneVideoMarketPlace_ReleaseDateFilter" xml:space="preserve">
+    <value>release date</value>
+  </data>
+  <data name="SuccessfulConnectionPage_Header" xml:space="preserve">
+    <value>Success!</value>
+  </data>
+  <data name="Achievements_SecretTitle" xml:space="preserve">
+    <value>Secret</value>
+  </data>
+  <data name="LRC_Error_Code_FailedToGetAchievements" xml:space="preserve">
+    <value>Couldn't get these achievements. Try again.</value>
+  </data>
+  <data name="LRC_Error_Code_FailedToGetFriendList" xml:space="preserve">
+    <value>Couldn't get your friends list. Try again.</value>
+  </data>
+  <data name="Beacon_CommentLabel" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="LRC_Error_Code_FailedToDeleteBeacon" xml:space="preserve">
+    <value>Sorry, couldn't remove your beacon. Try again later.</value>
+  </data>
+  <data name="AchievementsHeader" xml:space="preserve">
+    <value>achievements</value>
+  </data>
+  <data name="Friend_PlayedDaysAgoText" xml:space="preserve">
+    <value>Played {0} Days Ago</value>
+  </data>
+  <data name="Album_DisplayedTrackName" xml:space="preserve">
+    <value>{0}. {1}</value>
+  </data>
+  <data name="ZuneMarketplace_TVHeader" xml:space="preserve">
+    <value>tv</value>
+  </data>
+  <data name="HowToConnect_ContinueButtonText" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="LookForXboxPage_Error_CanNotConnect" xml:space="preserve">
+    <value>Make sure your console is on and Xbox Companion is set to Available in Settings, System, Console Settings.
+
+For more info, visit
+http://support.xbox.com</value>
+  </data>
+  <data name="ProviderOffer_FreeWithAds" xml:space="preserve">
+    <value>Free with Ads</value>
+  </data>
+  <data name="Friend_PlayedMonthsAgoText" xml:space="preserve">
+    <value>Played {0} Months Ago</value>
+  </data>
+  <data name="Synopsis_Header" xml:space="preserve">
+    <value>synopsis</value>
+  </data>
+  <data name="ErrorCode" xml:space="preserve">
+    <value>Status code:</value>
+  </data>
+  <data name="AchievementGamerScoreProgressFormat" xml:space="preserve">
+    <value>{0}/{1}</value>
+  </data>
+  <data name="Achievements_ProgressText" xml:space="preserve">
+    <value>{0} / {1}</value>
+  </data>
+  <data name="Leaderboards_NoLeaderboardDataText" xml:space="preserve">
+    <value>Leaderboards are currently unavailable for this game.</value>
+  </data>
+  <data name="Beacon_EditBeaconButtonText" xml:space="preserve">
+    <value>update</value>
+  </data>
+  <data name="ZuneVideoMarketPlace_TV_EpisodeTitle" xml:space="preserve">
+    <value>season {0}</value>
+  </data>
+  <data name="TitleUpdate_Text" xml:space="preserve">
+    <value>An update is available for this app. This update is required to continue using Xbox Companion.</value>
+  </data>
+  <data name="Friend_PlayedOneDayAgoText" xml:space="preserve">
+    <value>Played Yesterday</value>
+  </data>
+  <data name="Friend_PlayingNowText" xml:space="preserve">
+    <value>Playing Now</value>
+  </data>
+  <data name="NowPlaying_Overview_Header" xml:space="preserve">
+    <value>overview</value>
+  </data>
+  <data name="ZuneVideoMarketPlace_MaketplaceTitle" xml:space="preserve">
+    <value>zune video marketplace</value>
+  </data>
+  <data name="SearchResultFilterItem_TV" xml:space="preserve">
+    <value>tv shows</value>
+  </data>
+  <data name="LRC_Error_Code_FailedToSendCommand" xml:space="preserve">
+    <value>Couldn't send the command to the console. Please try again.</value>
+  </data>
+  <data name="Beacon_SetBeaconButtonText" xml:space="preserve">
+    <value>set</value>
+  </data>
+  <data name="GameDetails_SetBeaconText" xml:space="preserve">
+    <value>set or update beacon</value>
+  </data>
+  <data name="OK_Text" xml:space="preserve">
+    <value>ok</value>
+  </data>
+  <data name="Beacon_OneFriendWithBeacon" xml:space="preserve">
+    <value>1 friend with a beacon</value>
+  </data>
+  <data name="ZuneVideoMarketPlace_Studios" xml:space="preserve">
+    <value>studios</value>
+  </data>
+  <data name="TVDetails_SeasonsHeader" xml:space="preserve">
+    <value>seasons</value>
+  </data>
+  <data name="DurationInMinutes" xml:space="preserve">
+    <value>{0} min</value>
+  </data>
+  <data name="NoCastAndCrewFound" xml:space="preserve">
+    <value>Cast and crew not available.</value>
+  </data>
+  <data name="Beacon_FriendsPlayingNow" xml:space="preserve">
+    <value>{0} friends playing now</value>
+  </data>
+  <data name="Achievements_GamerscoreText" xml:space="preserve">
+    <value>{0} / {1}</value>
+  </data>
+  <data name="ZuneVideoMarketPlace_HubTitle" xml:space="preserve">
+    <value>videos</value>
+  </data>
+  <data name="Director_Header" xml:space="preserve">
+    <value>director</value>
+  </data>
+  <data name="NowPlaying_LessInfo" xml:space="preserve">
+    <value>less</value>
+  </data>
+  <data name="NowPlaying_MoreInfo" xml:space="preserve">
+    <value>more</value>
+  </data>
+  <data name="LookForXboxPage_ErrorHeader_CanNotSignIn" xml:space="preserve">
+    <value>Can't sign in to Xbox LIVE</value>
+  </data>
+  <data name="Refresh_SetRefreshButtonText" xml:space="preserve">
+    <value>refresh</value>
+  </data>
+  <data name="NowPlaying_DiscoverMore" xml:space="preserve">
+    <value>discover more</value>
+  </data>
+  <data name="AlbumDetails_Review_Title" xml:space="preserve">
+    <value>reviews</value>
+  </data>
+  <data name="Search_NoResultsText" xml:space="preserve">
+    <value>No results found for {0}.</value>
+  </data>
+  <data name="Beacon_FriendsWithBeacons" xml:space="preserve">
+    <value>{0} friends with beacons</value>
+  </data>
+  <data name="NowPlayingMediaProgress" xml:space="preserve">
+    <value>{0} / {1}</value>
+  </data>
+  <data name="Search_DetailsSeparator" xml:space="preserve">
+    <value> | </value>
+  </data>
+  <data name="Warning_Title" xml:space="preserve">
+    <value>Exit?</value>
+  </data>
+  <data name="ZuneVideoMarketPlace_TopSellingFilter" xml:space="preserve">
+    <value>top selling</value>
+  </data>
+  <data name="ZuneVideoMarketPlace_Network" xml:space="preserve">
+    <value>network</value>
+  </data>
+  <data name="ZuneVideoMarketPlace_TopRentals" xml:space="preserve">
+    <value>top rented</value>
+  </data>
+  <data name="NowPlayingHeader" xml:space="preserve">
+    <value>home</value>
+  </data>
+  <data name="Description_Header" xml:space="preserve">
+    <value>description</value>
+  </data>
+  <data name="Achievements_ErrorToShowInPlaceOfList" xml:space="preserve">
+    <value>Can't view your achievements.</value>
+  </data>
+  <data name="Achievements_SecretDescription" xml:space="preserve">
+    <value>Continue playing to unlock this secret achievement.</value>
+  </data>
+  <data name="HowToConnect_BulletHeader" xml:space="preserve">
+    <value>Before you begin:</value>
+  </data>
+  <data name="Actor_Header" xml:space="preserve">
+    <value>cast</value>
+  </data>
+  <data name="NowPlaying_MoreInfo_Leaderboards" xml:space="preserve">
+    <value>leaderboards</value>
+  </data>
+  <data name="TVEpisodeTitle" xml:space="preserve">
+    <value>Episode {0}</value>
+  </data>
+  <data name="QuickLaunch_NoRecentItems" xml:space="preserve">
+    <value>No recent items.</value>
+  </data>
+</root>

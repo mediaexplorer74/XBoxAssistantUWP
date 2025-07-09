@@ -1,0 +1,50 @@
+﻿<lrc:LrcPivotPage 
+    x:Class="LRC.FeaturedItemOverviewPage"
+    xmlns:lrc="clr-namespace:LRC"
+    xmlns:local="clr-namespace:LRC"
+    xmlns:XLToolKit="clr-namespace:XLToolKit"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:converter="clr-namespace:LRC"
+    xmlns:delay="clr-namespace:Delay;assembly=PhonePerformance"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True"
+    toolkit:TiltEffect.IsTiltEnabled="True"
+    SupportedOrientations="Portrait" Orientation="Portrait">
+
+    <local:BusyIndicator x:Name="BusyIndicator" Style="{StaticResource BusyIndicatorStyle}" OverlayVisiblity="Collapsed" BusyText="{Binding Strings.BusyIndicator_LaunchingText, Source={StaticResource ResourceString}}" IsBusy="{Binding IsBlocking}" IsBlocking="True">
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <XLToolKit:XLPivot x:Name="OverviewPivot" Grid.Row="0" Title="{Binding Title}" Style="{StaticResource LRCPivotStyle}" SelectionChanged="Pivot_SelectionChanged">
+                <controls:PivotItem x:Name="overview" Header="{Binding Strings.NowPlaying_Overview_Header, Source={StaticResource ResourceString}}">
+                    <StackPanel>
+                        <Grid Margin="0,0,0,24" Height="200">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Image x:Name="DetailsImage" delay:LowProfileImageLoader.UriSource="{Binding ImageUrl}" Margin="12,0,0,0" Width="173" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            <StackPanel d:LayoutOverrides="Width" Grid.Column="1" >
+                                <TextBlock x:Name="DetailTitleTextBlock" Text="{Binding Title}" Style="{StaticResource LRCTextPrimaryTitle}" Margin="12,-12,0,0" MaxHeight="114" />
+                            </StackPanel>
+                        </Grid>
+                        <TextBlock x:Name="PlayOnConsoleText" Text="{Binding Strings.Search_PlayOnXbox, Source={StaticResource ResourceString}}" Style="{StaticResource LRCTextGroupHeader}" Margin="12,0,12,12"/>
+                        <Button x:Name="PlayOnConsole" Click="PlayOnConsole_Click" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Style="{StaticResource LRCXboxProviderButton}"/>
+                    </StackPanel>
+                </controls:PivotItem>
+            </XLToolKit:XLPivot>
+
+            <!-- Media Bar -->
+            <lrc:MediaBar x:Name="MediaControls" Grid.Row="1"/>
+        </Grid>
+    </local:BusyIndicator>
+</lrc:LrcPivotPage>

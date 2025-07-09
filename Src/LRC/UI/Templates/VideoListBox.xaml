@@ -1,0 +1,57 @@
+﻿<ResourceDictionary x:Class="LRC.VideoListBox"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:delay="clr-namespace:Delay;assembly=PhonePerformance"
+    mc:Ignorable="d">
+    <DataTemplate x:Key="FastTwoPerRowTemplate">
+        <StackPanel Orientation="Horizontal">
+            <Button Click="Button_Click" Style="{StaticResource ButtonWithoutStoryboard}" Tag="{Binding DisplayedItems1}" Visibility="{Binding IsDisplayedItems1Available, Converter={StaticResource VisibilityConverter}}" Padding="0" BorderBrush="{x:Null}" Background="{x:Null}" BorderThickness="0">
+                <Grid Margin="12,0,0,12" CacheMode="BitmapCache" Width="210" Height="344">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="282"/>
+                        <RowDefinition Height="62"/>
+                    </Grid.RowDefinitions>
+                    <Image delay:LowProfileImageLoader.UriSource="{Binding DisplayedItems1.DetailsImageUrl}" delay:LowProfileImageLoader.DefaultUriSource="{Binding DisplayedItems1, Converter={StaticResource MediaItemBoxArtConverter}}" Stretch="Uniform" />
+                    <TextBlock Text="{Binding DisplayedItems1.Title}" FontSize="22" FontFamily="Segoe WP" Foreground="White" TextWrapping="Wrap" LineStackingStrategy="BlockLineHeight" LineHeight="26" Width="210" Margin="0,6,0,4" Grid.Row="1" Height="52"/>
+                </Grid>
+            </Button>
+            <Button Click="Button_Click" Style="{StaticResource ButtonWithoutStoryboard}" Tag="{Binding DisplayedItems2}" Visibility="{Binding IsDisplayedItems2Available, Converter={StaticResource VisibilityConverter}}" Padding="0" BorderBrush="{x:Null}" Background="{x:Null}" BorderThickness="0">
+                <Grid Width="210" Margin="12,0,0,12" CacheMode="BitmapCache" Height="344">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="282"/>
+                        <RowDefinition Height="62"/>
+                    </Grid.RowDefinitions>
+                    <Image delay:LowProfileImageLoader.UriSource="{Binding DisplayedItems2.DetailsImageUrl}" delay:LowProfileImageLoader.DefaultUriSource="{Binding DisplayedItems2, Converter={StaticResource MediaItemBoxArtConverter}}" Stretch="Uniform"/>
+                    <TextBlock Text="{Binding DisplayedItems2.Title}" FontSize="22" FontFamily="Segoe WP" Foreground="White" TextWrapping="Wrap" LineStackingStrategy="BlockLineHeight" LineHeight="26" Grid.Row="1" Margin="0,6,0,4" Width="210" Height="52"/>
+                </Grid>
+            </Button>
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="FastTwoPerRowTvTemplate">
+        <StackPanel Orientation="Horizontal">
+            <Button Click="Button_Click" Style="{StaticResource ButtonWithoutStoryboard}" Tag="{Binding DisplayedItems1}" Visibility="{Binding IsDisplayedItems1Available, Converter={StaticResource VisibilityConverter}}" Padding="0" BorderBrush="{x:Null}" Background="{x:Null}" BorderThickness="0">
+                <Grid Margin="12,0,0,12" CacheMode="BitmapCache" Width="210" Height="272">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="210"/>
+                        <RowDefinition Height="62"/>
+                    </Grid.RowDefinitions>
+                    <Image delay:LowProfileImageLoader.UriSource="{Binding DisplayedItems1.DetailsImageUrl}" delay:LowProfileImageLoader.DefaultUriSource="{Binding DisplayedItems1, Converter={StaticResource MediaItemBoxArtConverter}}" Stretch="Uniform" />
+                    <TextBlock Text="{Binding DisplayedItems1.Title}" FontSize="22" FontFamily="Segoe WP" Foreground="White" TextWrapping="Wrap" LineStackingStrategy="BlockLineHeight" LineHeight="26" Width="210" Grid.Row="1" Margin="0,6,0,4" Height="52"/>
+                </Grid>
+            </Button>
+            <Button Click="Button_Click" Style="{StaticResource ButtonWithoutStoryboard}" Tag="{Binding DisplayedItems2}" Visibility="{Binding IsDisplayedItems2Available, Converter={StaticResource VisibilityConverter}}" Padding="0" BorderBrush="{x:Null}" Background="{x:Null}" BorderThickness="0">
+                <Grid Width="210" Margin="12,0,0,12" CacheMode="BitmapCache" Height="272">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="210"/>
+                        <RowDefinition Height="62"/>
+                    </Grid.RowDefinitions>
+                    <Image delay:LowProfileImageLoader.UriSource="{Binding DisplayedItems2.DetailsImageUrl}" delay:LowProfileImageLoader.DefaultUriSource="{Binding DisplayedItems2, Converter={StaticResource MediaItemBoxArtConverter}}" Stretch="Uniform"/>
+                    <TextBlock Text="{Binding DisplayedItems2.Title}" FontSize="22" FontFamily="Segoe WP" Foreground="White" TextWrapping="Wrap" LineStackingStrategy="BlockLineHeight" LineHeight="26" Grid.Row="1" Width="210" Margin="0,6,0,4" Height="52"/>
+                </Grid>
+            </Button>
+        </StackPanel>
+    </DataTemplate>
+</ResourceDictionary>

@@ -1,0 +1,113 @@
+﻿<lrc:LrcPivotPage 
+    x:Class="LRC.GameContentSearchDetailsPage"
+    xmlns:lrc="clr-namespace:LRC"
+    xmlns:XLToolKit="clr-namespace:XLToolKit"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:converter="clr-namespace:LRC"
+    xmlns:delay="clr-namespace:Delay;assembly=PhonePerformance"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True"
+    toolkit:TiltEffect.IsTiltEnabled="True"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    >
+    <lrc:BusyIndicator x:Name="BusyIndicator" Style="{StaticResource BusyIndicatorStyle}" BusyText="{Binding Strings.BusyIndicator_LaunchingText, Source={StaticResource ResourceString}}" IsBusy="{Binding IsBlocking}" IsBlocking="True">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="Collapsed"/>
+                <VisualState x:Name="Expanded">
+                    <Storyboard>
+                        <DoubleAnimation Duration="0" To="2000" Storyboard.TargetProperty="(FrameworkElement.MaxHeight)" Storyboard.TargetName="Description" d:IsOptimized="True"/>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="MoreButton">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Collapsed</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="LessButton">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Visible</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <XLToolKit:XLPivot x:Name="SearchDetailsControl" Grid.Row="0" Title="{Binding SearchItem.Title}" Style="{StaticResource LRCPivotStyle}" SelectionChanged="Pivot_SelectionChanged">
+                <controls:PivotItem x:Name="overview" Header="{Binding Strings.NowPlaying_Overview_Header, Source={StaticResource ResourceString}}" >
+                    <XLToolKit:SwitchPanel CurrentState="{Binding SearchItem.CurrentState}" >
+
+                        <!-- 0. Content -->
+                        <ScrollViewer x:Name="OverviewScroll" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+                            <Grid x:Name="SearchItemRootPanel">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid x:Name="MovieGrid" d:LayoutOverrides="Width" Margin="0,0,0,24" MinHeight="250">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Image x:Name="BoxArtImage" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="173" Stretch="Uniform" delay:LowProfileImageLoader.UriSource="{Binding SearchItem.ImageUrl}" delay:LowProfileImageLoader.DefaultUriSource="{Binding SearchItem, Converter={StaticResource SearchItemBoxArtConverter}}" Margin="12,0,0,0"/>
+                                    <StackPanel Orientation="Vertical" Grid.Column="1">
+                                        <TextBlock x:Name="DetailsName" Text="{Binding SearchItem.Title}" TextWrapping="Wrap" Style="{StaticResource LRCTextPrimaryTitle}" MaxHeight="114" Margin="12,-12,0,0" />
+                                        <TextBlock x:Name="PublisherName" Text="{Binding SearchItem.Publisher}" Style="{StaticResource LRCTextSecondaryTitle}" Margin="12,0,0,0"/>
+                                        <converter:StarRatingControl x:Name="StarRating" UserRating="{Binding SearchItem.AverageUserRating}" UserCount="{Binding SearchItem.UserRatingCount}" Margin="12,0,0,0" BorderThickness="0,8" />
+                                        <TextBlock x:Name="GameDetailsRelease" Text="{Binding SearchItemViewModel.GameReleaseDetails}" Style="{StaticResource LRCTextSecondaryTitle}" Padding="0,0,0,0" Margin="12,0,0,0"/>
+                                    </StackPanel>
+                                </Grid>
+                                <StackPanel Orientation="Vertical" x:Name="GameContentDescriptionPanel" d:LayoutOverrides="Width, Height" Grid.Row="1" Margin="0,0,0,12">
+                                    <TextBlock x:Name="DescriptionTitle" Text="{Binding Strings.Description_Header, Source={StaticResource ResourceString}}" TextWrapping="Wrap" Style="{StaticResource LRCTextGroupHeader}" Margin="12,0,12,12" />
+                                    <TextBlock x:Name="Description" Text="{Binding SearchItem.Description}" TextWrapping="Wrap" Style="{StaticResource LRCTextDescription}" SizeChanged="Description_SizeChanged" MaxHeight="60" />
+                                    <Button x:Name="MoreButton" Content="{Binding Strings.NowPlaying_MoreInfo, Source={StaticResource ResourceString}}" Style="{StaticResource LRCTertiaryButton}" Click="MoreButton_Click" Visibility="Collapsed" />
+                                    <Button x:Name="LessButton" Content="{Binding Strings.NowPlaying_LessInfo, Source={StaticResource ResourceString}}" Style="{StaticResource LRCTertiaryButton}" Click="LessButton_Click" Visibility="Collapsed" />
+                                </StackPanel>
+
+                                <TextBlock x:Name="playOnXboxTitle" Text="{Binding Strings.Search_PlayOnXbox, Source={StaticResource ResourceString}}" TextWrapping="Wrap" Visibility="{Binding SearchItem.ShowProviders, Converter={StaticResource VisibilityConverter}}" Style="{StaticResource LRCTextGroupHeader}" d:LayoutOverrides="Width" Grid.Row="2" Margin="12,0,12,12" />
+                                <Button x:Name="DownloadOnConsole" Click="DownloadOnConsole_Click" Visibility="{Binding SearchItemViewModel.ShowProviders, Converter={StaticResource VisibilityConverter}}" Style="{StaticResource LRCXboxProviderButton}" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+                                <TextBlock x:Name="Rating" Text="{Binding Converter={StaticResource PageTitleConverter}, Path=SearchItem.ParentalRating}" Style="{StaticResource LRCTextTertiaryTitle}" Grid.Row="4"/>
+                                <StackPanel Orientation="Horizontal" d:LayoutOverrides="Width" Grid.Row="5" Margin="12,8,0,16">
+                                    <Image x:Name="RatingIcon" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Source="{Binding SearchItem.RatingIconUrl}"/>
+                                    <ItemsControl x:Name="RatingDescriptorControl" ItemsSource="{Binding SearchItem.GameRatingDescriptor}" Margin="0,-6,0,0" ItemTemplate="{StaticResource LRCTextDetailsControl}"/>
+                                </StackPanel>
+                            </Grid>
+                        </ScrollViewer>
+
+                        <!-- 1. Error -->
+                        <TextBlock x:Name="OverviewErrorText" Text="{Binding Strings.LRC_Error_Code_FailedToRetrieveData, Source={StaticResource ResourceString}}" TextWrapping="Wrap" Style="{StaticResource LRCTextGroupHeader}"/>
+
+                        <!-- 2. No Cotent, an invisible item -->
+                        <TextBlock Text=""/>
+
+                        <!-- 3. Loading -->
+                        <lrc:BusyIndicator x:Name="OverviewLoadingIndicator" HorizontalAlignment="Left" Style="{StaticResource InlineBusyIndicatorStyle}" OverlayVisiblity="Collapsed" BusyText="{Binding Strings.BusyIndicator_LoadingText, Source={StaticResource ResourceString}}" IsBusy="True" IsBlocking="False" />
+
+                    </XLToolKit:SwitchPanel>
+                </controls:PivotItem>
+            </XLToolKit:XLPivot>
+
+            <!-- Media Bar -->
+            <lrc:MediaBar x:Name="MediaControls" Grid.Row="1"/>
+        </Grid>
+    </lrc:BusyIndicator>
+</lrc:LrcPivotPage> 

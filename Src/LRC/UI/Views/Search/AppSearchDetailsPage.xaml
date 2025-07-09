@@ -1,0 +1,70 @@
+﻿<lrc:SearchDetailsPageBase 
+    x:Class="LRC.AppSearchDetailsPage"
+    xmlns:lrc="clr-namespace:LRC"
+    xmlns:XLToolKit="clr-namespace:XLToolKit"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:converter="clr-namespace:LRC"
+    xmlns:delay="clr-namespace:Delay;assembly=PhonePerformance"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True"
+    toolkit:TiltEffect.IsTiltEnabled="True"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    >
+
+    <lrc:BusyIndicator x:Name="BusyIndicator" Style="{StaticResource BusyIndicatorStyle}" BusyText="{Binding Strings.BusyIndicator_LaunchingText, Source={StaticResource ResourceString}}" IsBusy="{Binding IsBlocking}" IsBlocking="True">
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <XLToolKit:XLPivot x:Name="AppSearchDetailsControl" Grid.Row="0" Title="{Binding SearchItem.Title}" Style="{StaticResource LRCPivotStyle}" SelectionChanged="Pivot_SelectionChanged">
+
+                <!--Pivot item - Play Now -->
+                <controls:PivotItem x:Name="overview" Header="{Binding Strings.Overview_Header, Source={StaticResource ResourceString}}" >
+                    <XLToolKit:SwitchPanel CurrentState="{Binding SearchItem.CurrentState}" >
+                        <!-- 0. Content -->
+                        <StackPanel Orientation="Vertical">
+                            <Grid x:Name="AppGrid" Margin="0,0,0,24">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image x:Name="AppImage" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Stretch="Uniform" delay:LowProfileImageLoader.UriSource="{Binding SearchItem.ImageUrl}" delay:LowProfileImageLoader.DefaultUriSource="{Binding SearchItem, Converter={StaticResource SearchItemBoxArtConverter}}" Margin="12,0,0,0"/>
+                                <StackPanel Orientation="Vertical" Grid.Column="1" Margin="0,-12,0,0">
+                                    <TextBlock x:Name="AppDetailsName" Text="{Binding SearchItem.Title}" TextWrapping="Wrap" Style="{StaticResource LRCTextPrimaryTitle}" MaxHeight="114" Margin="12,0,0,0" />
+                                    <TextBlock x:Name="AppDetailsRelease" Text="{Binding SearchItem.ReleaseDate.Year}" TextWrapping="Wrap" Style="{StaticResource LRCTextSecondaryTitle}" Margin="12,0,0,0" />
+                                    <lrc:StarRatingControl x:Name="StarRating" UserRating="{Binding SearchItem.AverageUserRating}" UserCount="{Binding SearchItem.UserRatingCount}" Margin="12,0,0,0" />
+                                </StackPanel>
+                            </Grid>
+
+                            <TextBlock x:Name="XboxTitle" Text="{Binding Strings.Search_PlayOnXbox, Source={StaticResource ResourceString}}" TextWrapping="Wrap" Style="{StaticResource LRCTextGroupHeader}" Margin="12,0,12,12" Visibility="{Binding SearchItem.IsNowPlaying, Converter={StaticResource NotVisibilityConverter}}" />
+                            <Button x:Name="LaunchApp" Click="LaunchApp_Click" Content="{Binding Strings.Search_PlayOnXbox, Source={StaticResource ResourceString}}" VerticalAlignment="Top" HorizontalAlignment="Left" Style="{StaticResource LRCXboxProviderButton}" Visibility="{Binding SearchItem.IsNowPlaying, Converter={StaticResource NotVisibilityConverter}}"  />
+                        </StackPanel>
+
+                        <!-- 1. Error -->
+                        <TextBlock x:Name="OverviewErrorText" Text="{Binding Strings.LRC_Error_Code_FailedToRetrieveData, Source={StaticResource ResourceString}}" TextWrapping="Wrap" Style="{StaticResource LRCTextGroupHeader}"/>
+
+                        <!-- 2. No Cotent, an invisible item -->
+                        <TextBlock Text=""/>
+
+                        <!-- 3. Loading -->
+                        <lrc:BusyIndicator x:Name="OverviewLoadingIndicator" HorizontalAlignment="Left" Style="{StaticResource InlineBusyIndicatorStyle}" OverlayVisiblity="Collapsed" BusyText="{Binding Strings.BusyIndicator_LoadingText, Source={StaticResource ResourceString}}" IsBusy="True" IsBlocking="False" />
+
+                    </XLToolKit:SwitchPanel>
+                </controls:PivotItem>
+
+            </XLToolKit:XLPivot>
+
+            <!-- Media Bar -->
+            <lrc:MediaBar x:Name="MediaControls" Grid.Row="1"/>
+        </Grid>
+    </lrc:BusyIndicator>
+</lrc:SearchDetailsPageBase> 

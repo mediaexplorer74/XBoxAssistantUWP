@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="LRC.CastAndCrew"
+    xmlns:lrc="clr-namespace:LRC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="800" d:DesignWidth="480">
+
+    <ScrollViewer x:Name="ScrollViewerWrapper" >
+
+        <StackPanel Orientation="Vertical" x:Name="MovieRootPanel">
+            <TextBlock x:Name="NoCastAndCrewFound" Text="{Binding Strings.NoCastAndCrewFound, Source={StaticResource ResourceString}}" Visibility="{Binding IsCastAndCrewNotFound, Converter={StaticResource VisibilityConverter}}" Style="{StaticResource LRCTextGroupHeader}" />
+            <lrc:PersonGroup x:Name="StarringPersonGroup" Title="{Binding ActorsTitle}" People="{Binding Actors}" />
+            <lrc:PersonGroup x:Name="DirectedByPersonGroup" Title="{Binding DirectorsTitle}" People="{Binding Directors}" />
+            <lrc:PersonGroup x:Name="WrittenByPersonGroup" Title="{Binding WritersTitle}" People="{Binding Writers}" />
+            
+        </StackPanel>
+    </ScrollViewer>
+
+</UserControl>

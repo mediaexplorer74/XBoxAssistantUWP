@@ -1,0 +1,228 @@
+﻿<lrc:SearchDetailsPageBase 
+    x:Class="LRC.AlbumSearchDetailsPage"
+    xmlns:lrc="clr-namespace:LRC"
+    xmlns:XLToolKit="clr-namespace:XLToolKit"    
+    xmlns:local="clr-namespace:LRC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:converter="clr-namespace:LRC"
+    xmlns:delay="clr-namespace:Delay;assembly=PhonePerformance"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True"
+    toolkit:TiltEffect.IsTiltEnabled="True"
+    SupportedOrientations="Portrait" Orientation="Portrait">
+
+    <lrc:SearchDetailsPageBase.Resources>
+        <lrc:LocalizedResourceIndexer x:Key="AccountLocaleResources" Culture="{Binding Path=AccountCulture, Source={StaticResource StaticBindingHelper}}" />
+    </lrc:SearchDetailsPageBase.Resources>
+
+    <local:BusyIndicator x:Name="BusyIndicator" Style="{StaticResource BusyIndicatorStyle}" BusyText="{Binding Strings.BusyIndicator_LaunchingText, Source={StaticResource ResourceString}}" OverlayVisiblity="Collapsed" IsBusy="{Binding IsBlocking}" IsBlocking="True">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="HideAlbums"/>
+                <VisualState x:Name="ShowAlbums">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ShowAlbumsButton">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Collapsed</Visibility>
+                                </DiscreteObjectKeyFrame.Value>   
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="HideAlbumsButton">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Visible</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <DoubleAnimation Duration="0" To="12000" Storyboard.TargetProperty="(FrameworkElement.MaxHeight)" Storyboard.TargetName="AlbumsOfSameArtistListBox" d:IsOptimized="True"/>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="HideSongs"/>
+                <VisualState x:Name="ShowSongs">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="HideSongsButton">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Visible</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ShowSongsButton">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Collapsed</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="SongListBox">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Visible</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <controls:PivotItem x:Name="reviews" Grid.Row="0" Visibility="Collapsed" Header="{Binding Strings.AlbumDetails_Review_Title, Source={StaticResource ResourceString}}">
+                <ScrollViewer>
+                    <ItemsControl ItemsSource="{Binding ExtendedReview}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock x:Name="reviewBlock" Text="{Binding}" TextWrapping="Wrap" Style="{StaticResource LRCTextDescription}" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </controls:PivotItem>
+            <controls:PivotItem x:Name="images" Grid.Row="0" Visibility="Collapsed" Header="{Binding Strings.Images_Header, Source={StaticResource ResourceString}}" >
+                <ListBox x:Name="ImagesListBox"  ItemsSource="{Binding Photos}" Style="{StaticResource ListBoxWithWrapping}" SelectionChanged="ImageSelection_Changed">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Image Height="118" Width="210" delay:LowProfileImageLoader.UriSource="{Binding}" delay:LowProfileImageLoader.DefaultUriSource="/UI/Images/DefaultBoxArt/music_imageGallery.png" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="12,0,0,12"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </controls:PivotItem>
+
+            <controls:PivotItem x:Name="related" Visibility="Collapsed"  Header="{Binding Strings.Related_Header, Source={StaticResource ResourceString}}">
+                <ListBox x:Name="RelatedItemsListBox" ItemsSource="{Binding Related}" SelectionChanged="AlbumRelatedItemsListBox_SelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <lrc:MediaItemControl x:Name="relatedalbumitem" ImageUrl="{Binding ImageUrl}" LineOne ="{Binding Title}" LineTwo="{Binding Artist}" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </controls:PivotItem>
+
+
+            <XLToolKit:XLPivot x:Name="AlbumSearchDetailsControl" CacheMode="BitmapCache"  Grid.Row="0" Title="{Binding Title}" Style="{StaticResource LRCPivotStyle}" SelectionChanged="Pivot_SelectionChanged">
+                <controls:PivotItem x:Name="overview" Header="{Binding Strings.AlbumDetails_Song_Title, Source={StaticResource ResourceString}}">
+                    <XLToolKit:SwitchPanel CurrentState="{Binding CurrentState}">
+                        <!-- 0. Content -->
+                        <ScrollViewer x:Name="OverviewScroll">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="180"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="0.588*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image delay:LowProfileImageLoader.UriSource="{Binding DetailsImageUrl}" delay:LowProfileImageLoader.DefaultUriSource="{Binding Converter={StaticResource MediaItemBoxArtConverter}}" x:Name="albumArtImage" Stretch="Fill" Width="173" Height="173" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,0,0,0" />
+                                <StackPanel Grid.Column="1" Orientation="Vertical" Margin="0,-12,0,0">
+                                    <TextBlock x:Name="titleTextBlock" Text="{Binding DetailTitle}" TextWrapping="Wrap" MaxHeight="114" Style="{StaticResource LRCTextPrimaryTitle}" Margin="12,0,0,0" />
+                                    <TextBlock x:Name="artistTextBlock" Text="{Binding ReleaseDetails}" TextWrapping="Wrap" Style="{StaticResource LRCTextSecondaryTitle}" Margin="12,0,0,0" />
+                                    <TextBlock x:Name="explicitTextBlock" Text="{Binding Path=[Content_Explicit], Source={StaticResource AccountLocaleResources}}" Visibility="{Binding IsExplicit, Converter={StaticResource VisibilityConverter}}" Style="{StaticResource LRCTextTertiaryTitle}" />
+                                </StackPanel>
+                                <StackPanel x:Name="songsGroup" Grid.ColumnSpan="2" Orientation="Horizontal" d:LayoutOverrides="Height" Grid.Row="1" Margin="0,12,0,0">
+                                    <TextBlock x:Name="SongsHeader" Style="{StaticResource LRCTextGroupHeader}" Text="{Binding Strings.AlbumSongs_Title, Source={StaticResource ResourceString}}" Margin="12,0,0,0" Height="43" />
+                                    <Button x:Name="ShowSongsButton" Content="{Binding Strings.NowPlayingSongs_Show, Source={StaticResource ResourceString}}" Style="{StaticResource LRCTertiaryButton}" Margin="0,24,0,0" Click="ShowSongsButton_Click" />
+                                    <Button x:Name="HideSongsButton" Content="{Binding Strings.NowPlayingSongs_Hide, Source={StaticResource ResourceString}}" Style="{StaticResource LRCTertiaryButton}" Margin="0,24,0,0" Click="HideSongsButton_Click" Visibility="Collapsed" />
+                                </StackPanel>
+                                <ListBox x:Name="SongListBox" ItemsSource="{Binding Items}" Grid.Row="2" ScrollViewer.VerticalScrollBarVisibility="Disabled" SizeChanged="SongListBoxSizeChanged" Grid.ColumnSpan="2" Visibility="Collapsed">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Title}" Style="{StaticResource LRCTextTertiaryTitle}" FontFamily="Segoe WP" Margin="12,4" TextWrapping="NoWrap" FontSize="24" Height="32"/>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                                <TextBlock x:Name="ProvidersHeader" Style="{StaticResource LRCTextGroupHeader}" Grid.ColumnSpan="2" Grid.Row="3" Visibility="{Binding ShowProviders, Converter={StaticResource VisibilityConverter}}" Text="{Binding Strings.Search_PlayOnXbox, Source={StaticResource ResourceString}}" Margin="12,24,12,12" />
+                                <ItemsControl x:Name="ProvidersList" ItemsSource="{Binding Providers}" Visibility="{Binding ShowProviders, Converter={StaticResource VisibilityConverter}}" Grid.Row="4" Grid.ColumnSpan="2" >
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <local:ProviderButton x:Name="ProviderButton" DataContext="{Binding}" Click="PlayAlbumButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <toolkit:WrapPanel Orientation="Horizontal"/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                </ItemsControl>
+                            </Grid>
+                        </ScrollViewer>
+
+                        <!-- 1. Error -->
+                        <TextBlock x:Name="OverviewErrorText" Text="{Binding Strings.LRC_Error_Code_FailedToRetrieveData, Source={StaticResource ResourceString}}" TextWrapping="Wrap" Style="{StaticResource LRCTextGroupHeader}"/>
+
+                        <!-- 2. No Cotent, an invisible item -->
+                        <TextBlock Text=" " Width="0" Height="0"/>
+
+                        <!-- 3. Loading -->
+                        <lrc:BusyIndicator x:Name="OverviewLoadingIndicator" HorizontalAlignment="Left" Style="{StaticResource InlineBusyIndicatorStyle}" OverlayVisiblity="Collapsed" BusyText="{Binding Strings.BusyIndicator_LoadingText, Source={StaticResource ResourceString}}" IsBusy="True" IsBlocking="False" />
+                    </XLToolKit:SwitchPanel>
+                </controls:PivotItem>
+
+                <controls:PivotItem x:Name="artist" Header="{Binding Strings.Artist_Header, Source={StaticResource ResourceString}}">
+
+                    <XLToolKit:SwitchPanel CurrentState="{Binding AlbumBioState}">
+                        <ScrollViewer x:Name="ArtistScroll">
+                            <StackPanel>
+                                <!-- Row 0, album title -->
+                                <TextBlock x:Name="AlbumsTitle" Text="{Binding Strings.Discography_Header, Source={StaticResource ResourceString}}" Style="{StaticResource LRCTextGroupHeader}" Margin="12,0,12,12" d:LayoutOverrides="Height" Visibility="{Binding IsAlbumAvailable, Converter={StaticResource VisibilityConverter}}"/>
+
+                                <!-- Album content -->
+                                <lrc:ListBoxWithCompression x:Name="AlbumsOfSameArtistListBox" ItemsSource="{Binding AlbumsBySameArtist}" SelectionChanged="AlbumItemsListBox_SelectionChanged" Margin="0" ScrollViewer.VerticalScrollBarVisibility="Disabled" d:LayoutOverrides="GridBox"  SizeChanged="AlbumsOfSameArtistListBox_SizeChanged" MaxHeight="1" Visibility="{Binding IsAlbumAvailable, Converter={StaticResource VisibilityConverter}}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <converter:MediaItemControl x:Name="albumitem" IsEnabled="False" ImageUrl="{Binding ImageUrl}" LineOne ="{Binding Title}" LineTwo="{Binding Artist}" />
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </lrc:ListBoxWithCompression>
+
+                                <!-- Show/hide album -->
+                                <StackPanel Orientation="Horizontal" d:LayoutOverrides="Height" Margin="0,0,0,4" Visibility="{Binding IsAlbumAvailable, Converter={StaticResource VisibilityConverter}}">
+                                    <Button x:Name="ShowAlbumsButton" Content="{Binding Strings.NowPlayingAlbums_ShowMore, Source={StaticResource ResourceString}}" Style="{StaticResource LRCTertiaryButton}" Click="ShowAlbumsButton_Click" Visibility="{Binding Path=AlbumsBySameArtist.Count, Converter={StaticResource NumberToVisibilityConverter}, ConverterParameter=2, FallbackValue=Collapsed}" />
+                                    <Button x:Name="HideAlbumsButton" Content="{Binding Strings.NowPlayingAlbums_ShowLess, Source={StaticResource ResourceString}}" Style="{StaticResource LRCTertiaryButton}" Click="HideAlbumsButton_Click" Visibility="Collapsed" />
+                                </StackPanel>
+
+                                <!-- Bio title -->
+                                <TextBlock x:Name="BioTitle" Text="{Binding Strings.Bio_Header, Source={StaticResource ResourceString}}" Visibility="{Binding IsBioAvailable, Converter={StaticResource VisibilityConverter}}" Style="{StaticResource LRCTextGroupHeader}" d:LayoutOverrides="Height" Margin="12,0,12,12" />
+
+                                <!-- Bio Content -->
+                                <ItemsControl ItemsSource="{Binding ExtendedBio}" Visibility="{Binding IsBioAvailable, Converter={StaticResource VisibilityConverter}}" >
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock x:Name="BioTextBlock" Text="{Binding}" TextWrapping="Wrap" Style="{StaticResource LRCTextDescription}" />
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </ScrollViewer>
+
+                        <!-- 1. Error -->
+                        <TextBlock Text="{Binding Strings.LRC_Error_Code_FailedToRetrieveData, Source={StaticResource ResourceString}}" TextWrapping="Wrap" Style="{StaticResource LRCTextGroupHeader}"/>
+
+                        <!-- 2. No Content, an invisible item -->
+                        <TextBlock x:Name="DiscographyNotFound" Text="{Binding DiscographyNotFound}" Style="{StaticResource LRCTextGroupHeader}" d:LayoutOverrides="Height" Margin="12,0" />
+
+                        <!-- 3. Loading -->
+                        <lrc:BusyIndicator HorizontalAlignment="Left" Style="{StaticResource InlineBusyIndicatorStyle}" OverlayVisiblity="Collapsed" BusyText="{Binding Strings.BusyIndicator_LoadingText, Source={StaticResource ResourceString}}" IsBusy="True" IsBlocking="False" />
+                    </XLToolKit:SwitchPanel>
+                </controls:PivotItem>
+            </XLToolKit:XLPivot>
+
+            <!-- Media Bar -->
+            <lrc:MediaBar x:Name="MediaControls" Grid.Row="1"/>
+        </Grid>
+    </local:BusyIndicator>
+</lrc:SearchDetailsPageBase>

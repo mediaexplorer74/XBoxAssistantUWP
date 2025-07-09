@@ -1,0 +1,16 @@
+﻿// *********************************************************
+// Type: Microsoft.XMedia.EventLink.Client.EventLinkStatusEventArgs
+// Assembly: Microsoft.XMedia.EventLink.Client.WinPhone, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: 946994A4-3A3C-41D3-A520-1292D57CD5ED
+// *********************************************************Microsoft.XMedia.EventLink.Client.WinPhone.dll
+
+using System;
+
+
+namespace Microsoft.XMedia.EventLink.Client
+{
+  public class EventLinkStatusEventArgs : EventArgs
+  {
+    public EventLinkClientStatus Status { get; internal set; }
+  }
+}

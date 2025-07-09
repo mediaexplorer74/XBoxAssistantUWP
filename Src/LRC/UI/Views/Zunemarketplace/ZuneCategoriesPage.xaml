@@ -1,0 +1,57 @@
+﻿<lrc:LrcPivotPage  
+    x:Class="LRC.ZuneCategoriesPage"
+    xmlns:lrc="clr-namespace:LRC"
+    xmlns:XLToolKit="clr-namespace:XLToolKit"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:local="clr-namespace:LRC"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    toolkit:TiltEffect.IsTiltEnabled="True"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True"
+    x:Name="ZuneCategories">
+
+    <phone:PhoneApplicationPage.Resources>
+        <Style x:Key="PivotItemStyle" TargetType="controls:PivotItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="controls:PivotItem">
+                        <local:BusyIndicator x:Name="BusyIndicator" Style="{StaticResource BusyIndicatorStyle}" VerticalAlignment="{Binding BusyIndicatorVerticalAlignment}" OverlayVisiblity="Collapsed"  BusyText="{Binding Strings.BusyIndicator_LoadingText, Source={StaticResource ResourceString}}" IsBusy="{Binding IsBusy}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <local:ListBoxWithCompression x:Name="ListBox" ItemsSource="{Binding DisplayedItems}" Loaded="ListBox_Loaded" SelectionChanged="ListBox_SelectionChanged">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate></DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </local:ListBoxWithCompression>
+                                <TextBlock Grid.Row="1" Text="{Binding NoItemFound}" Style="{StaticResource LRCTextGroupHeader}" d:LayoutOverrides="Height" Margin="12,0,12,12" Visibility="{Binding HasContent, Converter={StaticResource NotVisibilityConverter}}"/>
+                            </Grid>
+                        </local:BusyIndicator>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </phone:PhoneApplicationPage.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!--Pivot Control-->
+        <XLToolKit:XLPivot x:Name="VideoPivot" Title="{Binding Title}" Grid.Row="0" ItemsSource="{Binding PivotItems}" ItemContainerStyle="{StaticResource PivotItemStyle}" Loaded="Pivot_Loaded" Unloaded="Pivot_Unloaded" Style="{StaticResource LRCPivotStyle}" SelectionChanged="Pivot_SelectionChanged"/>
+
+        <!-- Media Bar -->
+        <lrc:MediaBar x:Name="MediaControls" Grid.Row="1"/>
+    </Grid>
+</lrc:LrcPivotPage>
