@@ -1,5 +1,7 @@
 # XBoxAssistantUWP
 
+![](Images/logo.png)
+
 Черный черновик UWP-порта приложения Xbox Companion. 
 
 ## Предисловие
