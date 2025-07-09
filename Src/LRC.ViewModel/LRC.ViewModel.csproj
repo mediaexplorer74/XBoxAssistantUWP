@@ -196,6 +196,32 @@
       <Version>6.2.14</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LRC.Resource\LRC.Resource.csproj">
+      <Project>{92ed1aba-4df0-4593-a5f2-5179c14f473d}</Project>
+      <Name>LRC.Resource</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LRC.Service\LRC.Service.csproj">
+      <Project>{593478a7-4d30-42c8-bdf8-c4c4c2418876}</Project>
+      <Name>LRC.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LRC.Session\LRC.Session.csproj">
+      <Project>{214bb417-fc13-41a2-973c-db003e18c6f9}</Project>
+      <Name>LRC.Session</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.XMedia.EventLink.Client.WinPhone\Microsoft.XMedia.EventLink.Client.WinPhone.csproj">
+      <Project>{41bb6591-08f0-4e1f-801c-e52be6e5bb6f}</Project>
+      <Name>Microsoft.XMedia.EventLink.Client.WinPhone</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xbox.Live.Phone.Services\Xbox.Live.Phone.Services.csproj">
+      <Project>{25b0ab17-5655-408f-b58d-92d8111f82c1}</Project>
+      <Name>Xbox.Live.Phone.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xbox.Live.Phone.Utils\Xbox.Live.Phone.Utils.csproj">
+      <Project>{95502ceb-a450-4880-b46d-74a2ef857837}</Project>
+      <Name>Xbox.Live.Phone.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

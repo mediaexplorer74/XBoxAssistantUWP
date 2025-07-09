@@ -184,6 +184,30 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.14</Version>
     </PackageReference>
+    <PackageReference Include="MonoGame.Framework.WindowsUniversal">
+      <Version>3.8.0.1641</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.3</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.Phone.Avatar.Marketplace.Silverlight\Microsoft.Phone.Avatar.Marketplace.Silverlight.csproj">
+      <Project>{80fcce19-03e6-4761-952d-1557a3592d9a}</Project>
+      <Name>Microsoft.Phone.Avatar.Marketplace.Silverlight</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.XboxLive.Avatars.Editing\Microsoft.XboxLive.Avatars.Editing.csproj">
+      <Project>{0a30e5b1-3eaf-4fa1-9c3a-3c25dd56ae21}</Project>
+      <Name>Microsoft.XboxLive.Avatars.Editing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.XboxLive.Avatars.MathLib\Microsoft.XboxLive.Avatars.MathLib.csproj">
+      <Project>{43821192-4b6c-4aa4-b321-ec91506e164d}</Project>
+      <Name>Microsoft.XboxLive.Avatars.MathLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.XboxLive.Avatars\Microsoft.XboxLive.Avatars.csproj">
+      <Project>{567e9804-3a30-4871-b927-fb4b38d81331}</Project>
+      <Name>Microsoft.XboxLive.Avatars</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

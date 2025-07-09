@@ -61,7 +61,7 @@ namespace com.omniture
       if (measurementModuleMedia.attach(measurementModuleMedia.s.root))
         measurementModuleMedia.autoTrackDone = true;
       else
-        measurementModuleMedia.autoTrackInterval = AppMeasurement_SetInterval.setInterval(new EventHandler(measurementModuleMedia.doAutoTrack), 1000);
+         measurementModuleMedia.autoTrackInterval = AppMeasurement_SetInterval.setInterval(new EventHandler<object>(measurementModuleMedia.doAutoTrack), 1000);
     }
 
     private void doAutoTrack(object s, object e) => this.doAutoTrack();
@@ -914,26 +914,26 @@ namespace com.omniture
         AppMeasurement_Module_Media.AppMeasurement_Module_Media_PlayerMonitor.monitorList.Remove((object) this);
       }
 
-      private void update(object s, object e)
-      {
-        string key = (string) null;
-        try
+        private void update(object s, object e)
         {
-          if (key != null)
-            key = this.node as string;
+            string key = (string)null;
+            try
+            {
+                if (key != null)
+                    key = this.node as string;
+            }
+            catch
+            {
+                key = (string)null;
+            }
+            if (this.m == null || this.m.s == null || this.node == null || key != null && !this.m.list.ContainsKey(key))
+                this.stop();
+            else
+                this.monitor(this);
+            if (this.interval > 0)
+                return;
+            this.interval = AppMeasurement_SetInterval.setInterval(new EventHandler<object>(this.update), this.m.trackWhilePlaying ? 1000 : 5000);
         }
-        catch
-        {
-          key = (string) null;
-        }
-        if (this.m == null || this.m.s == null || this.node == null || key != null && !this.m.list.ContainsKey(key))
-          this.stop();
-        else
-          this.monitor(this);
-        if (this.interval > 0)
-          return;
-        this.interval = AppMeasurement_SetInterval.setInterval(new EventHandler(this.update), this.m.trackWhilePlaying ? 1000 : 5000);
-      }
     }
   }
 }

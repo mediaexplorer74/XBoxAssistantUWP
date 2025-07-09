@@ -299,6 +299,12 @@
       <Version>6.2.14</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.XboxLive.Avatars.MathLib\Microsoft.XboxLive.Avatars.MathLib.csproj">
+      <Project>{43821192-4b6c-4aa4-b321-ec91506e164d}</Project>
+      <Name>Microsoft.XboxLive.Avatars.MathLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

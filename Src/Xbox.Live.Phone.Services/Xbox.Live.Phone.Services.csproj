@@ -270,6 +270,9 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.14</Version>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.3</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Xbox\Live\Phone\Services\Avatar\MarketPlace\BlacklistedGamesAndCategories.xml" />
@@ -281,6 +284,16 @@
     <Content Include="Xbox\Live\Phone\Services\StubData\Programming.xml" />
     <Content Include="Xbox\Live\Phone\Services\StubData\TitleHistory.txt" />
     <Content Include="Xbox\Live\Phone\Services\StubData\UserInfo.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.Phone.Avatar.Marketplace.Silverlight\Microsoft.Phone.Avatar.Marketplace.Silverlight.csproj">
+      <Project>{80fcce19-03e6-4761-952d-1557a3592d9a}</Project>
+      <Name>Microsoft.Phone.Avatar.Marketplace.Silverlight</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xbox.Live.Phone.Utils\Xbox.Live.Phone.Utils.csproj">
+      <Project>{95502ceb-a450-4880-b46d-74a2ef857837}</Project>
+      <Name>Xbox.Live.Phone.Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

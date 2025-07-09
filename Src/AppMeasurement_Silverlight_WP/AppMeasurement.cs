@@ -4,15 +4,19 @@
 // MVID: B2938048-604D-4B3E-B432-7854B0CBA8DA
 // *********************************************************AppMeasurement_Silverlight_WP.dll
 
-using Microsoft.Phone.Info;
+//using Microsoft.Phone.Info;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.IO.IsolatedStorage;
 using System.Net;
-using System.Threading;
+//using System.Threading;
 using System.Windows;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Windows.UI.Xaml;
 
 
 namespace com.omniture
@@ -25,10 +29,10 @@ namespace com.omniture
     public bool usePlugins;
     public AppMeasurement.DoRequest doRequest;
     private List<string> requestList;
-    private Dictionary<int, Thread> requestThreads;
-    private int requestThreadID;
-    public int maxRequestThreads = 1;
-    public int maxRequestsPerThread = 50;
+    private Dictionary<int, Task> requestTasks;
+    private int requestTaskID;
+    public int maxRequestTasks = 1;
+    public int maxRequestsPerTask = 50;
     public bool offline;
     public object root;
     public AppMeasurement_Module_Media Media;
@@ -57,7 +61,9 @@ namespace com.omniture
       if (appMeasurement.requestList == null)
         return;
       lock (appMeasurement.requestList)
-        Monitor.Pulse((object) appMeasurement.requestList);
+      {
+        //Monitor.Pulse((object)appMeasurement.requestList);
+      }
     }
 
     public void forceOnline()
@@ -67,7 +73,9 @@ namespace com.omniture
       if (appMeasurement.requestList == null)
         return;
       lock (appMeasurement.requestList)
-        Monitor.Pulse((object) appMeasurement.requestList);
+      {
+        //Monitor.Pulse((object)appMeasurement.requestList);
+      }
     }
 
     public void setInterface(object inter)
@@ -107,7 +115,8 @@ namespace com.omniture
 
     public void logDebug(string msg)
     {
-      this.callJavaScript("function s_logDebug(){var e;try{console.log(\"" + this.replace(this.replace(this.replace(msg, "\\", "\\\\"), "\n", "\\n"), "\"", "\\\"") + "\");}catch(e){}}s_logDebug();");
+      this.callJavaScript("function s_logDebug(){var e;try{console.log(\"" 
+          + this.replace(this.replace(this.replace(msg, "\\", "\\\\"), "\n", "\\n"), "\"", "\\\"") + "\");}catch(e){}}s_logDebug();");
     }
 
     public bool isSet(bool val) => val;
@@ -283,7 +292,7 @@ namespace com.omniture
             }
             try
             {
-              streamReader.Close();
+              streamReader.Dispose();
             }
             catch
             {
@@ -294,7 +303,7 @@ namespace com.omniture
         {
           try
           {
-            storageFileStream.Close();
+            storageFileStream.Dispose();
           }
           catch
           {
@@ -340,7 +349,7 @@ namespace com.omniture
             }
             try
             {
-              streamWriter.Close();
+              streamWriter.Dispose();
             }
             catch
             {
@@ -351,7 +360,7 @@ namespace com.omniture
         {
           try
           {
-            storageFileStream.Close();
+            storageFileStream.Dispose();
           }
           catch
           {
@@ -567,7 +576,7 @@ label_13:
           {
             httpWebRequest = this.requestConnect(str1);
             str1 = "";
-            httpWebRequest.AllowAutoRedirect = false;
+            //httpWebRequest.AllowAutoRedirect = false;
           }
           catch
           {
@@ -592,7 +601,7 @@ label_13:
                         switch (name)
                         {
                           case "User-Agent":
-                            httpWebRequest.UserAgent = str2;
+                            //httpWebRequest.UserAgent = str2;
                             continue;
                           case "Accept-Language":
                             continue;
@@ -613,7 +622,7 @@ label_13:
             try
             {
               response = (HttpWebResponse) null;
-              ManualResetEvent asyncLock = new ManualResetEvent(false);
+              //ManualResetEvent asyncLock = new ManualResetEvent(false);
               bool timedout = false;
               httpWebRequest.BeginGetResponse((AsyncCallback) (asynchronousResult =>
               {
@@ -626,9 +635,10 @@ label_13:
                 {
                   response = (HttpWebResponse) null;
                 }
-                asyncLock.Set();
+                //asyncLock.Set();
               }), (object) httpWebRequest);
-              timedout = !asyncLock.WaitOne(5000);
+              
+              timedout = default;//!asyncLock.WaitOne(5000);
               if (timedout)
               {
                 httpWebRequest.Abort();
@@ -652,7 +662,7 @@ label_13:
                 foreach (Cookie cookie in httpWebRequest.CookieContainer.GetCookies(new Uri("http://" + httpWebRequest.RequestUri.Host + "/")))
                   appMeasurement.requestCookiesSet(cookie.Name, cookie.Value);
               }
-              response.Close();
+              response.Dispose();
             }
             catch
             {
@@ -717,9 +727,9 @@ label_13:
             {
               try
               {
-                if (appMeasurement.requestThreads.Count > 1)
+                //if (appMeasurement.requestThreads.Count > 1)
                   return;
-                Monitor.Wait((object) appMeasurement.requestList, 1000);
+                //Monitor.Wait((object) appMeasurement.requestList, 1000);
               }
               catch
               {
@@ -739,7 +749,7 @@ label_13:
               {
                 try
                 {
-                  Thread.Sleep((int) ((double) appMeasurement.offlineThrottleDelay - num2));
+                  //Thread.Sleep((int) ((double) appMeasurement.offlineThrottleDelay - num2));
                 }
                 catch
                 {
@@ -793,7 +803,7 @@ label_13:
           }
           try
           {
-            Monitor.Wait((object) appMeasurement.requestList, 500);
+            //Monitor.Wait((object) appMeasurement.requestList, 500);
             continue;
           }
           catch
@@ -809,7 +819,7 @@ label_42:
     private void requestThreadStart()
     {
       AppMeasurement s = this;
-      if (!s.isSet(s.maxRequestThreads))
+      /*if (!s.isSet(s.maxRequestThreads))
         s.maxRequestThreads = 1;
       if (s.requestThreads == null)
         s.requestThreads = new Dictionary<int, Thread>();
@@ -831,7 +841,7 @@ label_42:
           thread.Start();
           ++s.requestThreadID;
         }
-      }
+      }*/
     }
 
     private void sendRequest(string request)
@@ -853,7 +863,7 @@ label_42:
             appMeasurement.requestList.RemoveAt(0);
         }
         appMeasurement.requestList.Add(request);
-        Monitor.Pulse((object) appMeasurement.requestList);
+        //Monitor.Pulse((object) appMeasurement.requestList);
       }
       if (!appMeasurement.isSet(appMeasurement.debugTracking))
         return;
@@ -1514,13 +1524,13 @@ label_42:
       string applicationId = appMeasurement.getApplicationID();
       try
       {
-        object obj;
-        string val1 = DeviceExtendedProperties.TryGetValue("DeviceManufacturer", ref obj) ? obj as string : (string) null;
-        string val2 = DeviceExtendedProperties.TryGetValue("DeviceName", ref obj) ? obj as string : (string) null;
-        DeviceExtendedProperties.TryGetValue("DeviceOS", ref obj);
-        DeviceExtendedProperties.TryGetValue("DeviceFirmwareVersion", ref obj);
-        DeviceExtendedProperties.TryGetValue("DeviceHardwareVersion", ref obj);
-        return "Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0" + (appMeasurement.isSet(val1) ? "; " + (val1 == "Microsoft" ? "Microsoft Corporation" : val1) : "") + (appMeasurement.isSet(val2) ? "; " + val2 : "") + ")" + (applicationId != null ? " " + applicationId : "");
+        object obj = default;
+        //string val1 = DeviceExtendedProperties.TryGetValue("DeviceManufacturer", ref obj) ? obj as string : (string) null;
+        //string val2 = DeviceExtendedProperties.TryGetValue("DeviceName", ref obj) ? obj as string : (string) null;
+        //DeviceExtendedProperties.TryGetValue("DeviceOS", ref obj);
+        //DeviceExtendedProperties.TryGetValue("DeviceFirmwareVersion", ref obj);
+        //DeviceExtendedProperties.TryGetValue("DeviceHardwareVersion", ref obj);
+                return "Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0";// + (appMeasurement.isSet(val1) ? "; " + (val1 == "Microsoft" ? "Microsoft Corporation" : val1) : "") + (appMeasurement.isSet(val2) ? "; " + val2 : "") + ")" + (applicationId != null ? " " + applicationId : "");
       }
       catch
       {

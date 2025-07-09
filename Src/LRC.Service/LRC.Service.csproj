@@ -168,6 +168,20 @@
       <Version>6.2.14</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AppMeasurement_Silverlight_WP\AppMeasurement_Silverlight_WP.csproj">
+      <Project>{23ff5e31-afc4-4bff-b0c3-4afdc73ed40d}</Project>
+      <Name>AppMeasurement_Silverlight_WP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xbox.Live.Phone.Services\Xbox.Live.Phone.Services.csproj">
+      <Project>{25b0ab17-5655-408f-b58d-92d8111f82c1}</Project>
+      <Name>Xbox.Live.Phone.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xbox.Live.Phone.Utils\Xbox.Live.Phone.Utils.csproj">
+      <Project>{95502ceb-a450-4880-b46d-74a2ef857837}</Project>
+      <Name>Xbox.Live.Phone.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

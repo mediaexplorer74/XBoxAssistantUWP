@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using System.Reflection;
 using System.Resources;
 using System.Runtime.CompilerServices;
 
@@ -34,7 +35,9 @@ namespace LRC.Resources
       get
       {
         if (object.ReferenceEquals((object) Resource.resourceMan, (object) null))
-          Resource.resourceMan = new ResourceManager("LRC.Resources.Resources.Resource", typeof (Resource).Assembly);
+
+        Resource.resourceMan = new ResourceManager("LRC.Resources.Resources.Resource", typeof(Resource).GetTypeInfo().Assembly);
+          
         return Resource.resourceMan;
       }
     }

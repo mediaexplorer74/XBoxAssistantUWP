@@ -129,6 +129,12 @@
       <Version>6.2.14</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Xbox.Live.Phone.Utils\Xbox.Live.Phone.Utils.csproj">
+      <Project>{95502ceb-a450-4880-b46d-74a2ef857837}</Project>
+      <Name>Xbox.Live.Phone.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

@@ -151,6 +151,23 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.14</Version>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.3</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\API.Contracts.WinPhone\API.Contracts.WinPhone.csproj">
+      <Project>{712fa6eb-5892-4fd7-b472-3c41846cc6cc}</Project>
+      <Name>API.Contracts.WinPhone</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Xmedia.Client.WindowsPhone.Interface\Microsoft.Xmedia.Client.WindowsPhone.Interface.csproj">
+      <Project>{11a58fe5-1626-4c9e-8639-a2bf65815f0a}</Project>
+      <Name>Microsoft.Xmedia.Client.WindowsPhone.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.XMedia.EventLink.Client.WinPhone\Microsoft.XMedia.EventLink.Client.WinPhone.csproj">
+      <Project>{41bb6591-08f0-4e1f-801c-e52be6e5bb6f}</Project>
+      <Name>Microsoft.XMedia.EventLink.Client.WinPhone</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

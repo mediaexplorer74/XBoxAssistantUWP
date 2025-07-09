@@ -132,6 +132,32 @@
       <Version>6.2.14</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LRC.LocalSubnet\LRC.LocalSubnet.csproj">
+      <Project>{2e413de6-31b1-4d07-b2bc-6efc5f0488cc}</Project>
+      <Name>LRC.LocalSubnet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Xmedia.Client.WindowsPhone.Interface\Microsoft.Xmedia.Client.WindowsPhone.Interface.csproj">
+      <Project>{11a58fe5-1626-4c9e-8639-a2bf65815f0a}</Project>
+      <Name>Microsoft.Xmedia.Client.WindowsPhone.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Xmedia.Client.WindowsPhone.ServiceProxy\Microsoft.Xmedia.Client.WindowsPhone.ServiceProxy.csproj">
+      <Project>{50a8072b-56f1-49f9-bd75-ccdef48ab87a}</Project>
+      <Name>Microsoft.Xmedia.Client.WindowsPhone.ServiceProxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.XMedia.EventLink.Client.WinPhone\Microsoft.XMedia.EventLink.Client.WinPhone.csproj">
+      <Project>{41bb6591-08f0-4e1f-801c-e52be6e5bb6f}</Project>
+      <Name>Microsoft.XMedia.EventLink.Client.WinPhone</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xbox.Live.Phone.Services\Xbox.Live.Phone.Services.csproj">
+      <Project>{25b0ab17-5655-408f-b58d-92d8111f82c1}</Project>
+      <Name>Xbox.Live.Phone.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xbox.Live.Phone.Utils\Xbox.Live.Phone.Utils.csproj">
+      <Project>{95502ceb-a450-4880-b46d-74a2ef857837}</Project>
+      <Name>Xbox.Live.Phone.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

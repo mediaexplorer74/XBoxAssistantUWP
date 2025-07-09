@@ -6,48 +6,49 @@
 
 using System;
 using System.Collections.Generic;
-using System.Windows.Threading;
+using Windows.UI.Xaml;
+//using System.Windows.Threading;
 
 
 namespace com.omniture
 {
-  public class AppMeasurement_SetInterval
-  {
-    private static List<object> intervalList = new List<object>();
-    private static List<object> intervalHandlerList = new List<object>();
-
-    public static int setInterval(EventHandler handler, int intervalTime)
+    public class AppMeasurement_SetInterval
     {
-      DispatcherTimer dispatcherTimer = new DispatcherTimer();
-      dispatcherTimer.Interval = TimeSpan.FromMilliseconds((double) intervalTime);
-      dispatcherTimer.Tick += handler;
-      dispatcherTimer.Start();
-      int index;
-      for (index = 0; index < AppMeasurement_SetInterval.intervalList.Count; ++index)
-      {
-        if (AppMeasurement_SetInterval.intervalList[index] == null)
+        private static List<object> intervalList = new List<object>();
+        private static List<object> intervalHandlerList = new List<object>();
+
+        public static int setInterval(EventHandler<object> handler, int intervalTime)
         {
-          AppMeasurement_SetInterval.intervalList[index] = (object) dispatcherTimer;
-          AppMeasurement_SetInterval.intervalHandlerList[index] = (object) handler;
-          return index + 1;
+            DispatcherTimer dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Interval = TimeSpan.FromMilliseconds((double)intervalTime);
+            dispatcherTimer.Tick += handler;
+            dispatcherTimer.Start();
+            int index;
+            for (index = 0; index < AppMeasurement_SetInterval.intervalList.Count; ++index)
+            {
+                if (AppMeasurement_SetInterval.intervalList[index] == null)
+                {
+                    AppMeasurement_SetInterval.intervalList[index] = (object)dispatcherTimer;
+                    AppMeasurement_SetInterval.intervalHandlerList[index] = (object)handler;
+                    return index + 1;
+                }
+            }
+            AppMeasurement_SetInterval.intervalList.Add((object)dispatcherTimer);
+            AppMeasurement_SetInterval.intervalHandlerList.Add((object)handler);
+            return index + 1;
         }
-      }
-      AppMeasurement_SetInterval.intervalList.Add((object) dispatcherTimer);
-      AppMeasurement_SetInterval.intervalHandlerList.Add((object) handler);
-      return index + 1;
-    }
 
-    public static void clearInterval(int intervalNum)
-    {
-      --intervalNum;
-      if (AppMeasurement_SetInterval.intervalList[intervalNum] == null)
-        return;
-      DispatcherTimer interval = (DispatcherTimer) AppMeasurement_SetInterval.intervalList[intervalNum];
-      EventHandler intervalHandler = (EventHandler) AppMeasurement_SetInterval.intervalHandlerList[intervalNum];
-      AppMeasurement_SetInterval.intervalHandlerList[intervalNum] = (object) null;
-      AppMeasurement_SetInterval.intervalList[intervalNum] = (object) null;
-      interval.Stop();
-      interval.Tick -= intervalHandler;
+        public static void clearInterval(int intervalNum)
+        {
+            --intervalNum;
+            if (AppMeasurement_SetInterval.intervalList[intervalNum] == null)
+                return;
+            DispatcherTimer interval = (DispatcherTimer)AppMeasurement_SetInterval.intervalList[intervalNum];
+            EventHandler<object> intervalHandler = (EventHandler<object>)AppMeasurement_SetInterval.intervalHandlerList[intervalNum];
+            AppMeasurement_SetInterval.intervalHandlerList[intervalNum] = (object)null;
+            AppMeasurement_SetInterval.intervalList[intervalNum] = (object)null;
+            interval.Stop();
+            interval.Tick -= intervalHandler;
+        }
     }
-  }
 }
